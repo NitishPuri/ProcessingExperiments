@@ -1,0 +1,16 @@
+
+/* Left aligning the title. */
+.container {
+    margin-left : 0;
+}
+
+/* Removing Bottom margin for title bar in sketch */
+.masthead-sketch {
+    margin-bottom: 0;
+}
+
+/* Class defining the gui placeholder. */
+.gui {
+    position: fixed;
+    right: 1rem;
+}
