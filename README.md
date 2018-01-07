@@ -9,3 +9,4 @@ The demos are online at https://nitishpuri.github.io/ProcessingExperiments
 
 Using 
 * [dat.gui.js](https://github.com/dataarts/dat.gui)
+    * [Tutorial](http://workshop.chromeexperiments.com/examples/gui/#1--Basic-Usage)
