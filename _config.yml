@@ -1,1 +1,22 @@
-theme: jekyll-theme-minimal
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+# relative_permalinks: true
+
+# Setup
+title:               Processing Experiments
+tagline:             'beyond nature'
+description:         'Some experimets using p5.js.'
+url:                 http://nitishpuri.github.io/ProcessingExperiments
+baseurl:             ''
+paginate:            5
+
+# About/contact
+author:
+  name:              Nitish Puri
+  url:               https://nitishpuri.github.io
+  email:             npuri1903@gmail.com
+
+# Custom vars
+version:             1.0.0
