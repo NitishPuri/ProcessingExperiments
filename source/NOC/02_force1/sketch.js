@@ -26,7 +26,6 @@ function setup() {
   // var gui = new dat.GUI();
   var gui = new dat.GUI({autoPlace: false});
   var customContainer = select('#guiElement')
-  // customContainer.appendChild(gui.domElement)
   customContainer.child(gui.domElement)
   gui.add(params, 'wind').min(-0.5).max(0.5).step(0.1);
   gui.add(params, 'gravity').min(0).max(0.1).step(0.01);

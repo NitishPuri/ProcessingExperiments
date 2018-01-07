@@ -6,7 +6,8 @@ title: Home
 1. Nature Of Code
     1. Basics
         1. [1D Noise](source/NOC/00_Noise)   
-        2. [3D Noise](source/NOC/00_NoiseLandscape)
+        2. [3D Noise](source/NOC/00_Noise3D)
+        2. [3D Noise Landscape](source/NOC/00_NoiseLandscape)
         2. [Gaussian Distribution](source/NOC/00_randomDistribution)   
         3. [Random Walker](source/NOC/00_randomWalker)
         3. [Mouse Walker](source/NOC/00_WalkerTowardsMouse)
