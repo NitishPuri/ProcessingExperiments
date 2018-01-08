@@ -12,12 +12,18 @@ title: Home
         2. [Gaussian Distribution](source/NOC/00_randomDistribution)   
         3. [Random Walker](source/NOC/00_randomWalker)
         3. [Mouse Walker](source/NOC/00_WalkerTowardsMouse)
-    2. [Forces](source/NOC/02_force1)   
+    2. Motion   
+        1. [Acceleration Towards Mouse](source/NOC/01_acceleration)
+    2. Force
+        1. [Multiple Forces](source/NOC/02_force1)   
+        1. [Attractors](source/NOC/02_attractor)   
+    1. Oscilation       
 1. Experiments
     1. [Bouncing Ball](source/bouncing_ball)
     1. [Floating Balls](source/floating_balls)
     1. [Random Shapes](source/random-shapes)
     1. [Radial Stuff](source/radial-stuff)
+    1. [Draw](source/draw-stuff)
     1. [Clojures](source/clojures)
     1. [HTML Test](source/html_test)
 2. Algorithms

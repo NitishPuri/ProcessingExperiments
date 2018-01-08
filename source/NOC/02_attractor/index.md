@@ -1,8 +1,8 @@
 ---
 layout: sketch
 scripts : 
-    - liquid.js
+    - attractor.js
     - mover.js
     - sketch.js
-title: Forces
+title: Attractors
 ---
