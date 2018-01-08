@@ -32,6 +32,14 @@ function setup() {
   // gui.add(params, 'reset');
 }
 
+function mousePressed() {
+  attractor.clicked(mouseX, mouseY)
+}
+
+function mouseReleased() {
+  attractor.stopDragging();
+}
+
 function draw() {
   background(100);
 
@@ -45,10 +53,12 @@ function draw() {
     // mover.applyForce(wind);
     // mover.applyForce(createVector(0, params.gravity * mover.mass));
 
-    var friction = mover.vel.copy();
-    friction.normalize();
-    friction.mult(-1 * params.friction);
-    mover.applyForce(friction);
+    // var friction = mover.vel.copy();
+    // friction.normalize();
+    // friction.mult(-1 * params.friction);
+    // mover.applyForce(friction);
+
+    mover.applyForce(attractor.attract(mover));
 
     // if (liquid.contains(mover)) {
     //   var drag = liquid.calculateDrag(mover);

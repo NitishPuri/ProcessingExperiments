@@ -25,21 +25,21 @@ class Mover {
   }
 
   checkEdges() {
-    if (this.pos.x > width) {
-      this.pos.x = width;
-      this.vel.x *= -1;
-    }
-    else if (this.pos.x < 0) {
-      this.pos.x = 0;
-      this.vel.x *= -1;
-    }
-    if (this.pos.y > height) {
-      this.pos.y = height;
-      this.vel.y *= -1;
-    }
-    else if (this.pos.y < 0) {
-      this.pos.y = 0;
-      this.vel.y *= -1;
-    }
+    // if (this.pos.x > width) {
+    //   this.pos.x = width;
+    //   this.vel.x *= -1;
+    // }
+    // else if (this.pos.x < 0) {
+    //   this.pos.x = 0;
+    //   this.vel.x *= -1;
+    // }
+    // if (this.pos.y > height) {
+    //   this.pos.y = height;
+    //   this.vel.y *= -1;
+    // }
+    // else if (this.pos.y < 0) {
+    //   this.pos.y = 0;
+    //   this.vel.y *= -1;
+    // }
   }
 }

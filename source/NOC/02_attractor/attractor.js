@@ -30,10 +30,10 @@ class Attractor {
 
     clicked(mx, my) {
         var d = dist(mx, my, this.pos.x, this.pos.y);
-        if ( d < mass) {
+        if ( d < this.mass) {
             this.dragging = true;
             this.dragOffset.x = this.pos.x - mx;
-            this.dragOffset.y = this.pos.y = my;
+            this.dragOffset.y = this.pos.y - my;
         }
     }
 
