@@ -2,7 +2,6 @@ class Attractor {
     constructor() {
         this.mass = 20;
         this.pos = createVector(width/2, height/2);
-        this.G = 1;
         this.dragOffset = createVector(0, 0);
         this.dragging = false;
         this.rollover = false;
@@ -13,7 +12,7 @@ class Attractor {
         var d = force.mag();
         d = constrain(d, 5.0, 25.0);
         force.normalize();
-        var strength = (this.G * this.mass * mover.mass) / (d * d);
+        var strength = (G * this.mass * mover.mass) / (d * d);
         force.mult(strength);
         return force;
     }

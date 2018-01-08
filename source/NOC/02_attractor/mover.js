@@ -24,22 +24,40 @@ class Mover {
     this.acc.mult(0);
   }
 
+  repel(other) {
+    // Calculate direction of force
+    var force = p5.Vector.sub(this.pos,other.pos);          
+    // Distance between objects
+    var distance = force.mag();                                 
+    // Limiting the distance to eliminate "extreme" results for very close or very far objects
+    distance = constrain(distance,1.0,10000.0);                             
+    // Normalize vector (distance doesn't matter here, we just want this vector for direction
+    force.normalize();                                            
+
+    // Calculate gravitional force magnitude
+    var strength = (G * this.mass * other.mass) / (distance * distance); 
+    // Get force vector --> magnitude * direction
+    force.mult(-1*strength);                                      
+    return force;    
+  }
+
   checkEdges() {
-    // if (this.pos.x > width) {
-    //   this.pos.x = width;
-    //   this.vel.x *= -1;
-    // }
-    // else if (this.pos.x < 0) {
-    //   this.pos.x = 0;
-    //   this.vel.x *= -1;
-    // }
-    // if (this.pos.y > height) {
-    //   this.pos.y = height;
-    //   this.vel.y *= -1;
-    // }
-    // else if (this.pos.y < 0) {
-    //   this.pos.y = 0;
-    //   this.vel.y *= -1;
-    // }
+    var damping = 0.99;
+    if (this.pos.x > width) {
+      this.pos.x = width;
+      this.vel.x *= -1*damping;
+    }
+    else if (this.pos.x < 0) {
+      this.pos.x = 0;
+      this.vel.x *= -1*damping;
+    }
+    if (this.pos.y > height) {
+      this.pos.y = height;
+      this.vel.y *= -1*damping;
+    }
+    else if (this.pos.y < 0) {
+      this.pos.y = 0;
+      this.vel.y *= -1*damping;
+    }
   }
 }
