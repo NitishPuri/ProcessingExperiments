@@ -7,6 +7,7 @@ var params = {
   gravity: 0.01,
   friction: 0,
   drag: 0.01,
+  wallDamping : 0.8,
   reset : function () {
     movers = []
     for (var i = 0; i < 25; i++) {
@@ -29,6 +30,7 @@ function setup() {
   gui.add(params, 'gravity').min(0).max(0.1).step(0.01);
   gui.add(params, 'friction').min(0).max(0.1).step(0.01);
   gui.add(liquid, 'drag').min(0).max(0.1).step(0.01);
+  gui.add(params, 'wallDamping').min(0.75).max(0.99).step(0.1);
   gui.add(params, 'reset');
 }
 
@@ -57,7 +59,7 @@ function draw() {
 
     mover.update();
     mover.render();
-    mover.checkEdges();
+    mover.checkEdges(params.wallDamping);
   }
 }
 
