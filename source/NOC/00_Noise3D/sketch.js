@@ -12,9 +12,7 @@ var params = {
 function setup() {
   createCanvas(400, 400);
 
-  var gui = new dat.GUI({autoPlace: false});
-  var customContainer = select('#guiElement')
-  customContainer.child(gui.domElement)
+  var gui = new dat.GUI();
   gui.add(params, 'noise');
   gui.add(params, 'increment').min(0.01).max(1);
   gui.add(params, 'zIncrement').min(0.01).max(1);

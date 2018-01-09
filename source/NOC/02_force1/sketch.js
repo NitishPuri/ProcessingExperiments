@@ -24,13 +24,11 @@ function setup() {
   liquid = new Liquid(0, height/2, width, height/2, 0.1);
 
   // var gui = new dat.GUI();
-  var gui = new dat.GUI({autoPlace: false});
-  var customContainer = select('#guiElement')
-  customContainer.child(gui.domElement)
+  var gui = new dat.GUI();
   gui.add(params, 'wind').min(-0.5).max(0.5).step(0.1);
   gui.add(params, 'gravity').min(0).max(0.1).step(0.01);
   gui.add(params, 'friction').min(0).max(0.1).step(0.01);
-  gui.add(params, 'drag').min(0).max(0.1).step(0.01);
+  gui.add(liquid, 'drag').min(0).max(0.1).step(0.01);
   gui.add(params, 'reset');
 }
 

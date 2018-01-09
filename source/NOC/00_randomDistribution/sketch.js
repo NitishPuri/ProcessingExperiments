@@ -7,15 +7,9 @@ var params = {
 function setup() {
   createCanvas(windowWidth/2, windowHeight/2);
 
-  var gui = new dat.GUI({autoPlace: false});
-  var customContainer = select('#guiElement')
-  customContainer.child(gui.domElement)
+  var gui = new dat.GUI();
   var controller = gui.add(params, 'distribution', {Random: 0, Gaussian : 1});
-
   controller.onFinishChange(reset);
-  // controller.onFinishChange(function(value){
-  //   reset();
-  // });
 
   reset();
 

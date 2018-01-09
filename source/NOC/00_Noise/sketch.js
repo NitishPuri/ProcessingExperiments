@@ -7,9 +7,7 @@ params = {
 function setup() {
   createCanvas(windowWidth/2, windowHeight/2);
 
-  var gui = new dat.GUI({autoPlace: false});
-  var customContainer = select('#guiElement')
-  customContainer.child(gui.domElement);
+  var gui = new dat.GUI();
   gui.add(params, 'increment').min(0.001).max(0.1);
 }
 
