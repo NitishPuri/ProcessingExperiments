@@ -1,21 +1,33 @@
 var vertices = [];
 var edges = []
 
+var params = {
+  reset : function () {
+    vertices = [];
+    edges = []
+    for(var i = 0; i < 10; i++){
+      vertices.push(createVector(random(width), random(height)))
+    }  
+    calcMST();    
+  }
+}
+
 function setup() {
   createCanvas(windowWidth - 100, windowHeight - 100)
 
-  for(var i = 0; i < 10; i++){
-    vertices.push(createVector(random(width), random(height)))
-  }
+  var gui = new dat.GUI();
+  gui.add(params, 'reset');
 
-  calcMST();
+  params.reset();
 }
 
 function mousePressed() {
-  var v = createVector(mouseX, mouseY)
-  vertices.push(v);
-
-  calcMST();
+  if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+    var v = createVector(mouseX, mouseY)
+    vertices.push(v);
+  
+    calcMST();  
+  }
 }
 
 function calcMST() {
