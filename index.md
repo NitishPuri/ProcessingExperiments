@@ -23,6 +23,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Cannon Ball](source/NOC/02_cannon)   
         1. [Asteroids](source/NOC/02_asteroids)   
     1. Oscilation       
+        1. [Multiple Oscillators](source/NOC/03_oscillators)
+        1. [Additive Waves](source/NOC/03_waves)
 1. Experiments
     1. [Bouncing Ball](source/bouncing_ball)
     1. [Floating Balls](source/floating_balls)
