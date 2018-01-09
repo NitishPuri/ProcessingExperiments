@@ -25,7 +25,7 @@ var params = {
 function setup() {
   var canvas = createCanvas(windowWidth - 10, windowHeight - 100);
 
-  // params.reset();
+  params.reset();
 
   // // var gui = new dat.GUI();
   var gui = new dat.GUI();
