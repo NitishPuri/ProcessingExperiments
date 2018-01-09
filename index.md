@@ -3,6 +3,9 @@ layout: default
 title: Home
 ---
 
+This is a perpetual work in progress page for some basic graphics and simulation demos built using web technologies. Mostly inspired Processing foundation and delving into creative programming using [p5.js]((https://p5js.org/)).
+
+
 1. Nature Of Code
     1. Basics
         1. [1D Noise](source/NOC/00_Noise)   
@@ -17,6 +20,7 @@ title: Home
     2. Force
         1. [Multiple Forces](source/NOC/02_force1)   
         1. [Attractors](source/NOC/02_attractor)   
+        1. [Cannon Ball](source/NOC/02_cannon)   
     1. Oscilation       
 1. Experiments
     1. [Bouncing Ball](source/bouncing_ball)
