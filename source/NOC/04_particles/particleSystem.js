@@ -5,7 +5,12 @@ class ParticleSystem {
     }
 
     addParticle() {
-        this.particles.push(new Particle(this.origin.x, this.origin.y));
+        if(random(1) < 0.5) {
+            this.particles.push(new Particle(this.origin.x, this.origin.y));
+        }
+        else {
+            this.particles.push(new Confetti(this.origin.x, this.origin.y));            
+        }
     }
 
     run() {
@@ -15,6 +20,12 @@ class ParticleSystem {
             if(p.isDead()) {
                 this.particles.splice(i, 1);
             }
+        }
+    }
+
+    applyForce(f) {
+        for(var p of this.particles) {
+            p.applyForce(f);
         }
     }
 }
