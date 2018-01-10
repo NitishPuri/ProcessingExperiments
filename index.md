@@ -27,6 +27,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Additive Waves](source/NOC/03_waves)
         1. [Simple Pendulum](source/NOC/03_pendulum)
         1. [Simple Spring](source/NOC/03_spring)
+    1. Particle Systems
+        1. [Particle System](source/NOC/04_particles)
 1. Experiments
     1. [Bouncing Ball](source/bouncing_ball)
     1. [Floating Balls](source/floating_balls)
