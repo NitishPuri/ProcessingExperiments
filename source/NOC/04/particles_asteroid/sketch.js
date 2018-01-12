@@ -57,9 +57,9 @@ function moverCountChanged(value) {
 }
 
 function draw() {
-  background(100);
+  background(0);
 
-  liquid.render();
+  // liquid.render();
 
   var wind = createVector(params.wind, 0);
 
