@@ -5,6 +5,10 @@
 
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  
+  {% if site.google_analytics and jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
 
   <title>
     {% if page.title == "Home" %}
@@ -29,10 +33,10 @@
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 
   {% if layout.sketch %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/addons/p5.dom.min.js"></script>
-  <!-- <script src="{{ site.baseurl }}/addons/p5.min.js"></script>
-  <script src="{{ site.baseurl }}/addons/p5.dom.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/addons/p5.dom.min.js"></script> -->
+  <script src="{{ site.baseurl }}/addons/p5.min.js"></script>
+  <script src="{{ site.baseurl }}/addons/p5.dom.min.js"></script>
 
   <script src="{{ site.baseurl }}/addons/dat.gui.min.js"></script>
 
