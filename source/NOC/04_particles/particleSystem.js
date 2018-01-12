@@ -28,4 +28,10 @@ class ParticleSystem {
             p.applyForce(f);
         }
     }
+
+    applyRepeller(r) {
+        for(var p of this.particles) {
+            p.applyForce(r.repel(p));
+        }
+    }
 }

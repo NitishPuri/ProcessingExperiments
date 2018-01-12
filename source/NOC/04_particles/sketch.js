@@ -1,4 +1,5 @@
 let systems = [];
+let repeller;
 
 var params = {
   wind: 0,
@@ -6,6 +7,8 @@ var params = {
   reset : function () {
     systems = [];
     systems.push(new ParticleSystem(width/2, 50));
+
+    repeller = new Repeller(width/2 - 20, height/2);
   }
 }
 
@@ -17,6 +20,7 @@ function setup() {
   var gui = new dat.GUI();
   gui.add(params, 'wind').min(-0.05).max(0.05).step(0.01);
   gui.add(params, 'gravity').min(-0.05).max(0.05).step(0.01);
+  gui.add(repeller, 'G').min(500).max(5000).step(10);
   gui.add(params, 'reset');
 }
 
@@ -29,8 +33,11 @@ function draw() {
     ps.addParticle();
     ps.applyForce(gravity);
     ps.applyForce(wind);
+    ps.applyRepeller(repeller);
     ps.run();      
   }
+
+  repeller.display();
 }
 
 function mousePressed() {

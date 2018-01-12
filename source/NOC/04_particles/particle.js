@@ -55,3 +55,34 @@ class Confetti extends Particle {
     pop();
   }
 }
+
+class Repeller {
+  constructor(x, y) {
+    this.G = 100;
+    this.position = createVector(x, y);
+    var r = 10;
+  }
+
+  display() {
+    stroke(0);
+    strokeWeight(2);
+    fill(175);
+    ellipse(this.position.x, this.position.y, 48);    
+  }
+
+  repel(p) {
+    var dir = p5.Vector.sub(this.position, p.position);
+    var d = dir.mag();
+    dir.normalize();
+    if( d < 50 ) {
+      d = constrain(d, 5, 50);
+      var force = -1 * this.G / (d * d);
+      dir.mult(force);  
+    }
+    else {
+      dir.mult(0);
+    }
+    return dir;
+  }
+
+}
