@@ -1,8 +1,8 @@
 ---
 layout: sketch
+box2d : true
 scripts : 
-    - particle.js
-    - particleSystem.js
+    - box.js
     - sketch.js
-title: Particle System Smoke
+title: Box2d Simple
 ---

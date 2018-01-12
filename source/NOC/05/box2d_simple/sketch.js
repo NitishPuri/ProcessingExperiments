@@ -1,46 +1,47 @@
-let systems = [];
-let img;
+// a reference to our box2d world
+var world;
+
+// A list of our boxes
+let boxes = [];
 
 var params = {
-  wind: 0,
-  gravity: 0.1,
-  attachToMouse : false,
+  // wind: 0,
+  // gravity: 0.1,
+  // attachToMouse : false,
   reset : function () {
-    systems = [];
-    systems.push(new ParticleSystem(width/2, height - 50, img));
+    boxes = [];
+    // systems = [];
+    // systems.push(new ParticleSystem(width/2, height - 50, img));
   }
-}
-
-function preload() {
-  img = loadImage('texture.png');
 }
 
 function setup() {
   var canvas = createCanvas(windowWidth - 10, windowHeight - 100);
 
+  world = createWorld(new box2d.b2Vec2(0, 0));
+
   params.reset();
 
   var gui = new dat.GUI();
-  gui.add(params, 'wind').min(-0.05).max(0.05).step(0.01);
-  gui.add(params, 'gravity').min(-0.05).max(0.05).step(0.01);
-  gui.add(params, 'attachToMouse');
+  // gui.add(params, 'wind').min(-0.05).max(0.05).step(0.01);
+  // gui.add(params, 'gravity').min(-0.05).max(0.05).step(0.01);
+  // gui.add(params, 'attachToMouse');
   gui.add(params, 'reset');
 }
 
 function draw() {
-  background(0);
+  background(255);
 
-  // var gravity = createVector(0,params.gravity);
-  var wind = createVector(params.wind, 0);
-  for (var ps of systems) {
-    ps.addParticle();
-    // ps.applyForce(gravity);
-    ps.applyForce(wind);
-    ps.run();      
+  var timeStep = 1.0/30;
+  world.Step(timeStep, 10, 10);
+
+  if(mouseIsPressed) {
+    boxes.push(new Box(mouseX, mouseY));
   }
 
-  if(params.attachToMouse) {
-    systems[0].origin.x = mouseX;
-    systems[0].origin.y = mouseY;
+  // var gravity = createVector(0,params.gravity);
+  // var wind = createVector(params.wind, 0);
+  for (var box of boxes) {
+    box.display();
   }
 }
