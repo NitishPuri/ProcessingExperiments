@@ -30,7 +30,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. Particle Systems
         1. [Particle System](source/NOC/04_particles)
         1. [Simple Smoke](source/NOC/04_particles_smoke)
-        1. [Asteroids V2](source/NOC/04_particles_asteroids)
+        1. [Asteroids V2](source/NOC/04_particles_asteroid)
 1. Experiments
     1. [Bouncing Ball](source/bouncing_ball)
     1. [Floating Balls](source/floating_balls)
