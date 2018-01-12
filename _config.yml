@@ -11,6 +11,7 @@ description:         'Some experimets using p5.js.'
 url:                 https://nitishpuri.github.io/ProcessingExperiments
 baseurl:             https://nitishpuri.github.io/ProcessingExperiments
 paginate:            5
+google_analytics:    UA-103032011-2
 github:
   repo:              https://github.com/NitishPuri/ProcessingExperiments
 
