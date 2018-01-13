@@ -22,6 +22,9 @@ class Box {
     this.body = world.CreateBody(bd);
     // Attach the ficture
     this.body.CreateFixture(fd);
+
+    this.body.SetLinearVelocity(new box2d.b2Vec2(random(-5, 5), random(2, 5)));
+    this.body.SetAngularVelocity(random(-5, 5));
   }
 
   display() {
@@ -29,7 +32,6 @@ class Box {
     var pos = scaleToPixels(this.body.GetPosition());
     // Get its angle of rotation
     var a = this.body.GetAngleRadians();
-
 
     rectMode(CENTER);
     push();
@@ -41,4 +43,23 @@ class Box {
     rect(0, 0, this.size.x, this.size.y);
     pop();
   }
+
+  // This function removes the body from box2d world.
+  killBody() {
+    world.DestroyBody(this.body);
+  }
+
+  // Is the particle ready for deletion ? 
+  done() {
+    var pos = scaleToPixels(this.body.GetPosition());
+    if(pos.y > height + this.w*this.h) {
+      this.killBody();
+      return true;
+    }
+    return false;
+  }
+
+
+
+
 }
