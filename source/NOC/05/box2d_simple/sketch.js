@@ -46,7 +46,21 @@ function draw() {
   world.Step(timeStep, 10, 10);
 
   if(mouseIsPressed) {
-    boxes.push(new Box(mouseX, mouseY));
+    // boxes.push(new Lollipop(mouseX, mouseY));
+    var p = random(1);
+    var t = 1/4;
+    if(p < t) {
+      boxes.push(new Box(mouseX, mouseY));
+    }
+    else if( p < 2*t) {
+      boxes.push(new Circle(mouseX, mouseY, random(4, 8)));
+    }
+    else if ( p < 3*t){
+      boxes.push(new CustomShape(mouseX, mouseY));
+    }
+    else {
+      boxes.push(new Lollipop(mouseX, mouseY));
+    }
   }
 
   for(let i = 0; i < boundaries.length; i++) {
