@@ -2,6 +2,7 @@
 var world;
 
 var boundaries = [];
+var windmill;
 // A list of our boxes
 let boxes = [];
 
@@ -30,6 +31,8 @@ function setup() {
   boundaries.push(new Boundary(width/4, height-5, width/2 - 50, 10));
   boundaries.push(new Boundary(3*width/4, height-50, width/2 - 50, 10));
 
+  windmill = new Windmill(width/2, 300);
+
   params.reset();
 
   var gui = new dat.GUI();
@@ -47,16 +50,22 @@ function draw() {
 
   if(mouseIsPressed) {
     // boxes.push(new Lollipop(mouseX, mouseY));
-    var p = random(1);
-    var t = 1/4;
+    let p = random(1);
+    let t = 1/5;
     if(p < t) {
-      boxes.push(new Box(mouseX, mouseY));
+            
+      let w = random([4, 8, 12]);
+      let h = random([4, 8, 12]);
+      boxes.push(new Box(mouseX, mouseY, w, h));
     }
     else if( p < 2*t) {
       boxes.push(new Circle(mouseX, mouseY, random(4, 8)));
     }
     else if ( p < 3*t){
       boxes.push(new CustomShape(mouseX, mouseY));
+    }
+    else if ( p < 4*t) {
+      boxes.push(new Pair(mouseX, mouseY));
     }
     else {
       boxes.push(new Lollipop(mouseX, mouseY));
@@ -74,5 +83,13 @@ function draw() {
     if(boxes[i].done()) {
       boxes.splice(i, 1);
     }
+  }
+
+  windmill.display();
+}
+
+function keyPressed(){
+  if(key === ' ') {
+    windmill.toggleMotor();
   }
 }

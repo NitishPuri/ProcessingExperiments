@@ -1,9 +1,10 @@
 // Base Shape class that defines a box2d body
 class Shape {
-  constructor(x, y) {
+  constructor(x, y, lock = false) {
     // Define a body
     var bd = new box2d.b2BodyDef();
-    bd.type = box2d.b2BodyType.b2_dynamicBody;
+    if (lock) bd.type = box2d.b2BodyType.b2_staticBody;
+    else bd.type = box2d.b2BodyType.b2_dynamicBody;
     bd.position = scaleToWorld(x, y);
 
     // Create the body
@@ -39,10 +40,10 @@ class Shape {
 
 // Box shape!!
 class Box extends Shape {
-  constructor(x, y) {
-    super(x, y);
-    this.w = random([4, 8, 12]);
-    this.h = random([4, 8, 12]);
+  constructor(x, y, w, h, lock) {
+    super(x, y, lock);
+    this.w = w;
+    this.h = h;
     this.defineShape();
   }
 
