@@ -25,6 +25,12 @@ class Shape {
   killBody() {
     world.DestroyBody(this.body);
   }
+
+  contains(x, y) {
+    let worldPoint = scaleToWorld(x, y);
+    let f = this.body.GetFixtureList();
+    return f.TestPoint(worldPoint);
+  }
   
   // Is the particle ready for deletion ? 
   done() {
