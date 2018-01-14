@@ -2,19 +2,28 @@
 var world;
 
 var boundaries = [];
+let surface;
 var windmill;
 // A list of our boxes
 let boxes = [];
 
+// for mouse joint
+let spring;
+
 var params = {
   // wind: 0,
   // gravity: 0.1,
-  // attachToMouse : false,
+  mouseAction : 0,
+  environment : 0,
   reset : function () {
     for(let i = 0; i < boxes.length; i++) {
       boxes[i].killBody();
     }
-    boxes = [];
+    boxes = [];    
+    boxes.push(new Box(width/2, height/2, 20, 20));
+    spring = new Spring();
+    boundaries = []
+    surface = null;
     // boundaries = [];
     // systems = [];
     // systems.push(new ParticleSystem(width/2, height - 50, img));
@@ -30,15 +39,19 @@ function setup() {
   // Add boundaries
   boundaries.push(new Boundary(width/4, height-5, width/2 - 50, 10));
   boundaries.push(new Boundary(3*width/4, height-50, width/2 - 50, 10));
+  boundaries.push(new Boundary(width/2, 5, width, 10));
+  boundaries.push(new Boundary(width - 5, height/2, 10, height));
+  boundaries.push(new Boundary(5, height/2, 10, height));
 
-  windmill = new Windmill(width/2, 300);
+  // windmill = new Windmill(width/2, 300);
 
   params.reset();
 
   var gui = new dat.GUI();
   // gui.add(params, 'wind').min(-0.05).max(0.05).step(0.01);
   // gui.add(params, 'gravity').min(-0.05).max(0.05).step(0.01);
-  // gui.add(params, 'attachToMouse');
+  gui.add(params, 'mouseAction', {Add : 0, Push : 1});
+  gui.add(params, 'environment', {Boundary : 0, Surface : 1});
   gui.add(params, 'reset');
 }
 
@@ -48,8 +61,11 @@ function draw() {
   var timeStep = 1.0/30;
   world.Step(timeStep, 10, 10);
 
-  if(mouseIsPressed) {
-    // boxes.push(new Lollipop(mouseX, mouseY));
+  spring.update(mouseX, mouseY);
+
+  if(mouseIsPressed && params.mouseAction == 0) {
+      // boxes.push(new Pair(mouseX, mouseY));
+
     let p = random(1);
     let t = 1/5;
     if(p < t) {
@@ -59,7 +75,7 @@ function draw() {
       boxes.push(new Box(mouseX, mouseY, w, h));
     }
     else if( p < 2*t) {
-      boxes.push(new Circle(mouseX, mouseY, random(4, 8)));
+      boxes.push(new Circle(mouseX, mouseY, random(8, 16)));
     }
     else if ( p < 3*t){
       boxes.push(new CustomShape(mouseX, mouseY));
@@ -85,11 +101,39 @@ function draw() {
     }
   }
 
-  windmill.display();
+  spring.display();
+
+  // windmill.display();
+}
+
+function mouseReleased() {
+  if(params.mouseAction == 1) {
+    // console.log("destroy spring/..")
+    spring.destroy()
+  }
+}
+
+function mousePressed() {
+  if(params.mouseAction == 1) {
+    for(let box of boxes) {
+      if(box instanceof Pair) {   // Special handling of Pair object
+        if(box.p1.contains(mouseX, mouseY)) {
+          spring.bind(mouseX, mouseY, box.p1.body);
+        }
+        else if(box.p2.contains(mouseX, mouseY)) {
+          spring.bind(mouseX, mouseY, box.p2.body);
+        }
+      }
+      else if(box.contains(mouseX, mouseY)) {
+        spring.bind(mouseX, mouseY, box.body);
+        break;
+      }
+    }
+  }
 }
 
 function keyPressed(){
   if(key === ' ') {
-    windmill.toggleMotor();
+    // windmill.toggleMotor();
   }
 }
