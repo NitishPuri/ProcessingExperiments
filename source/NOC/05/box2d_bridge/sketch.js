@@ -1,7 +1,7 @@
 // a reference to our box2d world
 var world;
 
-var surface;
+var bridge;
 let particles = [];
 
 var params = {
@@ -9,9 +9,7 @@ var params = {
   // gravity: 0.1,
   // attachToMouse : false,
   reset : function () {
-    for(let i = 0; i < particles.length; i++) {
-      particles[i].killBody();
-    }
+    particles.forEach(p => p.killBody());
     particles = [];
     // boundaries = [];
     // systems = [];
@@ -25,11 +23,11 @@ function setup() {
   // world = createWorld(new box2d.b2Vec2(0, 0));
   world = createWorld();
 
-  surface = new Surface();
+  bridge = new Bridge(width, width/10);
 
   params.reset();
 
-  var gui = new dat.GUI();
+  const gui = new dat.GUI();
   // gui.add(params, 'wind').min(-0.05).max(0.05).step(0.01);
   // gui.add(params, 'gravity').min(-0.05).max(0.05).step(0.01);
   // gui.add(params, 'attachToMouse');
@@ -46,15 +44,17 @@ function draw() {
     particles.push(new Particle(mouseX, mouseY, random(4, 8)));
   }
 
-  surface.display();
-
 
   // var gravity = createVector(0,params.gravity);
   // var wind = createVector(params.wind, 0);
   for(let i = particles.length-1; i >= 0; i--) {
-    particles[i].display();
-    if(particles[i].done()) {
+    const p = particles[i];
+    p.display();
+    if(p.done()) {
       particles.splice(i, 1);
     }
   }
+
+  bridge.display();
+  
 }

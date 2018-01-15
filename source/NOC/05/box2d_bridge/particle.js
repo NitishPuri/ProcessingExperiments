@@ -1,10 +1,12 @@
 class Particle {
-  constructor(x, y, r) {
+  constructor(x, y, r, fixed) {
+    fixed = fixed || false;
     this.r = r;
 
     // Define a body
     var bd = new box2d.b2BodyDef();
-    bd.type = box2d.b2BodyType.b2_dynamicBody;
+    if (fixed) bd.type = box2d.b2BodyType.b2_staticBody;
+    else bd.type = box2d.b2BodyType.b2_dynamicBody;
     bd.position = scaleToWorld(x, y);
 
     // Define a fixture
@@ -39,9 +41,9 @@ class Particle {
     rotate(a);
     fill(127);
     stroke(0);
-    strokeWeight(2);    
+    strokeWeight(2);
     // rect(0, 0, this.size.x, this.size.y);
-    ellipse(0, 0, this.r*2);
+    ellipse(0, 0, this.r * 2);
     line(0, 0, this.r, 0);
     pop();
   }
@@ -54,7 +56,7 @@ class Particle {
   // Is the particle ready for deletion ? 
   done() {
     var pos = scaleToPixels(this.body.GetPosition());
-    if(pos.y > height + this.r*2) {
+    if (pos.y > height + this.r * 2) {
       this.killBody();
       return true;
     }
