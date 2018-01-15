@@ -3,7 +3,7 @@ layout: sketch
 box2d : true
 scripts : 
     - particle.js
-    - surface.js
+    - bridge.js
     - sketch.js
-title: Box2d Simple
+title: Box2d Bridge
 ---
