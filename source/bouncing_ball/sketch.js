@@ -7,7 +7,10 @@ function setup() {
   background(200);
   // randomSeed(42)
   for (let index = 0; index < count; index++) {
-    bubbles[index] = new Bubble(random(10, width - 10), random(10, height - 10), random(20, 40))    
+    const x = random(10, width - 10);
+    const y = random(10, height - 10);
+    const s = random(20, 40);
+    bubbles[index] = new Bubble(x, y, s)
   }
 }
 
@@ -19,30 +22,16 @@ function draw() {
   background(r, g, b, 50);
   // put drawing code here
 
-  for (let bubble of bubbles) {
+  for (const bubble of bubbles) {
     bubble.move()
     bubble.bounce()
     bubble.display()  
-    for (let other of bubbles) {
+    for (const other of bubbles) {
       if(bubble.intersects(other)) {
         background(255, 255, 255, 150);
       }
     }
   }
-
-  // stroke(r, g, b, 100)
-  // strokeWeight(3)
-  // var radius = random(10, 50);
-  // // angleMo
-  // line(mouseX - radius*cos(radians(theta)), mouseY - radius*sin(radians(theta)),
-  //  mouseX + radius*cos(radians(theta)), mouseY + radius*sin(radians(theta)))
-
-  //  theta += random(1, 100);
-
-
-
- 
-  // rect(1, 2, 3, h, [tl], [tr], [br], [bl])
 }
 
 function mousePressed() {
