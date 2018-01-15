@@ -38,6 +38,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
             1. [Simple Bridge](source/NOC/05/box2d_bridge)
             1. [Blobby](source/NOC/05/box2d_blobby)
             1. [Car](source/NOC/05/box2d_car)
+            1. [Liquid 1](source/NOC/05/box2d_liquid)
 1. Experiments
     1. [Bouncing Ball](source/bouncing_ball)
     1. [Floating Balls](source/floating_balls)
