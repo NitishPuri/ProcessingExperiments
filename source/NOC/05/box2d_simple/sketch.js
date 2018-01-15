@@ -22,8 +22,7 @@ var params = {
     boxes = [];    
     boxes.push(new Box(width/2, height/2, 20, 20));
     spring = new Spring();
-    boundaries = []
-    surface = null;
+    // boundaries = []
     // boundaries = [];
     // systems = [];
     // systems.push(new ParticleSystem(width/2, height - 50, img));
@@ -37,11 +36,13 @@ function setup() {
   world = createWorld();
 
   // Add boundaries
-  boundaries.push(new Boundary(width/4, height-5, width/2 - 50, 10));
-  boundaries.push(new Boundary(3*width/4, height-50, width/2 - 50, 10));
+  // boundaries.push(new Boundary(width/4, height-5, width/2 - 50, 10));
+  // boundaries.push(new Boundary(3*width/4, height-50, width/2 - 50, 10));
   boundaries.push(new Boundary(width/2, 5, width, 10));
   boundaries.push(new Boundary(width - 5, height/2, 10, height));
   boundaries.push(new Boundary(5, height/2, 10, height));
+
+  surface = new Surface();
 
   // windmill = new Windmill(width/2, 300);
 
@@ -88,9 +89,7 @@ function draw() {
     }
   }
 
-  for(let i = 0; i < boundaries.length; i++) {
-    boundaries[i].display();
-  }
+  boundaries.forEach(b => b.display());
 
   // var gravity = createVector(0,params.gravity);
   // var wind = createVector(params.wind, 0);
@@ -102,6 +101,7 @@ function draw() {
   }
 
   spring.display();
+  surface.display();
 
   // windmill.display();
 }
