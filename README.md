@@ -14,3 +14,5 @@ Using
     * [Source : flyover](https://github.com/flyover/box2d.js)
     * [Source : kripken](https://github.com/kripken/box2d.js/) 
     * [Source : mvasilkov](https://github.com/mvasilkov/box2d-html5)
+* [Toxiclibs.js](http://haptic-data.com/toxiclibsjs/)
+    * [Original implementation](http://toxiclibs.org/)
