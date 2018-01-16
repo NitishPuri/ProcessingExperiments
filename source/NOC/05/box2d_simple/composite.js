@@ -19,6 +19,11 @@ class Pair {
     var dj = world.CreateJoint(djd);
   }
 
+  attract(x, y) {
+    this.p1.attract(x, y)
+    this.p2.attract(x, y)
+  }
+  
   contains(x, y) {
     return (this.p1.contains(x, y) || this.p2.contains(x, y));
   }

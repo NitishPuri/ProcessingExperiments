@@ -27,9 +27,18 @@ class Shape {
   }
 
   contains(x, y) {
-    let worldPoint = scaleToWorld(x, y);
-    let f = this.body.GetFixtureList();
+    const worldPoint = scaleToWorld(x, y);
+    const f = this.body.GetFixtureList();
     return f.TestPoint(worldPoint);
+  }
+
+  attract(x, y) {
+    const m = scaleToWorld(x, y);
+    const b = this.body.GetWorldCenter();
+    m.SelfSub(b);
+    m.SelfNormalize();
+    m.SelfMul(50.0);
+    this.body.ApplyForce(m, b);
   }
   
   // Is the particle ready for deletion ? 

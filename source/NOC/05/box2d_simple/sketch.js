@@ -51,7 +51,7 @@ function setup() {
   var gui = new dat.GUI();
   // gui.add(params, 'wind').min(-0.05).max(0.05).step(0.01);
   // gui.add(params, 'gravity').min(-0.05).max(0.05).step(0.01);
-  gui.add(params, 'mouseAction', {Add : 0, Push : 1});
+  gui.add(params, 'mouseAction', {Add : 0, Pull : 1, Attract : 2});
   gui.add(params, 'environment', {Boundary : 0, Surface : 1});
   gui.add(params, 'reset');
 }
@@ -64,29 +64,35 @@ function draw() {
 
   spring.update(mouseX, mouseY);
 
-  if(mouseIsPressed && params.mouseAction == 0) {
-      // boxes.push(new Pair(mouseX, mouseY));
+  if(mouseIsPressed) {
+      if(params.mouseAction == 0) {
+        // boxes.push(new Pair(mouseX, mouseY));
 
-    let p = random(1);
-    let t = 1/5;
-    if(p < t) {
-            
-      let w = random([4, 8, 12]);
-      let h = random([4, 8, 12]);
-      boxes.push(new Box(mouseX, mouseY, w, h));
-    }
-    else if( p < 2*t) {
-      boxes.push(new Circle(mouseX, mouseY, random(8, 16)));
-    }
-    else if ( p < 3*t){
-      boxes.push(new CustomShape(mouseX, mouseY));
-    }
-    else if ( p < 4*t) {
-      boxes.push(new Pair(mouseX, mouseY));
-    }
-    else {
-      boxes.push(new Lollipop(mouseX, mouseY));
-    }
+        let p = random(1);
+        let t = 1/5;
+        if(p < t) {
+                
+          let w = random([4, 8, 12]);
+          let h = random([4, 8, 12]);
+          boxes.push(new Box(mouseX, mouseY, w, h));
+        }
+        else if( p < 2*t) {
+          boxes.push(new Circle(mouseX, mouseY, random(8, 16)));
+        }
+        else if ( p < 3*t){
+          boxes.push(new CustomShape(mouseX, mouseY));
+        }
+        else if ( p < 4*t) {
+          boxes.push(new Pair(mouseX, mouseY));
+        }
+        else {
+          boxes.push(new Lollipop(mouseX, mouseY));
+        }    
+      }
+      else if(params.mouseAction == 2) {
+        console.log("Attraction,.!!!")
+        boxes.forEach(b => b.attract(mouseX, mouseY))
+      }
   }
 
   boundaries.forEach(b => b.display());
@@ -107,7 +113,7 @@ function draw() {
 }
 
 function mouseReleased() {
-  if(params.mouseAction == 1) {
+  if(params.mouseAction === '1') {
     // console.log("destroy spring/..")
     spring.destroy()
   }
@@ -119,9 +125,11 @@ function mousePressed() {
       if(box instanceof Pair) {   // Special handling of Pair object
         if(box.p1.contains(mouseX, mouseY)) {
           spring.bind(mouseX, mouseY, box.p1.body);
+          break;
         }
         else if(box.p2.contains(mouseX, mouseY)) {
           spring.bind(mouseX, mouseY, box.p2.body);
+          break;
         }
       }
       else if(box.contains(mouseX, mouseY)) {
