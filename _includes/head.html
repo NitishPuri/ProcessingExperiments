@@ -45,8 +45,13 @@
   <script src="{{ site.baseurl }}/lib/box2d-helper.js"></script>
   {% endif %}
 
-    {% for script in page.scripts %}
-      <script src="{{ script }}"></script>
-    {% endfor %}
+  {% if page.toxiclibs %}
+  <script src="{{ site.baseurl }}/lib/toxiclibs.js"></script>
+  <script src="{{ site.baseurl }}/lib/toxichelper.js"></script>
+  {% endif %}
+
+  {% for script in page.scripts %}
+    <script src="{{ script }}"></script>
+  {% endfor %}
   {% endif %}  
 </head>
