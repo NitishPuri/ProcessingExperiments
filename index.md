@@ -42,7 +42,9 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. Toxiclibs
             1. [Simple String](source/NOC/05/toxiclibs_string)
             1. [Soft String](source/NOC/05/toxiclibs_soft_string)
-            1. [Force Directed Graph](source/NOC/05/toxiclibs_cluster)
+            1. [Force Directed Graph Simple](source/NOC/05/toxiclibs_cluster)
+            1. [Force Directed Graph Multi](source/NOC/05/toxiclibs_multi_cluster)
+            1. [SoftBody Cloth](source/NOC/05/toxiclibs_cloth)
 1. Experiments
     1. [Bouncing Ball](source/bouncing_ball)
     1. [Floating Balls](source/floating_balls)
