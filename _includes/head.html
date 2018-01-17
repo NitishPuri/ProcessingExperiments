@@ -45,6 +45,11 @@
   <script src="{{ site.baseurl }}/lib/box2d-helper.js"></script>
   {% endif %}
 
+  {% if page.matter %}
+  <script src="{{ site.baseurl }}/lib/matter.js"></script>
+  <!-- <script src="{{ site.baseurl }}/lib/matter.min.js"></script> -->
+  {% endif %}
+
   {% if page.toxiclibs %}
   <script src="{{ site.baseurl }}/lib/toxiclibs.js"></script>
   <script src="{{ site.baseurl }}/lib/toxichelper.js"></script>
