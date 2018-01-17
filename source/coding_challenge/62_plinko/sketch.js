@@ -5,6 +5,7 @@ var Engine = Matter.Engine,
     Constraint = Matter.Constraint,
     MouseConstraint = Matter.MouseConstraint,
     Mouse = Matter.Mouse,
+    Events = Matter.Events,
     Bodies = Matter.Bodies;
 
 // create an engine
@@ -18,11 +19,25 @@ var rows = 5;
 
 var boundaries = []
 
+function collision(event) {
+  const pairs = event.pairs;
+  pairs.forEach(p => {
+    const bodyA = p.bodyA;
+    const bodyB = p.bodyB;
+    // console.log(pairs);
+    console.log(bodyA.label, bodyB.label);
+
+  });
+}
+
 function setup() {
   var canvas = createCanvas(windowWidth - 400, windowHeight - 100);
+  colorMode(HSB);
   engine = Engine.create();
   world = engine.world;
   world.gravity.y = 2;
+
+  Events.on(engine, 'collisionStart', collision);
 
   newParticle();
 
