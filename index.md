@@ -45,6 +45,9 @@ This is a perpetual work in progress page for some basic graphics and simulation
             1. [Force Directed Graph Simple](source/NOC/05/toxiclibs_cluster)
             1. [Force Directed Graph Multi](source/NOC/05/toxiclibs_multi_cluster)
             1. [SoftBody Cloth](source/NOC/05/toxiclibs_cloth)
+        1. Matter.js
+            1. [Hello World](source/NOC/05/matter_hello)
+            1. [Simple Chain](source/NOC/05/matter_chain)
 1. Experiments
     1. [Bouncing Ball](source/bouncing_ball)
     1. [Floating Balls](source/floating_balls)
@@ -53,5 +56,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [Draw](source/draw-stuff)
     1. [Clojures](source/clojures)
     1. [HTML Test](source/html_test)
+2. Coding Challenge
+    1. [#62 - Plinko](source/coding_challenge/62_plinko)
 2. Algorithms
     1. [Prim MST](source/prim_mst)
