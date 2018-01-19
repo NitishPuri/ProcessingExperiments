@@ -2,7 +2,15 @@
 
 let vehicles = [];
 
-let behaviourFunction = function () { };
+let behaviourFunctions = [
+  seekBehaviour,
+  arriveBehaviour,
+  boundBehaviour,
+  flowBehaviour,
+  pathBehviour,
+  separateBehaviour,
+  customBehaviour
+]
 
 // Flow field
 let flowField;
@@ -12,22 +20,17 @@ let path;
 var gui;
 
 var params = {
-  behaviour: 3,
+  behaviour: 1,
   behaviours: {
     Seek: 0,
     Arrive: 1,
     Bounds: 2,
     FlowField: 3,
     PathFollowing: 4,
-    Separate: 5
+    Separate: 5,
+    Custom: 6
   },
-  debug: false,
   count: 50,
-  arriveThreshold: 50,
-  boundary: 25,
-  flowFieldResolution: 50,
-  flowFieldDynamic: 0,
-  desiredSeparationFactor : 2,
   reset() {
     vehicles = [];
     for (let i = 0; i < this.count; i++) {
@@ -38,103 +41,186 @@ var params = {
       vehicles.push(new Vehicle(x, y, ms, mf));
     }
   },
-  resetFlow() {
-    flowField = new Flowfield(this.flowFieldResolution);
+  arrive: {
+    arriveThreshold: 50,
+    weight: 0
   },
-  resetPath() {
-    path = new Path();
-    path.addPoint(-20, height / 2);
-    path.addPoint(random(0, width / 2), random(0, height));
-    path.addPoint(random(width / 2, width), random(0, height));
-    path.addPoint(width + 20, height / 2);
+  bound: {
+    boundary: 25,
+    weight: 0
   },
-  init() {
-    this.reset();
-    this.resetFlow();
-    this.resetPath();
-    behaviourChanged(this.behaviour);
+  flowField: {
+    flowFieldResolution: 50,
+    flowFieldDynamic: 0,
+    flowFieldShow: false,
+    weight: 0,
+    resetFlow() { flowField = new Flowfield(this.flowFieldResolution) }
+  },
+  pathFollowing: {
+    showPathTarget: false,
+    weight: 0,
+    resetPath() {
+      path = new Path();
+      path.addPoint(-20, height / 2);
+      path.addPoint(random(0, width / 2), random(0, height));
+      path.addPoint(random(width / 2, width), random(0, height));
+      path.addPoint(width + 20, height / 2);
+    },
+  },
+  separation: {
+    desiredSeparationFactor: 2,
+    weight: 0
   }
 }
 
-function behaviourChanged(value) {
-  if (value == params.behaviours.Seek) {
-    behaviourFunction = function () {
-      var mouse = createVector(mouseX, mouseY);
-      vehicles.forEach(v => v.seek(mouse));
-      drawMouse();
-    }
+let behaviourFunction = behaviourFunctions[params.behaviour];
+
+function init() {
+  params.reset();
+  params.flowField.resetFlow();
+  params.pathFollowing.resetPath();
+}
+
+function seekBehaviour() {
+  var mouse = createVector(mouseX, mouseY);
+  vehicles.forEach(v => v.applyForce(v.seek(mouse)));
+  drawMouse();
+}
+
+function arriveBehaviour() {
+  var mouse = createVector(mouseX, mouseY);
+  vehicles.forEach(v =>
+    v.applyForce(v.arrive(mouse, params.arrive.arriveThreshold))
+  );
+  drawMouse();
+}
+
+function boundBehaviour() {
+  vehicles.forEach(v => v.applyForce(v.bound(params.bound.boundary)));
+  drawBounds();
+}
+
+function flowBehaviour() {
+  if ((params.flowField.flowFieldDynamic != 0)
+    && (frameCount % params.flowField.flowFieldDynamic == 0)) {
+    flowField.update();
   }
-  else if (value == params.behaviours.Arrive) {
-    behaviourFunction = function () {
-      var mouse = createVector(mouseX, mouseY);
-      vehicles.forEach(v => v.arrive(mouse, params.arriveThreshold));
-      drawMouse();
-    }
-  }
-  else if (value == params.behaviours.Bounds) {
-    behaviourFunction = function () {
-      vehicles.forEach(v => v.bound(params.boundary));
-      drawBounds();
-    }
-  }
-  else if (value == params.behaviours.FlowField) {
-    behaviourFunction = function () {
-      if ((params.flowFieldDynamic != 0)
-        && (frameCount % params.flowFieldDynamic == 0)) {
-        flowField.update();
-      }
-      vehicles.forEach(v => v.followFlow(flowField))
-      if (params.debug) {
-        flowField.display();
-      }
-    }
-  }
-  else if (value == params.behaviours.PathFollowing) {
-    behaviourFunction = function () {
-      path.display();
-      vehicles.forEach(v => v.followPath(path));
-    }
-  }
-  else if (value == params.behaviours.Separate) {
-    behaviourFunction = function () {
-      vehicles.forEach(v => v.separate(vehicles, params.desiredSeparationFactor))
-    }
+  vehicles.forEach(v => v.applyForce(v.followFlow(flowField)))
+  if (params.flowField.flowFieldShow) {
+    flowField.display();
   }
 }
 
-function setup() {
-  createCanvas(windowWidth - 100, windowHeight - 50);
+function pathBehviour() {
+  path.display();
+  vehicles.forEach(v => v.applyForce(v.followPath(path)));
+}
 
-  params.init();
+function separateBehaviour() {
+  vehicles.forEach(v =>
+    v.applyForce(v.separate(vehicles, params.separation.desiredSeparationFactor))
+  )
+}
 
+function customBehaviour() {
+  const mouse = createVector(mouseX, mouseY);
+  if (params.arrive.weight > 0) {
+    drawMouse();
+  }
+  if (params.bound.weight > 0) {
+    drawBounds();
+  }
+  if (params.flowField.weight > 0) {
+    if ((params.flowField.flowFieldDynamic != 0)
+      && (frameCount % params.flowField.flowFieldDynamic == 0)) {
+      flowField.update();
+    }
+    vehicles.forEach(v => v.applyForce(v.followFlow(flowField)))
+    if (params.flowField.flowFieldShow) {
+      flowField.display();
+    }
+  }
+  if (params.pathFollowing.weight > 0) {
+    path.display();
+  }
+  vehicles.forEach(v => {
+    if (params.arrive.weight > 0) {
+      const f = v.arrive(mouse, params.arrive.arriveThreshold)
+      f.mult(params.arrive.weight);
+      v.applyForce(f);
+    }
+    if (params.bound.weight > 0) {
+      const f = v.bound(params.bound.boundary);
+      if (f != undefined) {
+        f.mult(params.bound.weight);
+        v.applyForce(f);
+      }
+    }
+    if (params.flowField.weight > 0) {
+      const f = v.followFlow(flowField);
+      f.mult(params.flowField.weight);
+      v.applyForce(f);
+    }
+    if (params.pathFollowing.weight > 0) {
+      const f = v.followPath(path);
+      if (f != undefined) {
+        f.mult(params.pathFollowing.weight);
+        v.applyForce(f);
+      }
+    }
+    if (params.separation.weight > 0) {
+      const f = v.separate(vehicles, params.separation.desiredSeparationFactor)
+      if (f != undefined) {
+        f.mult(params.separation.weight);
+        v.applyForce(f);
+      }
+    }
+  })
+}
+
+function setupGUI() {
   gui = new dat.GUI();
 
   const gf = gui.addFolder('General');
   gf.add(params, 'behaviour', params.behaviours)
-    .onFinishChange(behaviourChanged)
+    .onFinishChange(value => behaviourFunction = behaviourFunctions[value])
     .name('Behaviour');
-  gf.add(params, 'debug').name('Debug(d)');
   gf.add(params, 'count').min(5).max(200).step(5).name('Vehicle Count');
   gf.add(params, 'reset').name('Reset Vehicles(r)');
 
   const af = gui.addFolder('Arrive');
-  af.add(params, 'arriveThreshold')
-  .min(10).max(100).step(10).name('Arrive Threshold');
+  af.add(params.arrive, 'arriveThreshold')
+    .min(0).max(100).step(10).name('Arrive Threshold');
 
   const bf = gui.addFolder('Bounds');
-  bf.add(params, 'boundary').min(10).max(150).step(10);
+  bf.add(params.bound, 'boundary').min(10).max(150).step(10);
 
   const ff = gui.addFolder('Flow Field');
-  ff.add(params, 'resetFlow').name('Reset Flow Field(f)');
-  ff.add(params, 'flowFieldResolution', [10, 20, 50, 100]).name('Resolution');
-  ff.add(params, 'flowFieldDynamic', [0, 30, 60]).name('Dynamic(0 = static)');
+  ff.add(params.flowField, 'resetFlow').name('Reset Flow Field(f)');
+  ff.add(params.flowField, 'flowFieldShow').name('Show(d)');
+  ff.add(params.flowField, 'flowFieldResolution', [10, 20, 50, 100]).name('Resolution');
+  ff.add(params.flowField, 'flowFieldDynamic', [0, 30, 60]).name('Dynamic(0 = static)');
 
   const pf = gui.addFolder('Path Following');
-  pf.add(params, 'resetPath').name('Reset Path(p)');
+  pf.add(params.pathFollowing, 'resetPath').name('Reset Path(p)');
+  pf.add(params.pathFollowing, 'showPathTarget').name('Show(d)');
 
   const sf = gui.addFolder('Separation');
-  sf.add(params, 'desiredSeparationFactor')
-  .min(2).max(20).step(2).name('Factor');
+  sf.add(params.separation, 'desiredSeparationFactor')
+    .min(2).max(20).step(2).name('Factor');
+
+  const cf = gui.addFolder('Custom Weights');
+  cf.add(params.arrive, 'weight').min(0).max(2).step(0.01).name('Arrive');
+  cf.add(params.bound, 'weight').min(0).max(2).step(0.01).name('Bound');
+  cf.add(params.flowField, 'weight').min(0).max(2).step(0.01).name('Flow');
+  cf.add(params.pathFollowing, 'weight').min(0).max(2).step(0.01).name('Path');
+  cf.add(params.separation, 'weight').min(0).max(2).step(0.01).name('Separate');
+}
+
+function setup() {
+  createCanvas(windowWidth - 100, windowHeight - 50);
+  init();
+  setupGUI();
 }
 
 function drawMouse() {
@@ -150,7 +236,8 @@ function drawBounds() {
   stroke(175);
   noFill();
   rectMode(CENTER);
-  rect(width / 2, height / 2, width - params.boundary * 2, height - params.boundary * 2);
+  rect(width / 2, height / 2,
+    width - params.bound.boundary * 2, height - params.bound.boundary * 2);
 }
 
 function draw() {
@@ -169,13 +256,32 @@ function keyPressed() {
     params.reset();
   }
   else if (key == 'd' || key === 'D') {
-    params.debug = !params.debug;
-    gui.__folders.General.__controllers.filter(c => c.property == 'debug')[0].updateDisplay();
+    if (params.behaviour == params.behaviours.FlowField ||
+      params.behaviour == params.behaviours.Custom) {
+      params.flowField.flowFieldShow = !params.flowField.flowFieldShow
+      gui.__folders['Flow Field'].__controllers
+        .filter(c => c.property == 'flowFieldShow')[0]
+        .updateDisplay()
+    }
+    if (params.behaviour == params.behaviours.PathFollowing ||
+      params.behaviour == params.behaviours.Custom) {
+      console.log("heree");
+      params.pathFollowing.showPathTarget = !params.pathFollowing.showPathTarget
+      gui.__folders['Path Following'].__controllers
+        .filter(c => c.property == 'showPathTarget')[0]
+        .updateDisplay()
+    }
   }
   else if (key == 'f' || key == 'F') {
-    params.resetFlow();
+    if (params.behaviour == params.behaviours.FlowField ||
+      params.behaviour == params.behaviours.Custom) {
+      params.flowField.resetFlow();
+    }
   }
   else if (key == 'p' || key == 'P') {
-    params.resetPath();
+    if (params.behaviour == params.behaviours.PathFollowing ||
+      params.behaviour == params.behaviours.Custom) {
+      params.pathFollowing.resetPath();
+    }
   }
 }

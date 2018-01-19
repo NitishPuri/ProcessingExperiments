@@ -16,7 +16,9 @@ class Vehicle {
   }
 
   applyForce(force) {
-    this.acceleration.add(force);    
+    if(force != null) {
+      this.acceleration.add(force);
+    }
   }
 
   // Behaviour :: Seek
@@ -26,7 +28,8 @@ class Vehicle {
 
     const steer = p5.Vector.sub(desired, this.velocity);
     steer.limit(this.maxForce);
-    this.applyForce(steer);
+    
+    return steer;
   }
 
   // Behaviour :: Arrive
@@ -46,7 +49,7 @@ class Vehicle {
     const steer = p5.Vector.sub(desired, this.velocity);
     steer.limit(this.maxForce);
 
-    this.applyForce(steer);
+    return steer;
   }
 
   // Behaviour :: Stay withing bounds
@@ -72,7 +75,7 @@ class Vehicle {
       desired.mult(this.maxSpeed);
       var steer = p5.Vector.sub(desired, this.velocity);
       steer.limit(this.maxForce);
-      this.applyForce(steer);
+      return steer;
     }
   }
 
@@ -83,9 +86,11 @@ class Vehicle {
 
     const steer = p5.Vector.sub(desired, this.velocity);
     steer.limit(this.maxForce);
-    this.applyForce(steer);
 
     this.borders();
+
+    return steer;
+
   }
 
   // Wrap around!!!
@@ -139,14 +144,9 @@ class Vehicle {
       }
     }
 
-    if(recordDistance > path.radius && target != null) {
-      this.seek(target);
-      // this.arrive(target);
-    }
-
     this.bordersPath(path)
 
-    if(params.debug) {
+    if(params.pathFollowing.showPathTarget) {
       fill(200);
       stroke(200);
       line(this.position.x, this.position.y, predictLoc.x, predictLoc.y);
@@ -158,6 +158,14 @@ class Vehicle {
       noStroke();
       ellipse(target.x, target.y, 8);      
     }
+
+    if(recordDistance > path.radius && target != null) {
+      const f = this.seek(target);
+      // this.arrive(target);
+
+      return f;
+    }
+    
   }
 
   // Behaviour : Separation
@@ -176,16 +184,16 @@ class Vehicle {
       }
     })
 
+    this.borders();
+    
     if(count > 0) {
       sum.div(count);
       sum.normalize();
       sum.mult(this.maxSpeed);
       const steer = p5.Vector.sub(sum, this.velocity);
       steer.limit(this.maxForce);
-      this.applyForce(steer);
+      return steer;
     }    
-
-    this.borders();
   }
   
   display() {
