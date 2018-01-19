@@ -5,5 +5,5 @@ scripts:
     - flowfield.js
     - path.js
     - sketch.js
-title: Seek
+title: Steering Behaviours
 ---

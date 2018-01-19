@@ -151,10 +151,8 @@ function customBehaviour() {
     }
     if (params.bound.weight > 0) {
       const f = v.bound(params.bound.boundary);
-      if (f != undefined) {
-        f.mult(params.bound.weight);
-        v.applyForce(f);
-      }
+      f.mult(params.bound.weight);
+      v.applyForce(f);
     }
     if (params.flowField.weight > 0) {
       const f = v.followFlow(flowField);
@@ -163,17 +161,13 @@ function customBehaviour() {
     }
     if (params.pathFollowing.weight > 0) {
       const f = v.followPath(path);
-      if (f != undefined) {
-        f.mult(params.pathFollowing.weight);
-        v.applyForce(f);
-      }
+      f.mult(params.pathFollowing.weight);
+      v.applyForce(f);
     }
     if (params.separation.weight > 0) {
       const f = v.separate(vehicles, params.separation.desiredSeparationFactor)
-      if (f != undefined) {
-        f.mult(params.separation.weight);
-        v.applyForce(f);
-      }
+      f.mult(params.separation.weight);
+      v.applyForce(f);
     }
   })
 }

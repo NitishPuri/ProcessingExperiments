@@ -16,9 +16,7 @@ class Vehicle {
   }
 
   applyForce(force) {
-    if(force != null) {
-      this.acceleration.add(force);
-    }
+    this.acceleration.add(force);
   }
 
   // Behaviour :: Seek
@@ -77,6 +75,8 @@ class Vehicle {
       steer.limit(this.maxForce);
       return steer;
     }
+
+    return createVector(0, 0);
   }
 
   // Behaviour :: Follow the flowfield
@@ -165,6 +165,8 @@ class Vehicle {
 
       return f;
     }
+
+    return createVector(0, 0);
     
   }
 
@@ -194,6 +196,8 @@ class Vehicle {
       steer.limit(this.maxForce);
       return steer;
     }    
+
+    return createVector(0, 0);
   }
   
   display() {
