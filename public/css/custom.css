@@ -10,10 +10,10 @@
 }
 
 /* Class defining the gui placeholder. */
-.dg {
+/* .dg {
     position: fixed;
     right: 1rem;
-}
+} */
 
 .page-title {
     padding-left: 1rem;
@@ -21,4 +21,5 @@
 
 canvas {
     padding-left: 1rem;
+    /* position : fixed */
 }
