@@ -49,7 +49,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
             1. [Hello World](source/NOC/05/matter_hello)
             1. [Simple Chain](source/NOC/05/matter_chain)
     1. Autonomous Agents   
-        1. [Seek](source/NOC/06/seek)
+        1. [Steering behaviours](source/NOC/06/steer)
+        1. [Flocking](source/NOC/06/flock)
 1. Experiments
     1. [Bouncing Ball](source/experiments/bouncing_ball)
     1. [Floating Balls](source/experiments/floating_balls)
