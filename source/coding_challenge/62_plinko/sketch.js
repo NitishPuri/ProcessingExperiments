@@ -25,7 +25,7 @@ function collision(event) {
     const bodyA = p.bodyA;
     const bodyB = p.bodyB;
     // console.log(pairs);
-    console.log(bodyA.label, bodyB.label);
+    // console.log(bodyA.label, bodyB.label);
 
   });
 }
