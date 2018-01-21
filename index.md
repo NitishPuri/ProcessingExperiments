@@ -60,6 +60,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [Clojures](source/experiments/clojures)
     1. [HTML Test](source/experiments/html_test)
 2. Coding Challenge
+    1. [#24 - Perlin Noise Flow Field](source/coding_challenge/24_perlinFlow)
     1. [#62 - Plinko](source/coding_challenge/62_plinko)
 2. Algorithms
     1. [Prim MST](source/algorithms/prim_mst)
