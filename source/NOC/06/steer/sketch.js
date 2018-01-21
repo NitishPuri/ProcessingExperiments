@@ -9,6 +9,7 @@ let behaviourFunctions = [
   flowBehaviour,
   pathBehviour,
   separateBehaviour,
+  alignmentBehaviour,
   customBehaviour
 ]
 
@@ -28,6 +29,7 @@ var params = {
     FlowField: 3,
     PathFollowing: 4,
     Separate: 5,
+    Align: 5,
     Custom: 6
   },
   count: 50,
@@ -70,6 +72,10 @@ var params = {
   separation: {
     desiredSeparationFactor: 2,
     weight: 0
+  },
+  alignment: {
+    desiredAlignmentFactor: 2,
+    weight: 0
   }
 }
 
@@ -83,20 +89,27 @@ function init() {
 
 function seekBehaviour() {
   var mouse = createVector(mouseX, mouseY);
-  vehicles.forEach(v => v.applyForce(v.seek(mouse)));
+  vehicles.forEach(v => {
+    v.applyForce(v.seek(mouse));
+    v.borders();
+  });
   drawMouse();
 }
 
 function arriveBehaviour() {
   var mouse = createVector(mouseX, mouseY);
-  vehicles.forEach(v =>
+  vehicles.forEach(v => {
     v.applyForce(v.arrive(mouse, params.arrive.arriveThreshold))
-  );
+    v.borders();
+  });
   drawMouse();
 }
 
 function boundBehaviour() {
-  vehicles.forEach(v => v.applyForce(v.bound(params.bound.boundary)));
+  vehicles.forEach(v => {
+    v.applyForce(v.bound(params.bound.boundary))
+    v.borders();
+  });
   drawBounds();
 }
 
@@ -105,7 +118,10 @@ function flowBehaviour() {
     && (frameCount % params.flowField.flowFieldDynamic == 0)) {
     flowField.update();
   }
-  vehicles.forEach(v => v.applyForce(v.followFlow(flowField)))
+  vehicles.forEach(v => {
+    v.applyForce(v.followFlow(flowField))
+    v.borders()
+  })
   if (params.flowField.flowFieldShow) {
     flowField.display();
   }
@@ -113,13 +129,24 @@ function flowBehaviour() {
 
 function pathBehviour() {
   path.display();
-  vehicles.forEach(v => v.applyForce(v.followPath(path)));
+  vehicles.forEach(v => {
+    v.applyForce(v.followPath(path))
+    v.bordersPath(path)
+  });
 }
 
 function separateBehaviour() {
-  vehicles.forEach(v =>
+  vehicles.forEach(v => {
     v.applyForce(v.separate(vehicles, params.separation.desiredSeparationFactor))
-  )
+    v.borders();
+  })
+}
+
+function alignmentBehaviour() {
+  vehicles.forEach(v => {
+    v.applyForce(v.align(vehicles, params.desiredAlignmentFactor))
+    v.borders()
+  })
 }
 
 function customBehaviour() {
@@ -135,7 +162,6 @@ function customBehaviour() {
       && (frameCount % params.flowField.flowFieldDynamic == 0)) {
       flowField.update();
     }
-    vehicles.forEach(v => v.applyForce(v.followFlow(flowField)))
     if (params.flowField.flowFieldShow) {
       flowField.display();
     }
@@ -144,6 +170,7 @@ function customBehaviour() {
     path.display();
   }
   vehicles.forEach(v => {
+    v.borders();
     if (params.arrive.weight > 0) {
       const f = v.arrive(mouse, params.arrive.arriveThreshold)
       f.mult(params.arrive.weight);
@@ -163,11 +190,17 @@ function customBehaviour() {
       const f = v.followPath(path);
       f.mult(params.pathFollowing.weight);
       v.applyForce(f);
+      v.bordersPath();
     }
     if (params.separation.weight > 0) {
       const f = v.separate(vehicles, params.separation.desiredSeparationFactor)
       f.mult(params.separation.weight);
       v.applyForce(f);
+    }
+    if(params.alignment.weight > 0) {
+      const f = v.align(vehicles, params.alignment.desiredAlignmentFactor)
+      f.mult(params.alignment.weight)
+      v.applyForce();
     }
   })
 }
@@ -203,12 +236,18 @@ function setupGUI() {
   sf.add(params.separation, 'desiredSeparationFactor')
     .min(2).max(20).step(2).name('Factor');
 
+  const alf = gui.addFolder('Alignment');
+  alf.add(params.alignment, 'desiredAlignmentFactor')
+    .min(2).max(20).step(2).name('Factor');
+  
+
   const cf = gui.addFolder('Custom Weights');
   cf.add(params.arrive, 'weight').min(0).max(2).step(0.01).name('Arrive');
   cf.add(params.bound, 'weight').min(0).max(2).step(0.01).name('Bound');
   cf.add(params.flowField, 'weight').min(0).max(2).step(0.01).name('Flow');
   cf.add(params.pathFollowing, 'weight').min(0).max(2).step(0.01).name('Path');
   cf.add(params.separation, 'weight').min(0).max(2).step(0.01).name('Separate');
+  cf.add(params.alignment, 'weight').min(0).max(2).step(0.01).name('Align');
 }
 
 function setup() {

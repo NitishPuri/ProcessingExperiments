@@ -87,8 +87,6 @@ class Vehicle {
     const steer = p5.Vector.sub(desired, this.velocity);
     steer.limit(this.maxForce);
 
-    this.borders();
-
     return steer;
 
   }
@@ -144,8 +142,6 @@ class Vehicle {
       }
     }
 
-    this.bordersPath(path)
-
     if(params.pathFollowing.showPathTarget) {
       fill(200);
       stroke(200);
@@ -185,8 +181,6 @@ class Vehicle {
         count++;
       }
     })
-
-    this.borders();
     
     if(count > 0) {
       sum.div(count);
@@ -198,6 +192,31 @@ class Vehicle {
     }    
 
     return createVector(0, 0);
+  }
+
+  // Behaviour : Align
+  align(vehicles, factor) {
+    const desiredAlignment = this.r * factor;
+    const sum = createVector();
+    let count = 0;
+    vehicles.forEach(v => {
+      const d = p5.Vector.dist(this.position, v.position);
+      if((d > 0) && (d < desiredAlignment)) {
+        sum.add(v.velocity);
+        count++;
+      }
+    })
+
+    if(count > 0) {
+      sum.div(count);
+      sum.normalize();
+      sum.mult(this.maxSpeed);
+      const steer = p5.Vector.sub(sum, this.velocity);
+      steer.limit(this.maxForce);
+      return steer;
+    }    
+
+    return createVector(0, 0);    
   }
   
   display() {
