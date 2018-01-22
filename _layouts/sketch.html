@@ -1,4 +1,54 @@
----
-layout: default
-sketch: true
----
+<!DOCTYPE html>
+<head>
+
+    <script src="{{ site.baseurl }}/lib/p5.min.js"></script>
+    <script src="{{ site.baseurl }}/lib/p5.dom.min.js"></script>
+    
+    <script src="{{ site.baseurl }}/lib/dat.gui.min.js"></script>
+    {% if page.box2d %}
+    <script src="{{ site.baseurl }}/lib/box2d-html5.js"></script>
+    <script src="{{ site.baseurl }}/lib/box2d-helper.js"></script>
+    {% endif %}
+  
+    {% if page.matter %}
+    <script src="{{ site.baseurl }}/lib/matter.js"></script>
+    <!-- <script src="{{ site.baseurl }}/lib/matter.min.js"></script> -->
+    {% endif %}
+  
+    {% if page.toxiclibs %}
+    <script src="{{ site.baseurl }}/lib/toxiclibs.js"></script>
+    <script src="{{ site.baseurl }}/lib/toxichelper.js"></script>
+    {% endif %}
+  
+    {% for script in page.scripts %}
+      <script src="{{ script }}"></script>
+    {% endfor %}
+    <style>
+        body {
+            margin: 0px
+        }
+        .homelink {
+            position: fixed;
+            bottom: 0.5em;
+            left: 0.5em;
+            background-color: rgba(10, 10, 10, 0.4);            
+            padding: 0.5em;
+            color: white;
+            text-decoration: none;
+        }
+        .homelink:hover {
+            text-decoration: underline
+        }
+    </style>
+    <script>
+        function createCanvasCustom(renderer) {
+            return createCanvas(windowWidth, windowHeight-5, renderer)
+        }
+    </script>
+</head>
+      
+<body>
+    {{ content }}
+
+    <a class="homelink" href="/">☰ Home</a>
+</body>
