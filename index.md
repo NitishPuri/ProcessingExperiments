@@ -54,6 +54,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. Cellular Automata
         1. [OneD CA](source/NOC/07/OneD_CA)
         1. [Game Of Life](source/NOC/07/gol)
+        1. [Game Of Life: Hexagonal Grid](source/NOC/07/gol_hex)
 1. Experiments
     1. [Bouncing Ball](source/experiments/bouncing_ball)
     1. [Floating Balls](source/experiments/floating_balls)
