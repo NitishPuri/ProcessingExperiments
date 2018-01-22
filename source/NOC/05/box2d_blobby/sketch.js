@@ -10,28 +10,9 @@ let box;
 let spring;
 let skeleton = false;
 
-var params = {
-  // wind: 0,
-  // gravity: 0.1,
-  // mouseAction : 0,
-  // environment : 0,
-  reset: function () {
-    // for(let i = 0; i < boxes.length; i++) {
-    //   boxes[i].killBody();
-    // }
-    // boxes = [];    
-    // boxes.push(new Box(width/2, height/2, 20, 20));
-    // spring = new Spring();
-    // boundaries = []
-    // surface = null;
-    // boundaries = [];
-    // systems = [];
-    // systems.push(new ParticleSystem(width/2, height - 50, img));
-  }
-}
 
 function setup() {
-  var canvas = createCanvas(windowWidth - 10, windowHeight - 100);
+  var canvas = createCanvasCustom();
 
   // world = createWorld(new box2d.b2Vec2(0, 0));
   world = createWorld();

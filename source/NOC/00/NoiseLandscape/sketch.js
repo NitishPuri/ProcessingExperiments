@@ -2,7 +2,7 @@ let landscape;
 var theta = 0;
 
 function setup() {
-  createCanvas(800, 600, WEBGL);
+  createCanvasCustom(WEBGL);
 
   landscape = new Landscape(20, 400, 400);
 }
@@ -19,5 +19,6 @@ function draw() {
   pop();
 
   landscape.calculate();
+
   theta += 0.0025;
 }

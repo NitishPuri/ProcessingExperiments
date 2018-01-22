@@ -10,7 +10,7 @@ var params = {
 }
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvasCustom();
 
   var gui = new dat.GUI();
   gui.add(params, 'noise');

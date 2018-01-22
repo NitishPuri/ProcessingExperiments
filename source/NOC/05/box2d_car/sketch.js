@@ -12,7 +12,7 @@ let params = {
 }
 
 function setup() {
-  var canvas = createCanvas(windowWidth - 10, windowHeight - 100);
+  var canvas = createCanvasCustom();
 
   // world = createWorld(new box2d.b2Vec2(0, 0));
   world = createWorld();

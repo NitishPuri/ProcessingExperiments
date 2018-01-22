@@ -2,7 +2,7 @@ var theta = 0;
 
 function setup() {
   // put setup code here
-  createCanvas(1200,600)
+  createCanvasCustom();
   background(200);
   randomSeed(42)
 }

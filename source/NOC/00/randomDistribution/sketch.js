@@ -5,7 +5,7 @@ var params = {
   distribution : 0
 }
 function setup() {
-  createCanvas(windowWidth/2, windowHeight/2);
+  createCanvasCustom();
 
   var gui = new dat.GUI();
   var controller = gui.add(params, 'distribution', {Random: 0, Gaussian : 1});

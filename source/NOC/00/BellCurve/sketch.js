@@ -1,12 +1,12 @@
 var heights;
 
 function setup() {
-  createCanvas(windowWidth/2, windowHeight/2);
+  createCanvasCustom();
   heights = new Array(width);
 }
 
 function draw() {
-  background(255);  
+  background(0);  
 
   let m = 0;              // mean of 0
   let sd = map(mouseX, 0, width, 0.4, 2);     // standard deviation based on mouseX
@@ -19,7 +19,7 @@ function draw() {
     heights[i] = (1 / (sd*sq2pi)) * (exp(xmsq/sdsq));
   }
 
-  stroke(0);
+  stroke(255);
   strokeWeight(2);
   noFill();
   beginShape();

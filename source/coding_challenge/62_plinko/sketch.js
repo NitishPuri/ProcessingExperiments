@@ -12,10 +12,49 @@ var Engine = Matter.Engine,
 var engine;
 var world;
 
+var params = {
+  cols : 15,
+  rows : 5,
+  reset : function() {
+    plinkos.forEach(p => World.remove(world, p.body))
+    plinkos = []
+    const spacing = width/this.cols;
+    for(let j = 0; j < this.rows; j++) {
+      for(let i = 0; i < this.cols + 1; i++) {
+        let x = i * spacing;
+        if(j%2 == 1) {
+          x += spacing/2;
+        }
+        const y = spacing + j * spacing
+        var p = new Particle(x, y, 15, true);
+        plinkos.push(p);
+      }
+    }
+    
+    particles.forEach(p => World.remove(world, p.body));
+    particles = [];    
+
+    boundaries.forEach(b => World.remove(b.body))
+    boundaries = []
+
+    const b = new Boundary(width/2, height - 10, width, 20);
+    boundaries.push(b);
+  
+    for(let i = 0; i < this.cols + 1; i++) {
+      var x = i * spacing;
+      var h = 60;
+      var w = 10;
+      var y = height - 20 - h/2;
+  
+      const b = new Boundary(x, y, w, h);
+      boundaries.push(b);
+    }
+      
+  }
+}
+
 var particles = []
 var plinkos = []
-var cols = 11;
-var rows = 5;
 
 var boundaries = []
 
@@ -31,42 +70,22 @@ function collision(event) {
 }
 
 function setup() {
-  var canvas = createCanvas(windowWidth - 400, windowHeight - 100);
+  var canvas = createCanvasCustom();
   colorMode(HSB);
   engine = Engine.create();
   world = engine.world;
   world.gravity.y = 2;
 
-  Events.on(engine, 'collisionStart', collision);
+  // Events.on(engine, 'collisionStart', collision);
+
+  var gui = new dat.GUI();
+  gui.add(params, 'cols').min(5).max(20).step(1);
+  gui.add(params, 'rows').min(4).max(8).step(1);
+  gui.add(params, "reset");
+
+  params.reset();
 
   newParticle();
-
-  var spacing = (width) / cols;
-
-  for(let j = 0; j < rows; j++) {
-    for(let i = 0; i < cols + 1; i++) {
-      let x = i * spacing;
-      if(j%2 == 1) {
-        x += spacing/2;
-      }
-      const y = spacing + j * spacing
-      var p = new Particle(x, y, 15, true);
-      plinkos.push(p);
-    }
-  }
-
-  const b = new Boundary(width/2, height - 10, width, 20);
-  boundaries.push(b);
-
-  for(let i = 0; i < cols + 1; i++) {
-    var x = i * spacing;
-    var h = 60;
-    var w = 10;
-    var y = height - 20 - h/2;
-
-    const b = new Boundary(x, y, w, h);
-    boundaries.push(b);
-  }
 
   Engine.run(engine);
 }

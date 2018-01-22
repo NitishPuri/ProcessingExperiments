@@ -10,7 +10,7 @@ var params = {
 var ca;
 
 function setup() {
-  createCanvas(windowWidth - 100, windowHeight - 100);  
+  createCanvasCustom();
   ca = new CA([0, 1, 0, 1, 1, 0, 1, 0]);
 
   var gui = new dat.GUI();

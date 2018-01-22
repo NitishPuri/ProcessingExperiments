@@ -1,7 +1,7 @@
 let walker;
 
 function setup() {
-  createCanvas(windowWidth/2, windowHeight/2);
+  createCanvasCustom();
   walker = new Walker();
 }
 

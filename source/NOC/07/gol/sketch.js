@@ -8,7 +8,7 @@ var params = {
 var gol;
 
 function setup() {
-  createCanvas(windowWidth - 100, windowHeight - 100);  
+  createCanvasCustom();
   gol = new GOL();
 
   var gui = new dat.GUI();

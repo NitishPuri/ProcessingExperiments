@@ -3,7 +3,7 @@ var count = 5
 
 function setup() {
   // put setup code here
-  createCanvas(1200,600)
+  createCanvasCustom();
   background(200);
   // randomSeed(42)
   for (let index = 0; index < count; index++) {

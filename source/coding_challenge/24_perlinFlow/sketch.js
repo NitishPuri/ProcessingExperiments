@@ -40,7 +40,7 @@ var flowField = [];
 var fr;
 
 function setup() {
-  createCanvas(windowWidth - 100, windowHeight - 200);
+  createCanvasCustom();
   // colorMode(HSB);
 
   fr = createP();

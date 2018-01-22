@@ -13,7 +13,7 @@ var params = {
 }
 
 function setup() {
-  createCanvas(windowWidth - 100, windowHeight - 100)
+  createCanvasCustom()
 
   var gui = new dat.GUI();
   gui.add(params, 'reset');

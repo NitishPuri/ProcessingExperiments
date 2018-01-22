@@ -251,7 +251,7 @@ function setupGUI() {
 }
 
 function setup() {
-  createCanvas(windowWidth - 100, windowHeight - 50);
+  createCanvasCustom();
   init();
   setupGUI();
 }

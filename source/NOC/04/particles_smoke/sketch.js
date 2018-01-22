@@ -16,7 +16,7 @@ function preload() {
 }
 
 function setup() {
-  var canvas = createCanvas(windowWidth - 10, windowHeight - 100);
+  var canvas = createCanvasCustom();
 
   params.reset();
 
