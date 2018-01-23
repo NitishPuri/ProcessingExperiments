@@ -22,11 +22,11 @@ var params = {
   },
   changeColorMode : function() {
     if(this.cMode == 0) {
-      colorMode(HSB, 360, 255, 255, 255)
+      colorMode(HSB, 360, 255, 255, 1)
       this.cMode = 1
     }
     else {
-      colorMode(RGB, 255, 255, 255, 255)
+      colorMode(RGB, 255, 255, 255, 1)
       this.cMode = 0
     }
   }
@@ -62,12 +62,13 @@ function setup() {
   gui.add(params, 'falloff').min(0.01).max(1);
 
   params.reset();
+  params.changeColorMode();
 
 }
 
 function draw() {
   if(params.drawBackground) {
-    background(0, 50);  
+    background(0, 0.1);  
   }
 
 

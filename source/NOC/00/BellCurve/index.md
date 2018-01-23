@@ -1,5 +1,5 @@
 ---
-layout: sketch2
+layout: sketch
 scripts: sketch.js
 title: Bell Curve
 ---

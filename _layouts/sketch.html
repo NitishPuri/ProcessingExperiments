@@ -1,54 +1,76 @@
 <!DOCTYPE html>
+
 <head>
 
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    {% if site.google_analytics and jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
+
+    <title>
+        {{ page.title }} &middot; {{ site.title }}
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/poole.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/syntax.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/lanyon.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/custom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    
     <script src="{{ site.baseurl }}/lib/p5.min.js"></script>
     <script src="{{ site.baseurl }}/lib/p5.dom.min.js"></script>
-    
-    <script src="{{ site.baseurl }}/lib/dat.gui.min.js"></script>
-    {% if page.box2d %}
+
+    <script src="{{ site.baseurl }}/lib/dat.gui.min.js"></script> {% if page.box2d %}
     <script src="{{ site.baseurl }}/lib/box2d-html5.js"></script>
-    <script src="{{ site.baseurl }}/lib/box2d-helper.js"></script>
-    {% endif %}
-  
-    {% if page.matter %}
+    <script src="{{ site.baseurl }}/lib/box2d-helper.js"></script> {% endif %} {% if page.matter %}
     <script src="{{ site.baseurl }}/lib/matter.js"></script>
     <!-- <script src="{{ site.baseurl }}/lib/matter.min.js"></script> -->
-    {% endif %}
-  
-    {% if page.toxiclibs %}
+    {% endif %} {% if page.toxiclibs %}
     <script src="{{ site.baseurl }}/lib/toxiclibs.js"></script>
-    <script src="{{ site.baseurl }}/lib/toxichelper.js"></script>
-    {% endif %}
-  
-    {% for script in page.scripts %}
-      <script src="{{ script }}"></script>
-    {% endfor %}
+    <script src="{{ site.baseurl }}/lib/toxichelper.js"></script> {% endif %} {% for script in page.scripts %}
+    <script src="{{ script }}"></script> {% endfor %}
     <style>
         body {
-            margin: 0px
+            margin: 0px;
         }
+        canvas {
+            padding-left: 0rem;
+        }
+
         .homelink {
             position: fixed;
             bottom: 0.5em;
-            left: 0.5em;
-            background-color: rgba(10, 10, 10, 0.4);            
+            right: 0.5em;
+            background-color: rgba(10, 10, 10, 0.4);
             padding: 0.5em;
             color: white;
             text-decoration: none;
         }
+
         .homelink:hover {
             text-decoration: underline
         }
     </style>
     <script>
         function createCanvasCustom(renderer) {
-            return createCanvas(windowWidth, windowHeight-5, renderer)
+            let cnv = createCanvas(windowWidth, windowHeight - 5, renderer)
+            cnv.parent('sketch-holder')
+            return cnv
+
         }
     </script>
 </head>
-      
-<body>
-    {{ content }}
 
-    <a class="homelink" href="/">☰ Home</a>
+<body>
+    <div id="sketch-holder">
+        <!-- Our sketch will go here!!! -->
+    </div>
+    <h1 class="page-title">{{ page.title }}</h1>
+    <div class="container content">
+        {{ content }}
+    </div>
+    <a class="homelink" href="{{ site.baseurl }}/">☰ Home</a>
 </body>

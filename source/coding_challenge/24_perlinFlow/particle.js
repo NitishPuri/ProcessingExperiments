@@ -45,7 +45,7 @@ class Particle {
   show() {
     strokeWeight(params.strokeSize)
     // strokeWeight(2)
-    stroke(this.hue, 255, 255, 100);
+    stroke(this.hue, 255, 255, 0.4);
     // point(this.pos.x, this.pos.y)
     line(this.pos.x, this.pos.y, this.prev.x, this.prev.y);
   }

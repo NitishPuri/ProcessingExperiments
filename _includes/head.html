@@ -31,32 +31,4 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-
-  {% if layout.sketch %}
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/addons/p5.dom.min.js"></script> -->
-  <script src="{{ site.baseurl }}/lib/p5.min.js"></script>
-  <script src="{{ site.baseurl }}/lib/p5.dom.min.js"></script>
-
-  <script src="{{ site.baseurl }}/lib/dat.gui.min.js"></script>
-
-  {% if page.box2d %}
-  <script src="{{ site.baseurl }}/lib/box2d-html5.js"></script>
-  <script src="{{ site.baseurl }}/lib/box2d-helper.js"></script>
-  {% endif %}
-
-  {% if page.matter %}
-  <script src="{{ site.baseurl }}/lib/matter.js"></script>
-  <!-- <script src="{{ site.baseurl }}/lib/matter.min.js"></script> -->
-  {% endif %}
-
-  {% if page.toxiclibs %}
-  <script src="{{ site.baseurl }}/lib/toxiclibs.js"></script>
-  <script src="{{ site.baseurl }}/lib/toxichelper.js"></script>
-  {% endif %}
-
-  {% for script in page.scripts %}
-    <script src="{{ script }}"></script>
-  {% endfor %}
-  {% endif %}  
 </head>
