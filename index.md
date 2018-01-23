@@ -55,6 +55,15 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [OneD CA](source/NOC/07/OneD_CA)
         1. [Game Of Life](source/NOC/07/gol)
         1. [Game Of Life: Hexagonal Grid](source/NOC/07/gol_hex)
+    1. Fractals
+        1. [Recursive Circles 1](source/NOC/08/recursion_1)
+        1. [Recursive Circles 2](source/NOC/08/recursion_2)
+        1. [Recursive Circles 3](source/NOC/08/recursion_3)
+        1. [Cantor Set](source/NOC/08/cantor)
+        1. [Koch Curve](source/NOC/08/koch)
+        1. [Tree](source/NOC/08/tree)
+        1. [Tree Stochastic](source/NOC/08/tree_stochastic)
+        1. [Simple L-System](source/NOC/08/simpleLSystem)
 1. Experiments
     1. [Bouncing Ball](source/experiments/bouncing_ball)
     1. [Floating Balls](source/experiments/floating_balls)
