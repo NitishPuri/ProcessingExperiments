@@ -1,11 +1,14 @@
 class KochFractal {
   constructor() {
-    this.start = createVector(0, height-20);
-    this.end = createVector(width, height-20);
+    this.points = []
+    // this.points.push(createVector(0, height-20));
+    // this.points.push(createVector(width, height-20))
+    // this.start = ;
+    // this.end = ;
     this.lines = [];
     this.count = 0;    
 
-    this.restart();
+    // this.restart();
   }
 
   nextLevel() {
@@ -16,7 +19,9 @@ class KochFractal {
   restart() {
     this.count = 0;
     this.lines = [];
-    this.lines.push(new KochLine(this.start, this.end));
+    for(let i = 0; i < this.points.length-1; i++) {
+      this.lines.push(new KochLine(this.points[i], this.points[i+1]));
+    }
   }
 
   getCount() {

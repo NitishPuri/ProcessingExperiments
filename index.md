@@ -65,6 +65,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Tree Stochastic](source/NOC/08/tree_stochastic)
         1. [Simple L-System](source/NOC/08/simpleLSystem)
         1. [L-System : Turtle](source/NOC/08/LSystem)
+        1. [Mandelbrot](source/NOC/08/mandelbrot)
 1. Experiments
     1. [Bouncing Ball](source/experiments/bouncing_ball)
     1. [Floating Balls](source/experiments/floating_balls)
