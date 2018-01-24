@@ -3,9 +3,6 @@ var theta = 0;
 
 function setup() {
   createCanvasCustom();
-  // colorMode(HSB)
-  // frameRate(1)
-  // k = new KochFractal();
 }
 
 
