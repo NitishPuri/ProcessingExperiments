@@ -72,6 +72,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Interactive Selection of Faces](source/NOC/09/interactiveSelection)
         1. [Evolution Ecosystem](source/NOC/09/ecosystem)
         1. [Evolve Flow Field](source/NOC/09/flowField)
+    1. Neural Networks
+        1. [Perceptrons](source/NOC/10/perceptron)
 1. Experiments
     1. [Bouncing Ball](source/experiments/bouncing_ball)
     1. [Floating Balls](source/experiments/floating_balls)
