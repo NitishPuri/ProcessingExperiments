@@ -58,7 +58,7 @@ class Population {
       child.mutate(this.mutationRate);
 
       const position = createVector(width/2, height + 20);
-      this.population[i] = new Rocket(position, child, this.population.length);
+      this.population[i] = new Rocket(position, child);
     }
 
     this.generations++;

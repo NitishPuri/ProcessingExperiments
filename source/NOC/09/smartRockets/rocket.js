@@ -1,5 +1,5 @@
 class Rocket {
-  constructor(pos, dna, totalRockets) {
+  constructor(pos, dna) {
     this.acceleration = createVector();
     this.velocity = createVector();
     this.position = pos.copy();
