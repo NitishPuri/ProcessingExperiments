@@ -66,6 +66,12 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Simple L-System](source/NOC/08/simpleLSystem)
         1. [L-System : Turtle](source/NOC/08/LSystem)
         1. [Mandelbrot](source/NOC/08/mandelbrot)
+    1. Evolutionary Algorithms
+        1. [Shakespeare](source/NOC/09/shakespeare)
+        1. [Smart Rockets](source/NOC/09/smartRockets)
+        1. [Interactive Selection of Faces](source/NOC/09/interactiveSelection)
+        1. [Evolution Ecosystem](source/NOC/09/ecosystem)
+        1. [Evolve Flow Field](source/NOC/09/flowField)
 1. Experiments
     1. [Bouncing Ball](source/experiments/bouncing_ball)
     1. [Floating Balls](source/experiments/floating_balls)
@@ -78,7 +84,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#14/15 - Fractal Tree](source/coding_challenge/14_fractalTree)
     1. [#16 - L System](source/NOC/08/LSystem)
     1. [#17 - Fractal Trees - Space Colonization](source/coding_challenge/17_fractalTree)
-    1. [#18 - Fractal Trees - Space Colonization in 3D](source/coding_challenge/18_fractalTree) **TBD!!**
+    1. [#18 - Fractal Trees - Space Colonization in 3D](source/coding_challenge/18_fractalTree)
     1. [#24 - Perlin Noise Flow Field](source/coding_challenge/24_perlinFlow)
     1. [#59 - Steering Behaviours](source/coding_challenge/59_steeringBehaviour)
     1. [#62 - Plinko](source/coding_challenge/62_plinko)
