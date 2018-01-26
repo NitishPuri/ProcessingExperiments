@@ -91,6 +91,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#17 - Fractal Trees - Space Colonization](source/coding_challenge/17_fractalTree)
     1. [#18 - Fractal Trees - Space Colonization in 3D](source/coding_challenge/18_fractalTree)
     1. [#24 - Perlin Noise Flow Field](source/coding_challenge/24_perlinFlow)
+    1. [#57 - Mapping Earthquake Data](source/coding_challenge/57_mappingEarthquake)
     1. [#59 - Steering Behaviours](source/coding_challenge/59_steeringBehaviour)
     1. [#62 - Plinko](source/coding_challenge/62_plinko)
 2. Algorithms
