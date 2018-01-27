@@ -10,5 +10,6 @@ title: Video Seriously
 ---
 
 
+Video effects using [seriously.js](https://github.com/brianchirls/Seriously.js/).   
 
 Try more effects/,.!!!!
