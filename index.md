@@ -91,6 +91,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Video Checkbox](source/experiments/video_checkbox)
         1. [Video Painting](source/experiments/video_painting)
         1. [Video Slit Scan](source/experiments/video_slitScan)
+        1. [Video Seriously](source/experiments/video_seriously)
 2. Coding Challenge
     1. [#14/15 - Fractal Tree](source/coding_challenge/14_fractalTree)
     1. [#16 - L System](source/NOC/08/LSystem)
