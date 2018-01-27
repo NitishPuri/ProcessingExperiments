@@ -1,6 +1,7 @@
 ---
 layout: sketch
-matter : true
+libs: 
+    - matter.min.js
 scripts : 
     - box.js
     - particle.js
