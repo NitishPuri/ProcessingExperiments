@@ -1,6 +1,6 @@
 
 var params = {
-  reset : function() {
+  reset: function () {
     tree = new Tree();
   }
 }

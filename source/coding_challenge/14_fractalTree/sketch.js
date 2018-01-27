@@ -1,7 +1,7 @@
 
 
 var params = {
-  angle : 0
+  angle: 0
 }
 
 var tree = [];
@@ -11,8 +11,8 @@ var count = 0;
 function setup() {
   createCanvasCustom();
 
-  var a = createVector(width/2, height);
-  var b = createVector(width/2, height - 100);
+  var a = createVector(width / 2, height);
+  var b = createVector(width / 2, height - 100);
 
   var root = new Branch(a, b);
 
@@ -25,18 +25,18 @@ function setup() {
 
 function mousePressed() {
   var n = tree.length;
-  for(var i = 0; i < n; i++) {
-    if(tree[i].finished == false) {
+  for (var i = 0; i < n; i++) {
+    if (tree[i].finished == false) {
       tree.push(tree[i].branchA());
       tree.push(tree[i].branchB());
-      tree[i].finished = true;  
+      tree[i].finished = true;
     }
   }
 
   count++;
-  if( count === 5) {
-    for(var i = 0; i < tree.length; i++) {
-      if(!tree[i].finished) {
+  if (count === 5) {
+    for (var i = 0; i < tree.length; i++) {
+      if (!tree[i].finished) {
         var leaf = tree[i].end.copy();
         leaves.push(leaf);
       }

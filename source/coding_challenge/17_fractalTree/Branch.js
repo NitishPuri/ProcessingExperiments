@@ -24,7 +24,7 @@ class Branch {
   }
 
   show(sw) {
-    if(this.parent != null) {
+    if (this.parent != null) {
       // noStroke();
       // fill(255, 0, 0);
       // ellipse(this.position.x, this.position.y, 5, 4)

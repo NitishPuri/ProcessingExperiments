@@ -13,20 +13,20 @@ class Branch {
 
   branchA() {
     var dir = p5.Vector.sub(this.end, this.start);
-    dir.rotate(PI/4);
+    dir.rotate(PI / 4);
     dir.mult(0.67)
     var newEnd = p5.Vector.add(this.end, dir);
     var rightBranch = new Branch(this.end, newEnd);
     return rightBranch;
-  }  
+  }
 
   branchB() {
     var dir = p5.Vector.sub(this.end, this.start);
-    dir.rotate(-PI/4);
+    dir.rotate(-PI / 4);
     dir.mult(0.67)
     var newEnd = p5.Vector.add(this.end, dir);
     var rightBranch = new Branch(this.end, newEnd);
     return rightBranch;
-  }  
+  }
 
 }

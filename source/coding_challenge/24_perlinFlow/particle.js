@@ -28,18 +28,18 @@ class Particle {
   }
 
   follow(flowField) {
-    const x = floor(this.pos.x/params.scale);
-    const y = floor(this.pos.y/params.scale);
-    const index = x + y*cols
+    const x = floor(this.pos.x / params.scale);
+    const y = floor(this.pos.y / params.scale);
+    const index = x + y * cols
     const v = flowField[index];
     this.applyForce(v)
   }
 
   edges() {
-    if(this.pos.x > width) this.pos.x = 0;
-    if(this.pos.x < 0) this.pos.x = width;
-    if(this.pos.y > height) this.pos.y = 0;
-    if(this.pos.y < 0) this.pos.y = height;
+    if (this.pos.x > width) this.pos.x = 0;
+    if (this.pos.x < 0) this.pos.x = width;
+    if (this.pos.y > height) this.pos.y = 0;
+    if (this.pos.y < 0) this.pos.y = height;
   }
 
   show() {
@@ -52,4 +52,4 @@ class Particle {
     // point(this.pos.x, this.pos.y)
     line(this.pos.x, this.pos.y, this.prev.x, this.prev.y);
   }
-}
+} 

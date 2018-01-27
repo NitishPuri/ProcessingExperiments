@@ -45,13 +45,13 @@ class Particle {
   flee(t) {
     var desired = p5.Vector.sub(t, this.pos);
     var d = desired.mag();
-    if(d < 100) {
+    if (d < 100) {
       desired.setMag(this.maxSpeed);
       desired.mult(-1)
-  
+
       const steer = p5.Vector.sub(desired, this.vel);
       steer.limit(this.maxForce);
-      return steer;  
+      return steer;
     }
     return createVector(0, 0);
   }
@@ -60,7 +60,7 @@ class Particle {
     var desired = p5.Vector.sub(t, this.pos);
     // desired.setMag(this.maxSpeed);
     var d = desired.magSq();
-    if(d < 100) {
+    if (d < 100) {
       const m = map(d, 0, 100, this.maxSpeed);
       desired.setMag(m)
     }
@@ -70,7 +70,7 @@ class Particle {
 
     const steer = p5.Vector.sub(desired, this.vel);
     steer.limit(this.maxForce);
-    return steer;    
+    return steer;
   }
 
   // follow(flowField) {

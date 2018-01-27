@@ -37,7 +37,7 @@ function mercY(lat) {
 
 function setup() {
   createCanvasCustom()
-  translate(width/2, height/2);
+  translate(width / 2, height / 2);
   imageMode(CENTER);
   // image(mapimg, 0, 0);
   image(mapimg, 0, 0, width, height);
@@ -55,10 +55,10 @@ function setup() {
     // const y = mercY(lat) - cy;
     const x = map(mercX(long) - cx, 0, ww, 0, width);
     const y = map(mercY(lat) - cy, 0, hh, 0, height);
-    if(x < -width/2) {
+    if (x < -width / 2) {
       x += width
     }
-    else if(x > width/2) {
+    else if (x > width / 2) {
       x -= width
     }
 

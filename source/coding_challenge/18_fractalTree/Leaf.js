@@ -1,8 +1,8 @@
 class Leaf {
   constructor() {
     this.position = p5.Vector.random3D();
-    this.position.mult(random(width/2));
-    this.position.y -= height/4;
+    this.position.mult(random(width / 2));
+    this.position.y -= height / 4;
     this.reached = false;
   }
 
