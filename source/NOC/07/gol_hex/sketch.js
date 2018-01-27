@@ -2,10 +2,10 @@
 // https://www.gamedev.net/blogs/entry/2261919-is-there-a-hexagonal-analog-of-conways-game-of-life/
 
 var params = {
-  restart : function() {
+  restart: function () {
     gol.init();
   },
-  pause : false
+  pause: false
 }
 
 var gol;
@@ -23,7 +23,7 @@ function draw() {
   background(51);
   gol.display();
   // gol.debug();
-  if((params.pause == false) && (frameCount % 10 == 0)) {
+  if ((params.pause == false) && (frameCount % 10 == 0)) {
     gol.generate();
   }
 }

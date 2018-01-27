@@ -4,14 +4,14 @@ class Spring {
     this.mouseJoint = null;
   }
   update(x, y) {
-    if(this.mouseJoint !== null) {
+    if (this.mouseJoint !== null) {
       const mouseWorld = scaleToWorld(x, y);
       this.mouseJoint.SetTarget(mouseWorld);
     }
   }
 
   display() {
-    if(this.mouseJoint !== null) {
+    if (this.mouseJoint !== null) {
       const posA = this.mouseJoint.GetAnchorA();
       const posB = this.mouseJoint.GetAnchorB();
 
@@ -36,7 +36,7 @@ class Spring {
     const mp = scaleToWorld(x, y);
     md.target = mp;
 
-    md.maxForce = 1000.0*body.m_mass;
+    md.maxForce = 1000.0 * body.m_mass;
     md.frequencyHz = 5.0;
     md.dampingRatio = 0.9;
 
@@ -44,7 +44,7 @@ class Spring {
   }
 
   destroy() {
-    if(this.mouseJoint !== null) {
+    if (this.mouseJoint !== null) {
       world.DestroyJoint(this.mouseJoint);
       this.mouseJoint = null;
     }

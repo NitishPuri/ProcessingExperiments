@@ -8,17 +8,17 @@ let yValues = [];
 var params = {
   count: 5,
   xSpacing: 8,
-  randomAmp : true,
-  randomVel : true,
-  randomPos : true,
-  reset : function () {
+  randomAmp: true,
+  randomVel: true,
+  randomPos: true,
+  reset: function () {
     w = width + 16;
-    for(let i = 0; i < params.count; i++) {
+    for (let i = 0; i < params.count; i++) {
       amplitude[i] = random(10, 30);
       dx[i] = (TWO_PI / random(100, 300)) * params.xSpacing;
     }
-  
-    yValues = new Array(floor(w/params.xSpacing));
+
+    yValues = new Array(floor(w / params.xSpacing));
   }
 }
 
@@ -45,19 +45,19 @@ function draw() {
 function calcWave() {
   theta += 0.02;
 
-  for(let i = 0; i < yValues.length; i++) {
+  for (let i = 0; i < yValues.length; i++) {
     yValues[i] = 0;
   }
 
-  for(let j = 0; j < params.count; j++) {
+  for (let j = 0; j < params.count; j++) {
     let x = theta;
-    for(let i = 0; i < yValues.length; i++) {
-      if(j%2 == 0) yValues[i] += sin(x) * amplitude[j];
+    for (let i = 0; i < yValues.length; i++) {
+      if (j % 2 == 0) yValues[i] += sin(x) * amplitude[j];
       else yValues[i] += cos(x) * amplitude[j];
-      x+= dx[j];
+      x += dx[j];
     }
   }
-} 
+}
 
 function renderWave() {
   stroke(200, 200, 200, 200);
@@ -67,8 +67,8 @@ function renderWave() {
   noStroke();
   fill(255, 100);
   ellipseMode(CENTER);
-  for(let x = 0; x < yValues.length; x++) {
-    ellipse(x*params.xSpacing, height/2 + yValues[x], 16);
+  for (let x = 0; x < yValues.length; x++) {
+    ellipse(x * params.xSpacing, height / 2 + yValues[x], 16);
   }
 }
 

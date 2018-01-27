@@ -14,10 +14,10 @@ class Obstacle {
   }
 
   contains(spot) {
-    if(spot.x > this.position.x && spot.x < this.position.x + this.w 
+    if (spot.x > this.position.x && spot.x < this.position.x + this.w
       && spot.y > this.position.y && spot.y < this.position.y + this.h) {
       return true;
     }
-    return false;      
+    return false;
   }
 }

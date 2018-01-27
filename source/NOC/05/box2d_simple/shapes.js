@@ -18,7 +18,7 @@ class Shape {
   }
 
   display() {
-    throw new Error("Abstract method!!!");    
+    throw new Error("Abstract method!!!");
   }
 
   // This function removes the body from box2d world.
@@ -40,7 +40,7 @@ class Shape {
     m.SelfMul(50.0);
     this.body.ApplyForce(m, b);
   }
-  
+
   // Is the particle ready for deletion ? 
   done() {
     var pos = scaleToPixels(this.body.GetPosition());
@@ -50,7 +50,7 @@ class Shape {
     }
     return false;
   }
-  
+
 }
 
 // Box shape!!
@@ -95,7 +95,7 @@ class Box extends Shape {
     strokeWeight(2);
     rect(0, 0, this.w, this.h);
     pop();
-  }  
+  }
 }
 
 // Circle Shape!!
@@ -133,9 +133,9 @@ class Circle extends Shape {
     rotate(a);
     fill(127);
     stroke(0);
-    strokeWeight(2);    
+    strokeWeight(2);
     // rect(0, 0, this.size.x, this.size.y);
-    ellipse(0, 0, this.r*2);
+    ellipse(0, 0, this.r * 2);
     line(0, 0, this.r, 0);
     pop();
   }
@@ -186,21 +186,21 @@ class CustomShape extends Shape {
     rotate(a);
     fill(127);
     stroke(0);
-    strokeWeight(2);    
+    strokeWeight(2);
     ellipse(0, 0, 20, 20);
     beginShape();
-    for(let i = 0; i < ps.m_count; i++) {
-        var v = scaleToPixels(ps.m_vertices[i]);
-        vertex(v.x, v.y);
+    for (let i = 0; i < ps.m_count; i++) {
+      var v = scaleToPixels(ps.m_vertices[i]);
+      vertex(v.x, v.y);
     }
     endShape(CLOSE);
-    pop();      
-  }    
+    pop();
+  }
 }
 
 class Lollipop extends Shape {
   constructor(x, y) {
-    super(x, y);    
+    super(x, y);
     this.w = 8;
     this.h = 24;
     this.r = 8;
@@ -209,7 +209,7 @@ class Lollipop extends Shape {
   defineShape() {
     var fd1 = new box2d.b2FixtureDef();
     fd1.shape = new box2d.b2PolygonShape();
-    fd1.shape.SetAsBox(scaleToWorld(this.w/2), scaleToWorld(this.h/2));
+    fd1.shape.SetAsBox(scaleToWorld(this.w / 2), scaleToWorld(this.h / 2));
     fd1.density = 1.0;
     fd1.friction = 0.5;
     fd1.restitution = 0.2;
@@ -218,12 +218,12 @@ class Lollipop extends Shape {
     var fd2 = new box2d.b2FixtureDef();
     fd2.shape = new box2d.b2CircleShape();
     fd2.shape.m_radius = scaleToWorld(this.r);
-    var offset = scaleToWorld(new box2d.b2Vec2(0, this.h/2));
+    var offset = scaleToWorld(new box2d.b2Vec2(0, this.h / 2));
     fd2.shape.m_p = new box2d.b2Vec2(offset.x, offset.y);
     fd2.density = 1.0;
     fd2.friction = 0.5;
     fd2.restitution = 0.2;
-    this.body.CreateFixture(fd2);    
+    this.body.CreateFixture(fd2);
   }
   display() {
     var pos = scaleToPixels(this.body.GetPosition());
@@ -235,9 +235,9 @@ class Lollipop extends Shape {
     rotate(a);
     fill(127);
     stroke(0);
-    strokeWeight(2);    
+    strokeWeight(2);
     rect(0, 0, this.w, this.h);
-    ellipse(0, -this.h/2, this.r*2);
+    ellipse(0, -this.h / 2, this.r * 2);
     pop();
   }
 }

@@ -4,11 +4,11 @@ let repeller;
 var params = {
   wind: 0,
   gravity: 0.1,
-  reset : function () {
+  reset: function () {
     systems = [];
-    systems.push(new ParticleSystem(width/2, 50));
+    systems.push(new ParticleSystem(width / 2, 50));
 
-    repeller = new Repeller(width/2 - 20, height/2);
+    repeller = new Repeller(width / 2 - 20, height / 2);
   }
 }
 
@@ -27,21 +27,21 @@ function setup() {
 function draw() {
   background(255);
 
-  var gravity = createVector(0,params.gravity);
+  var gravity = createVector(0, params.gravity);
   var wind = createVector(params.wind, 0);
   for (var ps of systems) {
     ps.addParticle();
     ps.applyForce(gravity);
     ps.applyForce(wind);
     ps.applyRepeller(repeller);
-    ps.run();      
+    ps.run();
   }
 
   repeller.display();
 }
 
 function mousePressed() {
-  if( mouseX > 0 && mouseX && width && mouseY > 0 && mouseY < height) {
+  if (mouseX > 0 && mouseX && width && mouseY > 0 && mouseY < height) {
     systems.push(new ParticleSystem(mouseX, mouseY));
   }
 }

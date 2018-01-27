@@ -1,7 +1,7 @@
 class Neuron {
   constructor(x, y) {
     this.position = createVector(x, y);
-    this.connections = [];    
+    this.connections = [];
 
     this.sum = 0;
     this.r = 32;
@@ -17,7 +17,7 @@ class Neuron {
     this.sum += input;
 
     // Activate it
-    if(this.sum > 1) {
+    if (this.sum > 1) {
       this.fire();
       this.sum = 0;
     }

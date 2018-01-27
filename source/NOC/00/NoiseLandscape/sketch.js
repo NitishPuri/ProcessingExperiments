@@ -2,7 +2,7 @@ let landscape;
 var theta = 0;
 
 var params = {
-  speed : 1
+  speed: 1
 }
 
 function setup() {
@@ -23,9 +23,9 @@ function draw() {
   // push();
   // translate(width/2, height/2, 0);
   // rotateX(angleX);
-  rotateX(PI/2);
+  rotateX(PI / 2);
   // rotateZ(theta);  
-  translate(-width/2 - 200, -height -2000, -landscape.w/2);
+  translate(-width / 2 - 200, -height - 2000, -landscape.w / 2);
   // translate(-landscape.w/2, -landscape.h/2, 0)
   // rotateZ(angleZ);
   landscape.render();

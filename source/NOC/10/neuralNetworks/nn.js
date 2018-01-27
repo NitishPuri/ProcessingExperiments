@@ -42,7 +42,7 @@ class NeuralNetwork {
     output.add(this.bias_o);
     output.map(sigmoid);
 
-    return output.toArray();    
+    return output.toArray();
   }
 
   train(inputs, targets) {
@@ -59,5 +59,5 @@ class NeuralNetwork {
     who_t.print();
     let hidden_error = Matrix.multiply(who_t, output_error);
   }
- 
+
 }

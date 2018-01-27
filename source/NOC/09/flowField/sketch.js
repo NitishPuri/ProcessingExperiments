@@ -18,14 +18,14 @@ var newObstacle = null;
 function setup() {
   createCanvasCustom();
   // info = createP('')
-  dnasize = floor(width/gridscale) * floor(height/gridscale);
-  lifetime = width/3
+  dnasize = floor(width / gridscale) * floor(height / gridscale);
+  lifetime = width / 3
   lifetime = 300;
   lifecycle = 0;
   recordTime = lifetime;
 
-  target = new Obstacle(width - diam - diam/2,height/2 - diam/2, diam, diam);
-  start = new Obstacle(diam/2, height/2 - diam/2, diam, diam);
+  target = new Obstacle(width - diam - diam / 2, height / 2 - diam / 2, diam, diam);
+  start = new Obstacle(diam / 2, height / 2 - diam / 2, diam, diam);
 
   var popmax = 500;
   var mutationRate = 0.02;
@@ -40,9 +40,9 @@ function draw() {
   target.display();
   obstacles.forEach(o => o.display());
 
-  if(lifecycle < lifetime) {
+  if (lifecycle < lifetime) {
     population.live(obstacles);
-    if((population.targetReached()) && (lifecycle < recordTime)) {
+    if ((population.targetReached()) && (lifecycle < recordTime)) {
       recordTime = lifecycle;
     }
     lifecycle++;
@@ -51,10 +51,10 @@ function draw() {
     lifecycle = 0;
     population.calcFitness();
     population.selection();
-    population.reproduction();    
+    population.reproduction();
   }
 
-  if(newObstacle != null) {
+  if (newObstacle != null) {
     newObstacle.display();
   }
 
@@ -68,7 +68,7 @@ function draw() {
 }
 
 function keyPressed() {
-  if(key === 'd' || key === 'D') {
+  if (key === 'd' || key === 'D') {
     debug = !debug;
   }
 }

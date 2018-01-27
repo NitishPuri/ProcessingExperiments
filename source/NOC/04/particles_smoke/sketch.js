@@ -4,10 +4,10 @@ let img;
 var params = {
   wind: 0,
   gravity: 0.1,
-  attachToMouse : false,
-  reset : function () {
+  attachToMouse: false,
+  reset: function () {
     systems = [];
-    systems.push(new ParticleSystem(width/2, height - 50, img));
+    systems.push(new ParticleSystem(width / 2, height - 50, img));
   }
 }
 
@@ -36,10 +36,10 @@ function draw() {
     ps.addParticle();
     // ps.applyForce(gravity);
     ps.applyForce(wind);
-    ps.run();      
+    ps.run();
   }
 
-  if(params.attachToMouse) {
+  if (params.attachToMouse) {
     systems[0].origin.x = mouseX;
     systems[0].origin.y = mouseY;
   }

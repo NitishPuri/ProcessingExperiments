@@ -12,7 +12,7 @@ let pendulum;
 //       amplitude[i] = random(10, 30);
 //       dx[i] = (TWO_PI / random(100, 300)) * params.xSpacing;
 //     }
-  
+
 //     yValues = new Array(floor(w/params.xSpacing));
 //   }
 // }

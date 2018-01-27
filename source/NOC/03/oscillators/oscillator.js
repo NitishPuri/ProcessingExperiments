@@ -15,7 +15,7 @@ class Oscillator {
     var y = sin(this.angle.y) * this.amp.y;
 
     push();
-    translate(width/2, height/2);
+    translate(width / 2, height / 2);
     stroke(0);
     strokeWeight(2);
     fill(127, 127);

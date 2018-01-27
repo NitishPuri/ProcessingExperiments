@@ -14,8 +14,8 @@ function setup() {
   physics.setWorldBounds(new Rect(0, 0, width, height));
 
   // Make two particles
-  p1 = new Particle(new Vec2D(width/2, 20));
-  p2 = new Particle(new Vec2D(width/2 + 160, 20));
+  p1 = new Particle(new Vec2D(width / 2, 20));
+  p2 = new Particle(new Vec2D(width / 2 + 160, 20));
 
   // Lock one in place.
   p1.lock();
@@ -42,7 +42,7 @@ function draw() {
   p1.display();
   p2.display();
 
-  if(mouseIsPressed) {
+  if (mouseIsPressed) {
     p2.lock();
     p2.x = mouseX;
     p2.y = mouseY;

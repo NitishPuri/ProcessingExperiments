@@ -3,7 +3,7 @@ class Mover {
     this.pos = createVector(x, y);
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
-    this.r = m*20;
+    this.r = m * 20;
     this.mass = m;
   }
 
@@ -26,7 +26,7 @@ class Mover {
   }
 
   checkEdges() {
-    var buffer = this.r*2;
+    var buffer = this.r * 2;
     if (this.pos.x > width + buffer) {
       this.pos.x = -buffer;
     }

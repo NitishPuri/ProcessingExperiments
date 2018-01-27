@@ -5,12 +5,12 @@ var liquid;
 
 var params = {
   wind: 0,
-  moverCount : 5,
-  mouseControl : false,
-  reset : function () {
+  moverCount: 5,
+  mouseControl: false,
+  reset: function () {
     spaceship = new Spaceship();
     movers = [];
-    for(let i = 0; i < params.moverCount; i++) {
+    for (let i = 0; i < params.moverCount; i++) {
       movers[i] = new Mover(random(width), random(height), random(1, 4));
     }
   }
@@ -36,13 +36,13 @@ function setup() {
 }
 
 function moverCountChanged(value) {
-  if(params.moverCount > movers.length) {
-    for(let i = movers.length; i < params.moverCount; i++){
+  if (params.moverCount > movers.length) {
+    for (let i = movers.length; i < params.moverCount; i++) {
       movers[i] = new Mover(random(width), random(height), random(1, 4));
     }
   }
-  else if(params.moverCount < movers.length) {
-    movers.splice(params.moverCount, movers.length-params.moverCount);
+  else if (params.moverCount < movers.length) {
+    movers.splice(params.moverCount, movers.length - params.moverCount);
   }
 }
 
@@ -55,7 +55,7 @@ function draw() {
 
   // Update spaceship.
   spaceship.applyForce(wind);
-  if(liquid.contains(spaceship)) {
+  if (liquid.contains(spaceship)) {
     var drag = liquid.calculateDrag(spaceship);
     spaceship.applyForce(drag);
   }
@@ -69,48 +69,48 @@ function draw() {
 
     if (liquid.contains(mover)) {
       var drag = liquid.calculateDrag(mover);
-      mover.applyForce(drag);  
+      mover.applyForce(drag);
     }
 
     // 
     var d = p5.Vector.dist(mover.pos, spaceship.pos);
-    if(d < (mover.mass*20 + spaceship.r) ) {
+    if (d < (mover.mass * 20 + spaceship.r)) {
       movers[i] = new Mover(random(width), random(height), random(1, 4));
-    }    
+    }
 
     mover.update();
     mover.render();
     mover.checkEdges();
   }
-  
+
   // Render spaceship after the movers.!!
   spaceship.render();
 
-  if(params.mouseControl) {
+  if (params.mouseControl) {
     // var h = p5.Vector.sub(createVector(mouseX, mouseY), spaceship.pos).heading();
-    var h = p5.Vector.sub(spaceship.pos, createVector(mouseX, mouseY),).heading();
+    var h = p5.Vector.sub(spaceship.pos, createVector(mouseX, mouseY), ).heading();
 
-    h = h - PI/2;
+    h = h - PI / 2;
     constrain(h, -0.05, 0.05);
 
     spaceship.turn(h - spaceship.heading);
-    if(mouseIsPressed) {
+    if (mouseIsPressed) {
       spaceship.thrust();
     }
   }
-  else{
+  else {
     // Keyboard controls.
     if (keyIsPressed) {
-      if ( keyCode === RIGHT_ARROW) {
+      if (keyCode === RIGHT_ARROW) {
         spaceship.turn(0.03);
-      } 
+      }
       else if (keyCode === LEFT_ARROW) {
         spaceship.turn(-0.03);
       }
-      else if ( key === ' ') {
+      else if (key === ' ') {
         spaceship.thrust();
       }
-      else if ( key === 'r' || key === 'R') {
+      else if (key === 'r' || key === 'R') {
         params.reset();
       }
     }

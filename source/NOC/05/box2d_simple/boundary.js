@@ -36,20 +36,20 @@ class Surface {
     this.surface = [];
 
     // Perlin noise argument
-    let xOff = 0.0;  
+    let xOff = 0.0;
 
     const slope = random(0.5, 0.8);
-    const offset = height/4;
-    for(let x = width+10; x >= -10; x-= 5) {
+    const offset = height / 4;
+    for (let x = width + 10; x >= -10; x -= 5) {
       // Doing some stuff with perlin noise to calculate a surface that points
       // down on one side.
 
       let y;
-      if(x > width/2) {
-        y = offset + (width - x)*slope + map(noise(xOff), 0, 1, -80, 80);
+      if (x > width / 2) {
+        y = offset + (width - x) * slope + map(noise(xOff), 0, 1, -80, 80);
       }
       else {
-        y = offset + x*slope + map(noise(xOff), 0, 1, -40, 40);
+        y = offset + x * slope + map(noise(xOff), 0, 1, -40, 40);
       }
       constrain(y, 0, height - 5);
       xOff += 0.1;

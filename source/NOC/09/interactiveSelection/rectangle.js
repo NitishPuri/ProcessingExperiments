@@ -7,7 +7,7 @@ class Rectangle {
   }
 
   contains(px, py) {
-    return (px > this.x && px < this.x + this.w 
+    return (px > this.x && px < this.x + this.w
       && py > this.y && py < this.y + this.h)
   }
 }

@@ -1,11 +1,11 @@
 // module aliases
 var Engine = Matter.Engine,
-    // Render = Matter.Render,
-    World = Matter.World,
-    Constraint = Matter.Constraint,
-    MouseConstraint = Matter.MouseConstraint,
-    Mouse = Matter.Mouse,
-    Bodies = Matter.Bodies;
+  // Render = Matter.Render,
+  World = Matter.World,
+  Constraint = Matter.Constraint,
+  MouseConstraint = Matter.MouseConstraint,
+  Mouse = Matter.Mouse,
+  Bodies = Matter.Bodies;
 
 // create an engine
 var engine;
@@ -22,19 +22,19 @@ function setup() {
   world = engine.world;
 
   let options = {
-    isStatic : true,
+    isStatic: true,
   }
-  boundaries.push(new Box(width/2, height - 20, width, 20, 5, options))
+  boundaries.push(new Box(width / 2, height - 20, width, 20, 5, options))
 
   var prev = null;
-  for(let x = 20; x < 600; x+= 30) {
+  for (let x = 20; x < 600; x += 30) {
     var fixed = false;
-    if(!prev) {
+    if (!prev) {
       fixed = true;
     }
-    p = new Particle(width/2 + x, 50, 10, fixed);
+    p = new Particle(width / 2 + x, 50, 10, fixed);
     circles.push(p);
-    if(prev) {
+    if (prev) {
       let options = {
         bodyA: p.body,
         bodyB: prev.body,
@@ -52,7 +52,7 @@ function setup() {
   var cMouse = Mouse.create(canvas.elt);
   cMouse.pixelRatio = pixelDensity();
   options = {
-    mouse : cMouse
+    mouse: cMouse
   }
   mConstraint = new MouseConstraint.create(engine, options);
   World.add(world, mConstraint);
@@ -68,14 +68,14 @@ function draw() {
   constraints.forEach(c => {
     stroke(200);
     strokeWeight(2)
-    line(c.bodyA.position.x, c.bodyA.position.y, 
-         c.bodyB.position.x, c.bodyB.position.y,)
+    line(c.bodyA.position.x, c.bodyA.position.y,
+      c.bodyB.position.x, c.bodyB.position.y, )
   })
 
   circles.forEach(b => b.show());
   boundaries.forEach(b => b.show());
 
-  if(mConstraint.body) {
+  if (mConstraint.body) {
     const m = mConstraint.mouse.position;
     const p = mConstraint.body.position;
     const o = mConstraint.constraint.pointB;

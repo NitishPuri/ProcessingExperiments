@@ -15,9 +15,9 @@ class Boundary {
         fd.density = 1.0;
         fd.friction = 0.5;
         fd.restitution = 0.2;
-        
+
         fd.shape = new box2d.b2PolygonShape();
-        fd.shape.SetAsBox(this.w/(scaleFactor*2), this.h/(scaleFactor*2));
+        fd.shape.SetAsBox(this.w / (scaleFactor * 2), this.h / (scaleFactor * 2));
 
         this.body = world.CreateBody(bd);
         this.body.CreateFixture(fd);

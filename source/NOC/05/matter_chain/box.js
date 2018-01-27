@@ -2,7 +2,7 @@ class Box {
   constructor(x, y, w, h, rad, options) {
     this.w = w;
     this.h = h;
-    this.rad = rad;    
+    this.rad = rad;
 
     this.body = Bodies.rectangle(x, y, w, h, options);
     World.add(world, this.body);

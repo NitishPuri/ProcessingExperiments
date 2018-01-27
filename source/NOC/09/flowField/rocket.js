@@ -16,10 +16,10 @@ class Rocket {
     this.maxforce = 1.0;
   }
 
-  calcFitness() {    
-    if(this.recordDist < diam/2) this.recordDist = 1;
+  calcFitness() {
+    if (this.recordDist < diam / 2) this.recordDist = 1;
 
-    this.fitness = (1/pow(this.finish, 1.5)) * (1/pow(this.recordDist, 6));
+    this.fitness = (1 / pow(this.finish, 1.5)) * (1 / pow(this.recordDist, 6));
 
     // if(this.hitObstacle) this.fitness *= 0.1;
     // if(this.hitObstacle) this.fitness *= 2;
@@ -30,9 +30,9 @@ class Rocket {
   }
 
   run(os) {
-    if(!this.stopped) {
+    if (!this.stopped) {
       this.update();
-      if(this.borders() || this.obstacles(os)) {
+      if (this.borders() || this.obstacles(os)) {
         this.stopped = true;
         this.dead = true;
       }
@@ -42,16 +42,16 @@ class Rocket {
   }
 
   borders() {
-    return ((this.position.x < 0) || (this.position.y < 0) || 
-      (this.position.x > width) || (this.position.y > height)) 
+    return ((this.position.x < 0) || (this.position.y < 0) ||
+      (this.position.x > width) || (this.position.y > height))
   }
 
   finished() {
     var d = p5.Vector.dist(this.position, target.position)
-    if( d < this.recordDist) {
+    if (d < this.recordDist) {
       this.recordDist = d;
     }
-    if(target.contains(this.position)) {
+    if (target.contains(this.position)) {
       this.stopped = true;
       return true;
     }
@@ -60,9 +60,9 @@ class Rocket {
   }
 
   obstacles(os) {
-    for(let i = 0; i < os.length; i++) {
+    for (let i = 0; i < os.length; i++) {
       const obs = os[i];
-      if(obs.contains(this.position)) {
+      if (obs.contains(this.position)) {
         return true;
       }
     }
@@ -70,14 +70,14 @@ class Rocket {
   }
 
   update() {
-    if(!this.finished()) {
-      var x = floor(this.position.x/gridscale);
-      var y = floor(this.position.y/gridscale);
+    if (!this.finished()) {
+      var x = floor(this.position.x / gridscale);
+      var y = floor(this.position.y / gridscale);
 
-      x = constrain(x, 0, floor(width/gridscale - 1));
-      y = constrain(y, 0, floor(height/gridscale - 1));
+      x = constrain(x, 0, floor(width / gridscale - 1));
+      y = constrain(y, 0, floor(height / gridscale - 1));
 
-      var desired = this.dna.genes[x+y*floor(width/gridscale)].copy()
+      var desired = this.dna.genes[x + y * floor(width / gridscale)].copy()
       desired.mult(this.maxspeed);
       var steer = p5.Vector.sub(desired, this.velocity);
       this.acceleration.add(steer);
@@ -92,11 +92,11 @@ class Rocket {
 
   display() {
     // var theta = this.velocity.heading() + PI/2;
-    fill(200,100);
-    if(!this.velocity.x) fill(255, 0, 0);
+    fill(200, 100);
+    if (!this.velocity.x) fill(255, 0, 0);
     stroke(0);
     strokeWeight(0.5);
-    ellipse(this.position.x, this.position.y, this.r*2)
+    ellipse(this.position.x, this.position.y, this.r * 2)
     // push();
     // translate(this.position.x, this.position.y);
     // rotate(theta);

@@ -7,12 +7,12 @@ var params = {
   // gravity: 0.01,
   friction: 0.1,
   // drag: 0.01,
-  mutualRepulsion : false,
-  reset : function () {
+  mutualRepulsion: false,
+  reset: function () {
     movers = []
     for (var i = 0; i < 10; i++) {
-      movers[i] = new Mover(random(width), random(height/2), random(0.5, 4));
-    }      
+      movers[i] = new Mover(random(width), random(height / 2), random(0.5, 4));
+    }
     attractor = new Attractor();
   }
 }
@@ -23,7 +23,7 @@ function setup() {
 
   params.reset();
 
-  var gui = new dat.GUI({autoPlace: false});
+  var gui = new dat.GUI({ autoPlace: false });
   var gui = new dat.GUI();
   // var customContainer = select('#guiElement')
   // customContainer.child(gui.domElement)
@@ -59,9 +59,9 @@ function draw() {
     friction.mult(-1 * params.friction);
     mover.applyForce(friction);
 
-    if(params.mutualRepulsion) {
+    if (params.mutualRepulsion) {
       for (var otherMover of movers) {
-        if(mover !== otherMover) {
+        if (mover !== otherMover) {
           mover.applyForce(otherMover.repel(mover));
         }
       }

@@ -13,22 +13,22 @@ function setup() {
   lifecycle = 0;
   recordTime = lifetime;
 
-  target = new Obstacle(width/2 - 12, 24, 24, 24);
+  target = new Obstacle(width / 2 - 12, 24, 24, 24);
 
   var mutationRate = 0.01;
   population = new Population(mutationRate, 50);
 
   obstacles = [];
-  obstacles.push(new Obstacle(width/2 - 100, height/2, 200, 10));
+  obstacles.push(new Obstacle(width / 2 - 100, height / 2, 200, 10));
 }
 
 function draw() {
   background(127);
   target.display();
 
-  if(lifecycle < lifetime) {
+  if (lifecycle < lifetime) {
     population.live(target, obstacles);
-    if((population.targetReached()) && (lifecycle < recordTime)) {
+    if ((population.targetReached()) && (lifecycle < recordTime)) {
       recordTime = lifecycle;
     }
     lifecycle++;
@@ -37,7 +37,7 @@ function draw() {
     lifecycle = 0;
     population.fitness();
     population.selection();
-    population.reproduction();    
+    population.reproduction();
   }
 
   obstacles.forEach(o => o.display());

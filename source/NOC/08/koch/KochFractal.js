@@ -6,7 +6,7 @@ class KochFractal {
     // this.start = ;
     // this.end = ;
     this.lines = [];
-    this.count = 0;    
+    this.count = 0;
 
     // this.restart();
   }
@@ -19,8 +19,8 @@ class KochFractal {
   restart() {
     this.count = 0;
     this.lines = [];
-    for(let i = 0; i < this.points.length-1; i++) {
-      this.lines.push(new KochLine(this.points[i], this.points[i+1]));
+    for (let i = 0; i < this.points.length - 1; i++) {
+      this.lines.push(new KochLine(this.points[i], this.points[i + 1]));
     }
   }
 

@@ -15,5 +15,5 @@ function mousePressed() {
 }
 
 function mouseDragged() {
-  world.born(mouseX, mouseY)  
+  world.born(mouseX, mouseY)
 }

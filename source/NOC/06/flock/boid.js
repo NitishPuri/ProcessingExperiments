@@ -5,7 +5,7 @@ class Boid {
     this.position = createVector(x, y);
     this.r = 10.0;
     this.maxSpeed = 3;
-    this.maxForce = 0.05;    
+    this.maxForce = 0.05;
   }
 
   run(boids) {
@@ -51,25 +51,25 @@ class Boid {
   }
 
   render() {
-    const theta = this.velocity.heading() + PI/2;
+    const theta = this.velocity.heading() + PI / 2;
     fill(127);
     stroke(200);
     push();
     translate(this.position.x, this.position.y);
     rotate(theta);
     beginShape();
-    vertex(0, -this.r*2);
-    vertex(-this.r, this.r*2);
-    vertex(this.r, this.r*2);
+    vertex(0, -this.r * 2);
+    vertex(-this.r, this.r * 2);
+    vertex(this.r, this.r * 2);
     endShape(CLOSE);
     pop();
   }
 
   borders() {
-    if(this.position.x < -this.r) this.position.x = width + this.r;
-    if(this.position.y < -this.r) this.position.y = height + this.r;
-    if(this.position.x > width + this.r) this.position.x = -this.r;
-    if(this.position.y > height + this.r) this.position.y = -this.r;
+    if (this.position.x < -this.r) this.position.x = width + this.r;
+    if (this.position.y < -this.r) this.position.y = height + this.r;
+    if (this.position.x > width + this.r) this.position.x = -this.r;
+    if (this.position.y > height + this.r) this.position.y = -this.r;
   }
 
   // Check for nearby boids and steer away.
@@ -80,7 +80,7 @@ class Boid {
     // console.log("Here");
     boids.forEach(b => {
       const d = p5.Vector.dist(this.position, b.position);
-      if((d > 0) && (d < desiredSeparation)) {
+      if ((d > 0) && (d < desiredSeparation)) {
         const diff = p5.Vector.sub(this.position, b);
         diff.normalize();
         // diff.div(d);
@@ -89,15 +89,15 @@ class Boid {
       }
     })
 
-    if(count > 0) {
+    if (count > 0) {
       steer.div(count);
     }
 
-    if(steer.magSq() > 0) {
+    if (steer.magSq() > 0) {
       steer.normalize();
       steer.mult(this.maxSpeed);
       steer.sub(this.velocity);
-      steer.limit(this.maxForce);      
+      steer.limit(this.maxForce);
     }
 
     return steer;
@@ -110,19 +110,19 @@ class Boid {
     let count = 0;
     boids.forEach(b => {
       const d = p5.Vector.dist(this.position, b.position);
-      if((d > 0) && (d < neighbourDist)) {
+      if ((d > 0) && (d < neighbourDist)) {
         sum.add(b.velocity);
         count++;
       }
     })
 
-    if(count > 0) {
+    if (count > 0) {
       sum.div(count);
       sum.normalize();
       sum.mult(this.maxSpeed);
       const steer = p5.Vector.sub(sum, this.velocity);
       steer.limit(this.maxForce);
-      return steer;      
+      return steer;
     }
     else {
       return createVector(0, 0);
@@ -135,17 +135,17 @@ class Boid {
     let count = 0;
     boids.forEach(b => {
       const d = p5.Vector.dist(this.position, b.position);
-      if((d > 0) && (d < neighbourDist)) {
+      if ((d > 0) && (d < neighbourDist)) {
         sum.add(b.position)
         count++;
       }
     })
 
-    if(count > 0) {
+    if (count > 0) {
       sum.div(count);
       return this.seek(sum);
     }
 
     return createVector(0, 0);
-  }  
+  }
 }

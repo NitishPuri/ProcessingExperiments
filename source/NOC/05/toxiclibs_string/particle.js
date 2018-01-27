@@ -1,6 +1,6 @@
-class Particle extends VerletParticle2D{
+class Particle extends VerletParticle2D {
   constructor(pos) {
-    super(pos);    
+    super(pos);
   }
   display() {
     fill(127);

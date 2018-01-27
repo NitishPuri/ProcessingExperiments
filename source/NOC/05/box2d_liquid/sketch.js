@@ -23,8 +23,8 @@ function setup() {
   // world.SetGravity(-20);
 
   // Add boundaries
-  boundaries.push(new Boundary(width/3, 2*height/4, width/2, 5, -3.0));
-  boundaries.push(new Boundary(2*width/3, height/4, width/3, 5, -0.5));
+  boundaries.push(new Boundary(width / 3, 2 * height / 4, width / 2, 5, -3.0));
+  boundaries.push(new Boundary(2 * width / 3, height / 4, width / 3, 5, -0.5));
 
 
   var gui = new dat.GUI();

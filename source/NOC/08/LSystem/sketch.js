@@ -10,9 +10,9 @@ var counter = 0;
 function reset() {
   var ruleset = [];
   // ruleset[0] = new Rule('F', 'FF+[+F-F-F]-[-F+F+F]')
-  ruleset[0] = new Rule('F', ruleInput.value()) 
+  ruleset[0] = new Rule('F', ruleInput.value())
   lsys = new LSystem('F', ruleset);
-  turtle = new Turtle(lsys.getSentence(), height/3, radians(25));  
+  turtle = new Turtle(lsys.getSentence(), height / 3, radians(25));
 
   counter = 0;
 
@@ -43,7 +43,7 @@ function setup() {
   ruleDiv.style('padding-left', '1rem');
   ruleInput = createInput('FF+[+F-F-F]-[-F+F+F]')
   ruleInput.parent(ruleDiv);
-  
+
   // ruleInput.parent().style('padding-left', '1rem');
   // ruleInput.style('padding-left', '1rem');
 
@@ -58,14 +58,14 @@ function draw() {
   background(51);
   fill(0);
 
-  translate(width/2, height);
-  rotate(-PI/2);
+  translate(width / 2, height);
+  rotate(-PI / 2);
   turtle.render();
 }
 
 
 function mousePressed() {
-  if( counter < 4) {
+  if (counter < 4) {
     push();
     lsys.generate();
     turtle.setToDo(lsys.getSentence());

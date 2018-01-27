@@ -2,28 +2,28 @@ let oscillators = [];
 
 var params = {
   count: 10,
-  randomAmp : true,
-  randomVel : true,
-  randomPos : true,
-  reset : function () {
+  randomAmp: true,
+  randomVel: true,
+  randomPos: true,
+  reset: function () {
     oscillators = [];
     var ampBase = createVector(random(20, 50), random(20, 50));
     var velBase = createVector(random(0.01, 0.05), random(0.01, 0.05));
-    var posBase = createVector(random(-PI/2, PI/2), random(PI/2, PI/2));
+    var posBase = createVector(random(-PI / 2, PI / 2), random(PI / 2, PI / 2));
     for (var i = 0; i < params.count; i++) {
 
       let pos;
-      if(params.randomPos) {
-        pos = createVector(random(-PI/2, PI/2), random(-PI/2, PI/2));
+      if (params.randomPos) {
+        pos = createVector(random(-PI / 2, PI / 2), random(-PI / 2, PI / 2));
       }
       else {
-        pos = createVector(posBase.x+(i+1), posBase.y+(i+1));
+        pos = createVector(posBase.x + (i + 1), posBase.y + (i + 1));
       }
-      
+
       let vel;
-      if(params.randomVel){
+      if (params.randomVel) {
         vel = createVector(random(-0.05, 0.05), random(-0.05, 0.05));
-      } 
+      }
       else {
         // val = createVector(i*velBase.x, i*velBase.y);
         vel = createVector(velBase.x, velBase.y);
@@ -31,14 +31,14 @@ var params = {
 
       let amp;
       if (params.randomAmp) {
-        amp = createVector(random(-20, width/2), random(20, height/2));
+        amp = createVector(random(-20, width / 2), random(20, height / 2));
       }
       else {
-        amp = createVector((i+1)*ampBase.x, (i+1)*ampBase.y)
+        amp = createVector((i + 1) * ampBase.x, (i + 1) * ampBase.y)
       }
 
       oscillators[i] = new Oscillator(pos, vel, amp);
-    }      
+    }
   }
 }
 

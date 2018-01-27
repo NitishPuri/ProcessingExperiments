@@ -3,23 +3,23 @@ let physics;
 let clusters = [];
 
 let params = {
-  showPhysics : true,
-  showParticles : true,
-  newGraph : function() {
-    if(!this.showParticles && !this.showPhysics) {
+  showPhysics: true,
+  showParticles: true,
+  newGraph: function () {
+    if (!this.showParticles && !this.showPhysics) {
       this.showParticles = true;
     }
     physics.clear();
     clusters = [];
-    for(let i = 0; i < 8; i++) {
-      const center = new Vec2D(width/2, height/2);
-      clusters.push(new Cluster(floor(random(3, 10)), 
-                random(30, 200), center));
+    for (let i = 0; i < 8; i++) {
+      const center = new Vec2D(width / 2, height / 2);
+      clusters.push(new Cluster(floor(random(3, 10)),
+        random(30, 200), center));
 
-    }   
+    }
 
-    for(let i = 0; i < clusters.length; i++) {
-      for(let j = i+1; j < clusters.length; j++) {
+    for (let i = 0; i < clusters.length; i++) {
+      for (let j = i + 1; j < clusters.length; j++) {
         clusters[i].connect(clusters[j]);
       }
     }
@@ -49,15 +49,15 @@ function draw() {
 
   background(51);
 
-  if(params.showParticles) {
+  if (params.showParticles) {
     clusters.forEach(c => c.display());
   }
 
   let i = 0;
-  if(params.showPhysics) {
-    for(let i = 0; i < clusters.length; i++) {
+  if (params.showPhysics) {
+    for (let i = 0; i < clusters.length; i++) {
       clusters[i].showConnections();
-      for(let j = i+1; j < clusters.length; j++) {
+      for (let j = i + 1; j < clusters.length; j++) {
         clusters[i].showConnectionsWith(clusters[j]);
       }
     }

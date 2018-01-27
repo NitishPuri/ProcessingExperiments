@@ -1,4 +1,4 @@
-class Connection extends VerletSpring2D { 
+class Connection extends VerletSpring2D {
   constructor(p1, p2, length, strength) {
     super(p1, p2, length, strength);
   }

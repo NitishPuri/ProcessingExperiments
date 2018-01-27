@@ -1,13 +1,13 @@
 class DNA {
-  constructor(newGenes) {    
+  constructor(newGenes) {
     var len = 20;
 
     this.genes = []
-    if(newGenes) {
+    if (newGenes) {
       this.genes = newGenes
     }
     else {
-      for(var i = 0; i < len; i++) {
+      for (var i = 0; i < len; i++) {
         this.genes[i] = random(0, 1)
       }
     }
@@ -16,8 +16,8 @@ class DNA {
   crossover(partner) {
     var child = new Array(this.genes.length)
     var midpoint = floor(random(this.genes.length));
-    for(let i = 0; i < this.genes.length; i++) {
-      if ( i > midpoint) child[i] = this.genes[i];
+    for (let i = 0; i < this.genes.length; i++) {
+      if (i > midpoint) child[i] = this.genes[i];
       else child[i] = partner.genes[i]
     }
 
@@ -26,11 +26,11 @@ class DNA {
   }
 
   mutate(m) {
-    for(let i = 0; i < this.genes.length; i++) {
-      if(random(1) < m) {
+    for (let i = 0; i < this.genes.length; i++) {
+      if (random(1) < m) {
         var angle = random(TWO_PI);
         this.genes[i] = random(0, 1)
       }
     }
-  }  
+  }
 }

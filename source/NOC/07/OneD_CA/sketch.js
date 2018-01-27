@@ -1,8 +1,8 @@
 var params = {
-  restart : function() {
+  restart: function () {
     ca.restart();
   },
-  randomize: function() {
+  randomize: function () {
     ca.randomize();
   }
 }

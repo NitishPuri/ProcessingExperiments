@@ -23,7 +23,7 @@ class Landscape {
       }
       xOff += 0.1;
     }
-    this.zOff -= 0.01*params.speed;
+    this.zOff -= 0.01 * params.speed;
   }
 
 
@@ -38,7 +38,7 @@ class Landscape {
       // vertex(x + this.cellSize, -this.h / 2, this.z[i + 1][0]);
       // vertex(x, -this.h / 2, this.z[i][0]);
       const x = i * this.cellSize + (i * this.cellSize)
-      vertex(x + this.cellSize,0, this.z[i + 1][0]);
+      vertex(x + this.cellSize, 0, this.z[i + 1][0]);
       vertex(x, 0, this.z[i][0]);
       // for(var j = 0; j < 5; j++) {
       for (var j = 0; j < this.rows - 1; j++) {

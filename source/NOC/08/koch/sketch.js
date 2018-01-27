@@ -3,20 +3,20 @@ var t = 0;
 var k;
 
 var params = {
-  lines : function() {
+  lines: function () {
     k = new KochFractal();
-    k.points.push(createVector(0, height-20))
-    k.points.push(createVector(width, height-20))
+    k.points.push(createVector(0, height - 20))
+    k.points.push(createVector(width, height - 20))
     k.restart();
   },
-  snowflake : function() {
+  snowflake: function () {
     k = new KochFractal();
     const r = 0.3;
-    const h = height/3
-    k.points.push(createVector(width*r, h))
-    k.points.push(createVector(width*(1-r), h))
-    k.points.push(createVector(width/2, h+width*(1-2*r)*cos(radians(30))))
-    k.points.push(createVector(width*r, h))
+    const h = height / 3
+    k.points.push(createVector(width * r, h))
+    k.points.push(createVector(width * (1 - r), h))
+    k.points.push(createVector(width / 2, h + width * (1 - 2 * r) * cos(radians(30))))
+    k.points.push(createVector(width * r, h))
     k.restart();
   }
 }
@@ -40,7 +40,7 @@ function draw() {
   k.render();
   k.nextLevel();
   // console.log(k.getCount())
-  if(k.getCount() > 5) {
+  if (k.getCount() > 5) {
     k.restart();
   }
 }

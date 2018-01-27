@@ -7,7 +7,7 @@ class Bloop {
     this.dna = dna;
 
     this.maxspeed = map(this.dna.genes[0], 0, 1, 15, 0)
-    this.r = map(this.dna.genes[0], 0, 1, 0 ,50);
+    this.r = map(this.dna.genes[0], 0, 1, 0, 50);
   }
 
   run() {
@@ -18,10 +18,10 @@ class Bloop {
 
   eat(f) {
     var food = f.getFood();
-    for(let i = food.length - 1; i >= 0; i--) {
+    for (let i = food.length - 1; i >= 0; i--) {
       var foodLocation = food[i];
       const d = p5.Vector.dist(this.position, foodLocation);
-      if(d < this.r/2) {
+      if (d < this.r / 2) {
         this.health += 100;
         food.splice(i, 1);
       }
@@ -29,7 +29,7 @@ class Bloop {
   }
 
   reproduce() {
-    if(random(1) < 0.0005) {
+    if (random(1) < 0.0005) {
       var childDNA = this.dna.copy();
       childDNA.mutate(0.01);
       return new Bloop(this.position, childDNA);
@@ -52,10 +52,10 @@ class Bloop {
   }
 
   borders() {
-    if(this.position.x < -this.r) this.position.x = width + this.r;
-    if(this.position.y < -this.r) this.position.y = height + this.r;
-    if(this.position.x > this.width + this.r) this.position.x = -this.r;
-    if(this.position.y > this.height + this.r) this.position.y = -this.r;
+    if (this.position.x < -this.r) this.position.x = width + this.r;
+    if (this.position.y < -this.r) this.position.y = height + this.r;
+    if (this.position.x > this.width + this.r) this.position.x = -this.r;
+    if (this.position.y > this.height + this.r) this.position.y = -this.r;
   }
 
   display() {

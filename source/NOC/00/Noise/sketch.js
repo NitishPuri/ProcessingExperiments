@@ -1,7 +1,7 @@
 t = 0;
 
 params = {
-  increment : 0.001
+  increment: 0.001
 }
 
 function setup() {
@@ -12,15 +12,15 @@ function setup() {
 }
 
 function draw() {
-  background(255);  
+  background(255);
 
   noFill();
   stroke(0);
   strokeWeight(2);
-  beginShape();  
+  beginShape();
   var xOff = t;
-  for(let i = 0; i < width; i++) {
-    let y = noise(xOff)*height;
+  for (let i = 0; i < width; i++) {
+    let y = noise(xOff) * height;
     xOff += params.increment;
     vertex(i, y);
   }
@@ -30,5 +30,5 @@ function draw() {
   // ellipse(x, height/2, 10);
   // var x = noise(t);
 
-  t+=params.increment;
+  t += params.increment;
 }

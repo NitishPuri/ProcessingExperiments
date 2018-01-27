@@ -3,9 +3,9 @@ let physics;
 let blanket;
 
 let params = {
-  len : 10,
-  strength : 0.125,
-  generate : function() {
+  len: 10,
+  strength: 0.125,
+  generate: function () {
     physics.clear();
     blanket = new Blanket(params.len, params.strength);
   }

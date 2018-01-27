@@ -1,8 +1,8 @@
 var params = {
-  restart : function() {
+  restart: function () {
     gol.init();
   },
-  pause : false
+  pause: false
 }
 
 var gol;
@@ -19,7 +19,7 @@ function setup() {
 function draw() {
   background(51);
   gol.display();
-  if((params.pause == false) && (frameCount % 5 == 0)) {
+  if ((params.pause == false) && (frameCount % 5 == 0)) {
     gol.generate();
   }
 }

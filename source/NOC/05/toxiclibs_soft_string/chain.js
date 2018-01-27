@@ -8,7 +8,7 @@ class Chain {
     this.particles = [];
 
     // Chain properties
-    this.totalLength = l; 
+    this.totalLength = l;
     this.numPoints = n;
     this.radius = r;
     this.strength = s;
@@ -16,19 +16,19 @@ class Chain {
     const len = this.totalLength / this.numPoints;
 
     // Here is the real work, go through and add particles to the chain itself.
-    for(let i = 0; i < this.numPoints; i++) {
+    for (let i = 0; i < this.numPoints; i++) {
       // Make a new particle with an initial string location.
-      const particle = new Particle(width/2, i*len);
+      const particle = new Particle(width / 2, i * len);
 
       // Redundancy, we put the particles both in physics and in our own list.
       physics.addParticle(particle);
       this.particles.push(particle);
 
       // Connect the particles with a Spring
-      if( i != 0) {
-        const previous = this.particles[i-1];
+      if (i != 0) {
+        const previous = this.particles[i - 1];
         const spring = new VerletSpring2D(particle, previous, len, this.strength);
-        physics.addSpring(spring);        
+        physics.addSpring(spring);
       }
     }
 
@@ -46,7 +46,7 @@ class Chain {
 
   contains(x, y) {
     const d = dist(x, y, this.tail.x, this.tail.y);
-    if( d < this.radius) {
+    if (d < this.radius) {
       this.offset.x = this.tail.x - x;
       this.offset.y = this.tail.y - y;
       this.tail.lock();
@@ -60,13 +60,13 @@ class Chain {
   }
 
   updateTail(x, y) {
-    if(this.dragged) {
+    if (this.dragged) {
       this.tail.set(x + this.offset.x, y + this.offset.y);
     }
   }
 
   display() {
-    
+
     beginShape();
     noFill();
     stroke(200);

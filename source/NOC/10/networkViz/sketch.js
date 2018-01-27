@@ -33,12 +33,12 @@ function setup() {
 
 function draw() {
   background(200);
-  translate(width/2, height/2);
+  translate(width / 2, height / 2);
   network.show();
 
   network.update();
 
-  if(frameCount % 30  == 0) {
+  if (frameCount % 30 == 0) {
     const inputs = [random(1), random(1)]
     network.feedforward(inputs);
   }

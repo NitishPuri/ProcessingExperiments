@@ -1,7 +1,7 @@
 class KochLine {
   constructor(a, b) {
     this.start = a.copy();
-    this.end = b.copy();  
+    this.end = b.copy();
   }
 
   display() {
@@ -17,7 +17,7 @@ class KochLine {
     var v = p5.Vector.sub(this.end, this.start);
     v.div(3);
     v.add(this.start);
-    return v;    
+    return v;
   }
 
   kochC() {
@@ -25,14 +25,14 @@ class KochLine {
     var v = p5.Vector.sub(this.end, this.start);
     v.div(3);
     a.add(v);
-    v.rotate(-PI/3);
+    v.rotate(-PI / 3);
     a.add(v);
     return a;
   }
 
   kochD() {
     var v = p5.Vector.sub(this.end, this.start);
-    v.mult(2/3.0);
+    v.mult(2 / 3.0);
     v.add(this.start);
     return v;
   }

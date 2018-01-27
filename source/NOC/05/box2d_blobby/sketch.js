@@ -34,14 +34,14 @@ function draw() {
   var timeStep = 1.0 / 30;
   world.Step(timeStep, 10, 10);
 
-  if(skeleton) {
+  if (skeleton) {
     blob.displaySkeleton();
   }
   else {
     blob.displayCreature();
   }
 
-  boundaries.forEach(boundary => boundary.display() );
+  boundaries.forEach(boundary => boundary.display());
 
   spring.update(mouseX, mouseY);
 
@@ -53,7 +53,7 @@ function draw() {
   stroke(0)
   strokeWeight(1);
   text("Space bar to toggle creature/skeleton.\n Click and drag the box.",
-   20, height - 30);
+    20, height - 30);
 }
 
 function mouseReleased() {
@@ -67,7 +67,7 @@ function mousePressed() {
 }
 
 function keyPressed() {
-  if(key === ' ') {
+  if (key === ' ') {
     skeleton = !skeleton;
   }
 }

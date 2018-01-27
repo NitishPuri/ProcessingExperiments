@@ -8,10 +8,10 @@ var allPhrases;
 var stats;
 
 var params = {
-  popmax : 300,
-  mutationRate : 0.01,
-  target : "To be or not to be.",
-  reset : function() {
+  popmax: 300,
+  mutationRate: 0.01,
+  target: "To be or not to be.",
+  reset: function () {
     population = new Population(this.target, this.mutationRate, this.popmax)
     loop();
   }
@@ -23,7 +23,7 @@ function setup() {
   bestPhrase.class("best");
 
   allPhrases = createP("All Phrases :")
-  allPhrases .class("all");
+  allPhrases.class("all");
 
   stats = createP("Stats")
   stats.class('stats');
@@ -43,7 +43,7 @@ function draw() {
   population.calcFitness();
 
   population.evaluate();
-  if(population.isFinished()) {
+  if (population.isFinished()) {
     noLoop();
   }
 
@@ -55,9 +55,9 @@ function displayInfo() {
   bestPhrase.html("Best Phrase : <br>" + answer);
 
   var statstext = "total generations :    " + population.getGenerations() + "<br>"
-  statstext +=    "average fitness :      " + nf(population.getAverageFitness()) + "<br>"
-  statstext +=    "total population :     " + params.popmax + "<br>"
-  statstext +=    "mutation rate :        " + floor(params.mutationRate*100) + "%"
+  statstext += "average fitness :      " + nf(population.getAverageFitness()) + "<br>"
+  statstext += "total population :     " + params.popmax + "<br>"
+  statstext += "mutation rate :        " + floor(params.mutationRate * 100) + "%"
 
   stats.html(statstext);
 

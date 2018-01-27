@@ -7,7 +7,7 @@ let surface;
 let params = {
   reset() {
     car.destroy();
-    car = new Car(width/2, 120);
+    car = new Car(width / 2, 120);
   }
 }
 
@@ -18,7 +18,7 @@ function setup() {
   world = createWorld();
 
   surface = new Surface();
-  car = new Car(width/2, 120);
+  car = new Car(width / 2, 120);
 
   const gui = new dat.GUI();
   // gui.add(params, 'wind').min(-0.05).max(0.05).step(0.01);

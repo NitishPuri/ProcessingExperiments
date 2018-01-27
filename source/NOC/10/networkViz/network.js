@@ -1,10 +1,10 @@
 class Network {
   constructor() {
-    this.neurons = []    
-    this.connections = []    
+    this.neurons = []
+    this.connections = []
   }
   addNeuron(n) {
-      this.neurons.push(n)
+    this.neurons.push(n)
   }
   connect(a, b) {
     const c = new Connection(a, b, random(1));

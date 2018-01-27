@@ -3,7 +3,7 @@ class Particle {
     r = 0.2;
     this.r = r;
     this.trail = [];
-    for(let i = 0; i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
       this.trail[i] = createVector(x, y);
     }
 
@@ -38,10 +38,10 @@ class Particle {
     var pos = scaleToPixels(this.body.GetPosition());
     // Get its angle of rotation
 
-    for(let i = 0; i < this.trail.length - 1; i++) {
-      this.trail[i] = this.trail[i+1];
+    for (let i = 0; i < this.trail.length - 1; i++) {
+      this.trail[i] = this.trail[i + 1];
     }
-    this.trail[this.trail.length-1] = createVector(pos.x, pos.y);
+    this.trail[this.trail.length - 1] = createVector(pos.x, pos.y);
 
     push();
     fill(127);

@@ -197,7 +197,7 @@ function customBehaviour() {
       f.mult(params.separation.weight);
       v.applyForce(f);
     }
-    if(params.alignment.weight > 0) {
+    if (params.alignment.weight > 0) {
       const f = v.align(vehicles, params.alignment.desiredAlignmentFactor)
       f.mult(params.alignment.weight)
       v.applyForce();
@@ -239,7 +239,7 @@ function setupGUI() {
   const alf = gui.addFolder('Alignment');
   alf.add(params.alignment, 'desiredAlignmentFactor')
     .min(2).max(20).step(2).name('Factor');
-  
+
 
   const cf = gui.addFolder('Custom Weights');
   cf.add(params.arrive, 'weight').min(0).max(2).step(0.01).name('Arrive');

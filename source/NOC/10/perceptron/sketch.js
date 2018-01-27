@@ -12,13 +12,13 @@ const yMax = 1;
 var gui;
 
 var params = {
-  m : 0.3,
-  b : 0.4,
-  x1 : 0,
-  y1 : 0,
-  x2 : 0,
-  y2 : 0,
-  calcParams : function() {
+  m: 0.3,
+  b: 0.4,
+  x1: 0,
+  y1: 0,
+  x2: 0,
+  y2: 0,
+  calcParams: function () {
     let x1 = map(this.x1, 0, width, xMin, xMax);
     let y1 = map(this.y1, height, 0, yMin, yMax);
     let x2 = map(this.x2, 0, width, xMin, xMax);
@@ -31,23 +31,23 @@ var params = {
 
     prepareTrainingData();
   },
-  randomLine : function() {
+  randomLine: function () {
     this.x1 = random(width);
     this.y1 = random(height);
     this.x2 = random(width);
     this.y2 = random(height);
 
     gui.__folders['Line'].__controllers.forEach(c => c.updateDisplay());
-    
+
     this.calcParams();
   },
-  restart : function() {
+  restart: function () {
     // ??
   }
 }
 
 function prepareTrainingData() {
-  for(let i = 0; i < training.length; i++){
+  for (let i = 0; i < training.length; i++) {
     const x = random(xMin, xMax);
     const y = random(yMin, yMax);
     const answer = (y < f(x)) ? -1 : 1;
@@ -59,7 +59,7 @@ function prepareTrainingData() {
 }
 
 // The function to describe the line.
-function f(x) {  
+function f(x) {
   return (params.m * x + params.b);
 }
 
@@ -114,7 +114,7 @@ function draw() {
   y1 = map(y1, yMin, yMax, height, 0);
   x2 = map(x2, xMin, xMax, 0, width);
   y2 = map(y2, yMin, yMax, height, 0);
-  
+
   line(x1, y1, x2, y2);
 
   ptron.train(training[count].input, training[count].output);
@@ -125,15 +125,15 @@ function draw() {
   strokeWeight(1);
   training.forEach(t => {
     fill(0, 255, 0);
-    if(t.output > 0) fill(255, 0, 0);
+    if (t.output > 0) fill(255, 0, 0);
 
     const guess = ptron.feedForward(t.input);
     stroke(0, 255, 0);
     strokeWeight(2);
     if (guess > 0) stroke(255, 0, 0);
 
-    const x = map(t.input[0], xMin, xMax, 0,width);
-    const y = map(t.input[1], yMin, yMax, height,0);
+    const x = map(t.input[0], xMin, xMax, 0, width);
+    const y = map(t.input[1], yMin, yMax, height, 0);
     ellipse(x, y, 8);
 
     // fill(0, 255, 0);

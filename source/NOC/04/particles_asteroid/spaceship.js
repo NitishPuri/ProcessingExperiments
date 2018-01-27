@@ -1,6 +1,6 @@
 class Spaceship {
   constructor() {
-    this.pos = createVector(width/2, height/2);
+    this.pos = createVector(width / 2, height / 2);
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
     this.ps = new ParticleSystem();
@@ -13,7 +13,7 @@ class Spaceship {
     this.heading = 0;
     this.r = 16;
     this.thrusting = false;
-  }  
+  }
 
   applyForce(force) {
     var f = p5.Vector.div(force, this.mass);
@@ -25,7 +25,7 @@ class Spaceship {
   }
 
   thrust() {
-    var angle = this.heading - PI/2;
+    var angle = this.heading - PI / 2;
     var force = createVector(cos(angle), sin(angle));
     force.mult(0.3);
     this.applyForce(force);
@@ -38,25 +38,25 @@ class Spaceship {
   render() {
     stroke(0);
     strokeWeight(2);
-    
-    push();    
+
+    push();
     // translate(this.pos.x, this.pos.y - this.r);
     translate(this.pos.x, this.pos.y);
-    
+
 
     rotate(this.heading);
     fill(175);
-    if(this.thrusting) fill(255, 0, 0);
-    rect(-this.r/2 - this.r/3, 0, this.r/3, this.r/2);
-    rect(this.r/2, 0, this.r/3, this.r/2);
+    if (this.thrusting) fill(255, 0, 0);
+    rect(-this.r / 2 - this.r / 3, 0, this.r / 3, this.r / 2);
+    rect(this.r / 2, 0, this.r / 3, this.r / 2);
     fill(175);
     beginShape();
     vertex(-this.r, 0);
-    vertex(0, -this.r*2);
+    vertex(0, -this.r * 2);
     vertex(this.r, 0);
     endShape(CLOSE);
     pop();
-    
+
     this.thrusting = false;
   }
 
@@ -71,7 +71,7 @@ class Spaceship {
   }
 
   checkEdges() {
-    var buffer = this.r*2;
+    var buffer = this.r * 2;
     if (this.pos.x > width + buffer) {
       this.pos.x = -buffer;
     }

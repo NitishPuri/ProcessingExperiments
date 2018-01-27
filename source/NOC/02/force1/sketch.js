@@ -7,12 +7,12 @@ var params = {
   gravity: 0.01,
   friction: 0,
   drag: 0.01,
-  wallDamping : 0.8,
-  reset : function () {
+  wallDamping: 0.8,
+  reset: function () {
     movers = []
     for (var i = 0; i < 25; i++) {
-      movers[i] = new Mover(random(width), random(height/2), random(0.5, 4));
-    }      
+      movers[i] = new Mover(random(width), random(height / 2), random(0.5, 4));
+    }
   }
 }
 
@@ -22,7 +22,7 @@ function setup() {
 
   params.reset();
 
-  liquid = new Liquid(0, height/2, width, height/2, 0.1);
+  liquid = new Liquid(0, height / 2, width, height / 2, 0.1);
 
   // var gui = new dat.GUI();
   var gui = new dat.GUI();
@@ -54,7 +54,7 @@ function draw() {
 
     if (liquid.contains(mover)) {
       var drag = liquid.calculateDrag(mover);
-      mover.applyForce(drag);  
+      mover.applyForce(drag);
     }
 
     mover.update();

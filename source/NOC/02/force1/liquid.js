@@ -6,11 +6,11 @@ class Liquid {
     this.h = h;
     this.drag = c;
   }
-  
+
   contains(m) {
     var l = m.pos;
     return (l.x > this.x && l.x < this.x + this.w &&
-            l.y > this.y && l.y < this.y + this.h);
+      l.y > this.y && l.y < this.y + this.h);
   }
 
   // Calculate the drag force

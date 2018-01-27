@@ -5,7 +5,7 @@ class Spring {
         this.k = 0.2;
     }
 
-    connect (m) {
+    connect(m) {
         var force = p5.Vector.sub(m.pos, this.anchor);
         var d = force.mag();
         var stretch = d - this.length;
@@ -19,13 +19,13 @@ class Spring {
         var dir = p5.Vector.sub(m.pos, this.anchor);
         var d = dir.mag();
 
-        if(d < minLength) {
+        if (d < minLength) {
             dir.normalize();
             dir.mult(minLength);
             m.pos = p5.Vector.add(this.anchor, dir);
             m.vel.mult(0);
         }
-        else if(d > maxLength) {
+        else if (d > maxLength) {
             dir.normalize();
             dir.mult(maxLength);
             m.pos = p5.Vector.add(this.anchor, dir);

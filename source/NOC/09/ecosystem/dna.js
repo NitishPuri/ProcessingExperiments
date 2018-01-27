@@ -3,11 +3,11 @@ class DNA {
     this.maxForce = 0.1;
 
     this.genes = []
-    if(newGenes) {
+    if (newGenes) {
       this.genes = newGenes
     }
     else {
-      for(var i = 0; i < 1; i++) {
+      for (var i = 0; i < 1; i++) {
         this.genes[i] = random(0, 1)
       }
     }
@@ -19,11 +19,11 @@ class DNA {
     return new DNA(newGenes)
   }
 
-  mutate(m) {    
-    for(let i = 0; i < this.genes.length; i++) {
-      if(random(1) < m) {
+  mutate(m) {
+    for (let i = 0; i < this.genes.length; i++) {
+      if (random(1) < m) {
         this.genes[i] = random(0, 1);
       }
     }
-  }  
+  }
 }

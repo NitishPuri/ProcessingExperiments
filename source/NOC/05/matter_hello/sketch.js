@@ -1,8 +1,8 @@
 // module aliases
 var Engine = Matter.Engine,
-    // Render = Matter.Render,
-    World = Matter.World,
-    Bodies = Matter.Bodies;
+  // Render = Matter.Render,
+  World = Matter.World,
+  Bodies = Matter.Bodies;
 
 // create an engine
 var engine;
@@ -18,12 +18,12 @@ function setup() {
   world = engine.world;
 
   var options = {
-    isStatic : true,
-    angle : PI / 8
+    isStatic: true,
+    angle: PI / 8
   }
-  boundaries.push(new Box(width/4, height - 200, width/2, 20, 5, options))
-  options.angle = -PI/8;
-  boundaries.push(new Box(width*0.65, height - 300, width/2, 20, 5, options))
+  boundaries.push(new Box(width / 4, height - 200, width / 2, 20, 5, options))
+  options.angle = -PI / 8;
+  boundaries.push(new Box(width * 0.65, height - 300, width / 2, 20, 5, options))
 
   // Engine.run(engine);
 }
@@ -33,17 +33,17 @@ function draw() {
   Engine.update(engine);
 
   const options = {
-    friction : 0.2,
-    restitution : 0.8
+    friction: 0.2,
+    restitution: 0.8
   }
   circles.push(new Circle(width - 250, 50, random(5, 10), options));
 
   background(51);
   boxes.forEach(b => b.show());
-  for(let i = 0; i < circles.length; i++) {
+  for (let i = 0; i < circles.length; i++) {
     const c = circles[i];
     c.show();
-    if(c.isOffScreen()) {
+    if (c.isOffScreen()) {
       World.remove(world, c.body);
       circles.splice(i--, 1);
     }
@@ -55,8 +55,8 @@ function draw() {
 
 function mouseDragged() {
   const options = {
-    friction : 0.2,
-    restitution : 0.8
+    friction: 0.2,
+    restitution: 0.8
   }
 
   boxes.push(new Box(mouseX, mouseY, random(20, 40), random(20, 40), 10, options));

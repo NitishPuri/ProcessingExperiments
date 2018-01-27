@@ -7,16 +7,16 @@ class Bridge {
     const len = l / n;
 
     console.log(n);
-    for(let i = 0; i < this.numPoints + 1; i++) {
+    for (let i = 0; i < this.numPoints + 1; i++) {
       let p;
-      if(i == 0 || i == this.numPoints) p = new Particle(i*len, height/4, 4, true);
-      else p = new Particle(i*len, height/4, 4, false);
+      if (i == 0 || i == this.numPoints) p = new Particle(i * len, height / 4, 4, true);
+      else p = new Particle(i * len, height / 4, 4, false);
 
       this.particles.push(p);
 
-      if( i > 0) {
+      if (i > 0) {
         const djd = new box2d.b2DistanceJointDef();
-        const prev = this.particles[i-1];
+        const prev = this.particles[i - 1];
         djd.bodyA = prev.body;
         djd.bodyB = p.body;
         djd.length = scaleToWorld(len);

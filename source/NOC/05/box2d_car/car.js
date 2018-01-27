@@ -8,14 +8,14 @@ class Car {
     function createRevoluteJoint(b1, b2) {
       const rjd1 = new box2d.b2RevoluteJointDef();
       rjd1.Initialize(b1, b2, b2.GetWorldCenter());;
-      rjd1.motorSpeed = -PI*2.5;
+      rjd1.motorSpeed = -PI * 2.5;
       rjd1.maxMotorTorque = 500.0;
       rjd1.enableMotor = true;
-      world.CreateJoint(rjd1);        
+      world.CreateJoint(rjd1);
     }
 
     createRevoluteJoint(this.box.body, this.wheel1.body);
-    createRevoluteJoint(this.box.body, this.wheel2.body);    
+    createRevoluteJoint(this.box.body, this.wheel2.body);
   }
 
   destroy() {

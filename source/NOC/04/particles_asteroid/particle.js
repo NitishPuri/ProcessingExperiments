@@ -20,7 +20,7 @@ class Particle {
   display() {
     imageMode(CENTER);
     tint(255, this.lifespan);
-    image(this.img, this.position.x, this.position.y, this.mass*12, this.mass*12);
+    image(this.img, this.position.x, this.position.y, this.mass * 12, this.mass * 12);
 
     // noStroke();
     // fill(127, this.lifespan);

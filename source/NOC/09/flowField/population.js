@@ -4,7 +4,7 @@ class Population {
     this.population = new Array(num);
     this.matingPool = [];
     this.generations = 0;
-    for(let i = 0; i < num; i++) {
+    for (let i = 0; i < num; i++) {
       this.population[i] = new Rocket(start.position, new DNA(dnasize));
     }
 
@@ -17,26 +17,26 @@ class Population {
     var closest;
 
     this.population.forEach(p => {
-      if(p.finished()) {
+      if (p.finished()) {
         p.setFinish(this.order);
         this.order++;
       }
       p.run(os);
-      if(p.recordDist < record) {
+      if (p.recordDist < record) {
         record = p.recordDist
         closest = p
       }
     })
 
     closest.highlight()
-    if(debug) {
+    if (debug) {
       closest.dna.drawDebug();
     }
   }
 
   targetReached() {
     this.population.forEach(p => {
-      if(p.finished()) return true;
+      if (p.finished()) return true;
     })
 
     return false;
@@ -55,16 +55,16 @@ class Population {
 
     this.population.forEach(p => {
       const fitnessNormal = p.getFitness() / totalFitness;
-      
+
       var n = floor(fitnessNormal * 50000);
-      for(let i = 0; i < n; i++) {
+      for (let i = 0; i < n; i++) {
         this.matingPool.push(p)
       }
     })
   }
 
   reproduction() {
-    for(let i = 0; i < this.population.length; i++) {
+    for (let i = 0; i < this.population.length; i++) {
       const momGenes = random(this.matingPool).getDNA();
       const dadGenes = random(this.matingPool).getDNA();
 
@@ -86,5 +86,5 @@ class Population {
     this.population.forEach(p => total += p.getFitness())
     return total;
     // return this.population.reduce((m, p) => (m + p.getFitness()), 0);
-  }  
+  }
 }

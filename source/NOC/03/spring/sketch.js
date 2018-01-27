@@ -2,14 +2,14 @@ let spring;
 let mover;
 
 var params = {
-//   count: 5,
-//   xSpacing: 8,
-//   randomAmp : true,
-//   randomVel : true,
-//   randomPos : true,
-  reset : function () {
-    spring = new Spring(width/2, 10, 100);
-    mover = new Mover(width/2, 100, 24);
+  //   count: 5,
+  //   xSpacing: 8,
+  //   randomAmp : true,
+  //   randomVel : true,
+  //   randomPos : true,
+  reset: function () {
+    spring = new Spring(width / 2, 10, 100);
+    mover = new Mover(width / 2, 100, 24);
   }
 }
 

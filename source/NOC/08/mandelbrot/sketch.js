@@ -5,11 +5,11 @@
 // var h = 2;
 
 var params = {
-  xMin : -2.5,
-  yMin : -1,
-  w : 4,
-  h : 2,
-  drawMandelbrot : function() {
+  xMin: -2.5,
+  yMin: -1,
+  w: 4,
+  h: 2,
+  drawMandelbrot: function () {
     redraw();
   }
 }
@@ -40,28 +40,28 @@ function draw() {
   var dy = (yMax - params.yMin) / height;
 
   var y = params.yMin;
-  for(let j = 0; j < height; j++) {
+  for (let j = 0; j < height; j++) {
     var x = params.xMin;
-    for(let i = 0; i < width; i++) {
+    for (let i = 0; i < width; i++) {
       var a = x;
       var b = y;
       var n = 0;
-      while(n < maxIterations) {
-        var aa = a*a;
-        var bb = b*b;
-        var twoab = 2.0*a*b;
+      while (n < maxIterations) {
+        var aa = a * a;
+        var bb = b * b;
+        var twoab = 2.0 * a * b;
 
         a = aa - bb + x;
         b = twoab + y;
         // infinity in our finite world..
-        if(aa + bb > 16.0) {
+        if (aa + bb > 16.0) {
           break; // Bail...
         }
         n++;
       }
-      if(n == maxIterations) set(i, j, color(0));
-      else set(i, j, color(n*16 % 255));
-      x += dx;        
+      if (n == maxIterations) set(i, j, color(0));
+      else set(i, j, color(n * 16 % 255));
+      x += dx;
     }
     y += dy;
   }

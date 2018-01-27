@@ -1,7 +1,7 @@
 class Food {
   constructor(num) {
     this.food = []
-    for(let i = 0; i < num; i++) {
+    for (let i = 0; i < num; i++) {
       this.food.push(createVector(random(width), random(height)));
     }
   }
@@ -12,13 +12,13 @@ class Food {
 
 
   run() {
-    for(let i = 0; i < this.food.length; i++) {
+    for (let i = 0; i < this.food.length; i++) {
       const f = this.food[i];
       rectMode(CENTER);
       stroke(0);
       fill(127);
       rect(f.x, f.y, 8, 8);
-    }    
+    }
   }
 
   getFood() {

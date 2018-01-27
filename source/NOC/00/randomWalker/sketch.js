@@ -12,8 +12,8 @@ function draw() {
 
 class Walker {
   constructor() {
-    this.x = width/2;
-    this.y = height/2;    
+    this.x = width / 2;
+    this.y = height / 2;
   }
 
   render() {
@@ -39,8 +39,8 @@ class Walker {
       default:
         break;
     }
-    
-    this.x = constrain(this.x, 0, width-1);
-    this.y = constrain(this.y, 0, height-1);
+
+    this.x = constrain(this.x, 0, width - 1);
+    this.y = constrain(this.y, 0, height - 1);
   }
 }

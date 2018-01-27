@@ -4,8 +4,8 @@ class Population {
     this.population = new Array(num);
     this.matingPool = [];
     this.generations = 0;
-    for(let i = 0; i < num; i++) {
-      const position = createVector(width/2, height + 20);
+    for (let i = 0; i < num; i++) {
+      const position = createVector(width / 2, height + 20);
       this.population[i] = new Rocket(position, new DNA(), this.population.length);
     }
   }
@@ -19,7 +19,7 @@ class Population {
 
   targetReached() {
     this.population.forEach(p => {
-      if(p.hitTarget) return true;
+      if (p.hitTarget) return true;
     })
 
     return false;
@@ -37,14 +37,14 @@ class Population {
     this.population.forEach(p => {
       const fitnessNormal = map(p.getFitness(), 0, maxFitness, 0, 1);
       var n = floor(fitnessNormal * 100);
-      for(let i = 0; i < n; i++) {
+      for (let i = 0; i < n; i++) {
         this.matingPool.push(p)
       }
     })
   }
 
   reproduction() {
-    for(let i = 0; i < this.population.length; i++) {
+    for (let i = 0; i < this.population.length; i++) {
       var m = floor(random(this.matingPool.length));
       var d = floor(random(this.matingPool.length));
 
@@ -57,7 +57,7 @@ class Population {
       const child = momGenes.crossover(dadGenes);
       child.mutate(this.mutationRate);
 
-      const position = createVector(width/2, height + 20);
+      const position = createVector(width / 2, height + 20);
       this.population[i] = new Rocket(position, child);
     }
 
@@ -71,5 +71,5 @@ class Population {
   getMaxFitness() {
     var record = this.population.reduce((m, p) => max(m, p.getFitness()), 0);
     return record;
-  }  
+  }
 }

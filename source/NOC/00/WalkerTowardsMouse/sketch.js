@@ -12,8 +12,8 @@ function draw() {
 
 class Walker {
   constructor() {
-    this.x = width/2;
-    this.y = height/2;    
+    this.x = width / 2;
+    this.y = height / 2;
   }
 
   render() {
@@ -25,14 +25,14 @@ class Walker {
 
     var r = random(1);
     // A 50% chance of moving towards the mouse
-    if(r < 0.5) {
+    if (r < 0.5) {
       var xDir = (mouseX - this.x);
       var yDir = (mouseY - this.y);
 
-      if(xDir != 0) {
+      if (xDir != 0) {
         xDir /= abs(xDir);
       }
-      if(yDir != 0) {
+      if (yDir != 0) {
         yDir /= abs(yDir);
       }
 
@@ -42,10 +42,10 @@ class Walker {
       var xDir = floor(random(-2, 2));
       var yDir = floor(random(-2, 2));
       this.x += xDir;
-      this.y += yDir;      
+      this.y += yDir;
     }
 
-    this.x = constrain(this.x, 0, width-1);
-    this.y = constrain(this.y, 0, height-1);
+    this.x = constrain(this.x, 0, width - 1);
+    this.y = constrain(this.y, 0, height - 1);
   }
 }

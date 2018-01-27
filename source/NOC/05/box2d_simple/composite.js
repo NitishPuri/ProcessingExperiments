@@ -23,7 +23,7 @@ class Pair {
     this.p1.attract(x, y)
     this.p2.attract(x, y)
   }
-  
+
   contains(x, y) {
     return (this.p1.contains(x, y) || this.p2.contains(x, y));
   }
@@ -32,7 +32,7 @@ class Pair {
     return (this.p1.done() && this.p2.done());
   }
 
-  killBody() { 
+  killBody() {
     this.p1.killBody();
     this.p2.killBody();
   } // Not implemented...
@@ -95,14 +95,14 @@ class Spring {
     this.mouseJoint = null;
   }
   update(x, y) {
-    if(this.mouseJoint !== null) {
+    if (this.mouseJoint !== null) {
       var mouseWorld = scaleToWorld(x, y);
       this.mouseJoint.SetTarget(mouseWorld);
     }
   }
 
   display() {
-    if(this.mouseJoint !== null) {
+    if (this.mouseJoint !== null) {
       let posA = this.mouseJoint.GetAnchorA();
       let posB = this.mouseJoint.GetAnchorB();
 
@@ -127,7 +127,7 @@ class Spring {
     let mp = scaleToWorld(x, y);
     md.target = mp;
 
-    md.maxForce = 1000.0*body.m_mass;
+    md.maxForce = 1000.0 * body.m_mass;
     md.frequencyHz = 5.0;
     md.dampingRatio = 0.9;
 
@@ -135,7 +135,7 @@ class Spring {
   }
 
   destroy() {
-    if(this.mouseJoint !== null) {
+    if (this.mouseJoint !== null) {
       world.DestroyJoint(this.mouseJoint);
       this.mouseJoint = null;
     }
