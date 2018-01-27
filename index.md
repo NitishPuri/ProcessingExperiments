@@ -87,7 +87,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [Data Test](source/experiments/data-test)
     1. Video
         1. [Video Booth](source/experiments/video_muybridge)
-        1. [Video Grayscale](source/experiments/video_grayscale)
+        1. [Video Filters](source/experiments/video_filters)
         1. [Video Checkbox](source/experiments/video_checkbox)
         1. [Video Painting](source/experiments/video_painting)
         1. [Video Slit Scan](source/experiments/video_slitScan)
@@ -98,8 +98,10 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#17 - Fractal Trees - Space Colonization](source/coding_challenge/17_fractalTree)
     1. [#18 - Fractal Trees - Space Colonization in 3D](source/coding_challenge/18_fractalTree)
     1. [#24 - Perlin Noise Flow Field](source/coding_challenge/24_perlinFlow)
+    1. [#36 - Noisy Blob](source/coding_challenge/36_blobby)
     1. [#57 - Mapping Earthquake Data](source/coding_challenge/57_mappingEarthquake)
     1. [#59 - Steering Behaviours](source/coding_challenge/59_steeringBehaviour)
+    1. [#60 - Butterfly Generator](source/coding_challenge/60_butterfly)
     1. [#62 - Plinko](source/coding_challenge/62_plinko)
 2. Algorithms
     1. [Prim MST](source/algorithms/prim_mst)
