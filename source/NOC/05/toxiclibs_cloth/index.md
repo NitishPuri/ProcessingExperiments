@@ -1,6 +1,5 @@
 ---
 layout: sketch
-toxiclibs : true
 libs : 
     - toxiclibs.js
     - toxichelper.js
