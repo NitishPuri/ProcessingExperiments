@@ -1,6 +1,8 @@
 ---
 layout: sketch
-toxiclibs : true
+libs : 
+    - toxiclibs.js
+    - toxichelper.js
 scripts : 
     - particle.js
     - chain.js
