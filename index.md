@@ -85,6 +85,10 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [Clojures](source/experiments/clojures)
     1. [HTML Test](source/experiments/html_test)
     1. [Data Test](source/experiments/data-test)
+    1. [Video Booth](source/experiments/video_muybridge)
+    1. [Video Grayscale](source/experiments/video_grayscale)
+    1. [Video Checkbox](source/experiments/video_checkbox)
+    1. [Video Painting](source/experiments/video_painting)
 2. Coding Challenge
     1. [#14/15 - Fractal Tree](source/coding_challenge/14_fractalTree)
     1. [#16 - L System](source/NOC/08/LSystem)
