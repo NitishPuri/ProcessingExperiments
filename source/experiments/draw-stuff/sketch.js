@@ -1,8 +1,8 @@
 var circle = {
-  X : 50,
-  Y : 10,
-  sX : 15,
-  sY : 10
+  X: 50,
+  Y: 10,
+  sX: 15,
+  sY: 10
 }
 
 function setup() {
@@ -39,7 +39,7 @@ function draw() {
   // strokeWeight(3)
   // line(random(0, width), random(0, height), random(0, width), random(0, height))
 
- 
+
   // rect(1, 2, 3, h, [tl], [tr], [br], [bl])
 }
 

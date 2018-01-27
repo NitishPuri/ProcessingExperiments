@@ -4,8 +4,8 @@ var video;
 var vScale;
 
 var params = {
-  alpha : 127,
-  lerp : 0.0
+  alpha: 127,
+  lerp: 0.0
 }
 
 var offset;
@@ -28,8 +28,8 @@ function setup() {
   vScale = height / video.height
   offset = {
     // x : video.width*vScale ,
-    x : (width - video.width*vScale)/2,
-    y : 0
+    x: (width - video.width * vScale) / 2,
+    y: 0
   }
 
   // var gui = new dat.GUI();
@@ -45,7 +45,7 @@ function draw() {
   const vw = video.width
   const vh = video.height
 
-  copy(video, vw/2, 0, 1, vh, counter, 0, 1, vh)
+  copy(video, vw / 2, 0, 1, vh, counter, 0, 1, vh)
   counter = (counter + 1) % width
   // image(video, 0, 0)
 

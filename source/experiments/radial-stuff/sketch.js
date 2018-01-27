@@ -26,14 +26,14 @@ function draw() {
   strokeWeight(3)
   var radius = random(10, 50);
   // angleMo
-  line(mouseX - radius*cos(radians(theta)), mouseY - radius*sin(radians(theta)),
-   mouseX + radius*cos(radians(theta)), mouseY + radius*sin(radians(theta)))
+  line(mouseX - radius * cos(radians(theta)), mouseY - radius * sin(radians(theta)),
+    mouseX + radius * cos(radians(theta)), mouseY + radius * sin(radians(theta)))
 
-   theta += random(1, 100);
+  theta += random(1, 100);
 
 
 
- 
+
   // rect(1, 2, 3, h, [tl], [tr], [br], [bl])
 }
 

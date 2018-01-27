@@ -1,6 +1,6 @@
 class Particle {
   constructor() {
-    this.position = createVector(random(video.width*vScale), random(video.height*vScale));
+    this.position = createVector(random(video.width * vScale), random(video.height * vScale));
     this.velocity = createVector();
     this.r = random(4, 32)
     this.col = color(255, 0)
@@ -12,10 +12,10 @@ class Particle {
     this.position.add(this.velocity);
 
     const b = 10;
-    if(this.position.x > video.width*vScale + b) this.position.x = 0
-    if(this.position.y > video.height*vScale + b) this.position.y = 0;
-    if(this.position.x < -b) this.position.x = video.widthwidth;
-    if(this.position.y < -b) this.position.y = video.height;
+    if (this.position.x > video.width * vScale + b) this.position.x = 0
+    if (this.position.y > video.height * vScale + b) this.position.y = 0;
+    if (this.position.x < -b) this.position.x = video.widthwidth;
+    if (this.position.y < -b) this.position.y = video.height;
 
   }
   show() {

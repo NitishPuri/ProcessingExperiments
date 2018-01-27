@@ -25,9 +25,9 @@ function draw() {
   for (const bubble of bubbles) {
     bubble.move()
     bubble.bounce()
-    bubble.display()  
+    bubble.display()
     for (const other of bubbles) {
-      if(bubble.intersects(other)) {
+      if (bubble.intersects(other)) {
         background(255, 255, 255, 150);
       }
     }
@@ -42,7 +42,7 @@ function mousePressed() {
 
 
 class Bubble {
-  constructor (tempX, tempY, tempR) {
+  constructor(tempX, tempY, tempR) {
     this.x = tempX;
     this.y = tempY;
     this.r = tempR;
@@ -58,9 +58,9 @@ class Bubble {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
   }
-  
+
   display() {
-  
+
     // var r = random(200, 255)
     // var g = random(0, 100)
     // var b = random(100, 255)
@@ -73,29 +73,29 @@ class Bubble {
     // var r = map(mouseX, 0, width, 0, 255)
     // var g = map(mouseY, 0,height, 0, 255)
     // var b = map((mouseX+mouseY)/2, 0, (width+height)/2, 0, 255)
-  
+
     fill(r, g, b, 150);
     noStroke()
-    
+
     // ellipse(this.x, this.y, this.r + random(10));
     ellipse(this.x, this.y, this.r);
-    
+
   }
 
   intersects(other) {
-    if(other == this) return false;
+    if (other == this) return false;
 
     return dist(this.x, this.y, other.x, other.y) < (this.r + other.r);
   }
-  
-  bounce() {  
-  //   if(this.x > width  || this.x < 0) 
-  //   this.xSpeed  =  (this.xSpeed > 0 ? -1 : 1) * random(1, 3);
-  // if(this.y > height || this.y < 0) 
-  //   this.ySpeed = (this.ySpeed > 0 ? -1 : 1) * random(1, 3);
-    if(this.x > width  || this.x < 0) 
-      this.xSpeed  *= -1;
-    if(this.y > height || this.y < 0) 
+
+  bounce() {
+    //   if(this.x > width  || this.x < 0) 
+    //   this.xSpeed  =  (this.xSpeed > 0 ? -1 : 1) * random(1, 3);
+    // if(this.y > height || this.y < 0) 
+    //   this.ySpeed = (this.ySpeed > 0 ? -1 : 1) * random(1, 3);
+    if (this.x > width || this.x < 0)
+      this.xSpeed *= -1;
+    if (this.y > height || this.y < 0)
       this.ySpeed *= -1;
-  }  
+  }
 }

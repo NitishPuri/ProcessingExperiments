@@ -8,7 +8,7 @@ var angularSpeed = 0.1;
 
 function setup() {
   // put setup code here
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(windowWidth, windowHeight);
   background(200);
   // randomSeed(42)
 
@@ -48,7 +48,7 @@ function draw() {
 
   var s = slider.value() + random(10);
   ellipse(mouseX, mouseY, s, s);
-  
+
   push();
   translate(100, 100);
   rotate(angle);
@@ -58,7 +58,7 @@ function draw() {
 
   push();
   translate(400, 400);
-  rotate(-3*angle);
+  rotate(-3 * angle);
   fill(g, r, b, a);
   rect(0, 0, 100, 50);
   pop();
@@ -68,7 +68,7 @@ function draw() {
   // line(random(0, width), random(0, height), random(0, width), random(0, height))
 
   angle += angularSpeed;
- 
+
   // rect(1, 2, 3, h, [tl], [tr], [br], [bl])
 }
 

@@ -4,8 +4,8 @@ var video;
 var vScale;
 
 var params = {
-  alpha : 127,
-  lerp : 0.0
+  alpha: 127,
+  lerp: 0.0
 }
 
 var offset;
@@ -27,8 +27,8 @@ function setup() {
   vScale = height / video.height
   offset = {
     // x : video.width*vScale ,
-    x : (width - video.width*vScale)/2,
-    y : 0
+    x: (width - video.width * vScale) / 2,
+    y: 0
   }
 
   bgColor = color(255, 255, 255, 100);
@@ -38,7 +38,7 @@ function setup() {
   gui.add(params, 'lerp').min(0).max(1).step(0.1)
   // gui.add(params, 'bgColor').min(0).max(255)
 
-  for(let i = 0; i < 200; i++) {
+  for (let i = 0; i < 200; i++) {
     particles.push(new Particle())
   }
 

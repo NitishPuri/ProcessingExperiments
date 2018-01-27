@@ -4,13 +4,13 @@ var video;
 var vScale;
 
 var params = {
-  effect : 0,
-  effects : {
-    Blur : 0,
-    Chroma : 1
+  effect: 0,
+  effects: {
+    Blur: 0,
+    Chroma: 1
   },
-  blur : 0.5,
-  chromaScreen : [0.5, 0.5, 0.5, 1]
+  blur: 0.5,
+  chromaScreen: [0.5, 0.5, 0.5, 1]
 }
 
 var offset;
@@ -35,8 +35,8 @@ function setup() {
   vScale = height / video.height
   offset = {
     // x : video.width*vScale ,
-    x : (width - video.width*vScale)/2,
-    y : 0
+    x: (width - video.width * vScale) / 2,
+    y: 0
   }
 
   // background(51)
@@ -59,11 +59,11 @@ function setup() {
   var gui = new dat.GUI();
   // gui.add(params, 'lerp').min(0).max(1).step(0.1)
   gui.add(params, 'effect', params.effects).onFinishChange(value => {
-    if(value == params.effects.Blur) {
+    if (value == params.effects.Blur) {
       blur.source = src;
       target.source = blur;
     }
-    else if(value == params.effects.Chroma) {
+    else if (value == params.effects.Chroma) {
       chroma.source = src;
       target.source = chroma;
     }
@@ -71,7 +71,7 @@ function setup() {
   gui.add(params, 'blur').min(0).max(1).step(0.01)
     .onChange(value => blur.amount = value)
   gui.addColor(params, 'chromaScreen').onChange(value => {
-    chroma.screen = [value[0]/255, value[1]/255, value[2]/255, 1];
+    chroma.screen = [value[0] / 255, value[1] / 255, value[2] / 255, 1];
   })
 
   // rectMode(CENTER)

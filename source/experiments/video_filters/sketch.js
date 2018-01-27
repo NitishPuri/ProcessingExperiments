@@ -47,8 +47,8 @@ function setup() {
   vScale = height / video.height
   offset = {
     // x : video.width*vScale ,
-    x : (width - video.width*vScale)/2,
-    y : 0
+    x: (width - video.width * vScale) / 2,
+    y: 0
   }
 
   bgColor = color(255, 0, 0, 100);
@@ -59,7 +59,7 @@ function setup() {
   gui.add(params, 'filter', params.filters)
     .onFinishChange(value => currFilter = params.filterFuncs[value])
     .name('Filter')
-  
+
   rectMode(CENTER)
 }
 

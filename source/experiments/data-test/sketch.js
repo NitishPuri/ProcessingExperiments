@@ -28,12 +28,12 @@ function askWordnik() {
     console.log(data)
     // input.value(data[0].words[0])
     input.value(random(random(data).words))
-  });  
+  });
 }
 
 function draw() {
   background(0);
-  if(spaceData) {
+  if (spaceData) {
     console.log(spaceData)
 
     // randomSeed(42)

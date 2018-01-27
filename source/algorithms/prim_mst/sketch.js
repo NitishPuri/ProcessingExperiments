@@ -2,13 +2,13 @@ var vertices = [];
 var edges = []
 
 var params = {
-  reset : function () {
+  reset: function () {
     vertices = [];
     edges = []
-    for(var i = 0; i < 10; i++){
+    for (var i = 0; i < 10; i++) {
       vertices.push(createVector(random(width), random(height)))
-    }  
-    calcMST();    
+    }
+    calcMST();
   }
 }
 
@@ -22,11 +22,11 @@ function setup() {
 }
 
 function mousePressed() {
-  if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+  if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
     var v = createVector(mouseX, mouseY)
     vertices.push(v);
-  
-    calcMST();  
+
+    calcMST();
   }
 }
 
@@ -42,18 +42,18 @@ function calcMST() {
   unreached.splice(0, 1);
 
   // while there are vertices in the unreached array
-  while(unreached.length > 0){
+  while (unreached.length > 0) {
     var record = 10000;
     var rIndex;
     var uIndex;
 
     // find a closest pair of points connecting the different groups
-    for( var i = 0; i < reached.length; i++){
-      for(var j = 0; j < unreached.length; j++){
+    for (var i = 0; i < reached.length; i++) {
+      for (var j = 0; j < unreached.length; j++) {
         var v1 = vertices[reached[i]];
         var v2 = vertices[unreached[j]];
         var d = dist(v1.x, v1.y, v2.x, v2.y);
-        if(d < record) {
+        if (d < record) {
           record = d;
           rIndex = i;
           uIndex = j;
@@ -72,7 +72,7 @@ function calcMST() {
 function draw() {
   background(51)
 
-  
+
   // Draw vertices
   fill(255)
   stroke(255)

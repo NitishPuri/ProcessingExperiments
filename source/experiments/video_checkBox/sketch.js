@@ -4,7 +4,7 @@ var video;
 var vScale;
 
 var params = {
-  threshold : 127
+  threshold: 127
 }
 
 var cb = []
@@ -35,7 +35,7 @@ function setup() {
       cb.push(c)
     }
     createSpan('<br/>').parent('sketch-holder')
-  }  
+  }
   rectMode(CENTER)
 }
 
@@ -59,7 +59,7 @@ function draw() {
         cb[boxIndex].elt.checked = false
       }
       else {
-        cb[boxIndex].elt.checked= true
+        cb[boxIndex].elt.checked = true
       }
     }
   }

@@ -14,7 +14,7 @@ function setup() {
   total = floor(width / w) * floor(height / h)
 
   background(51)
-  video = createCapture(VIDEO, function(){
+  video = createCapture(VIDEO, function () {
     go = true;
   });
   video.size(320, 240)
@@ -24,7 +24,7 @@ function setup() {
 var off = 0;
 function draw() {
   if (go) {
-    if(off == 0) off = frameCount;
+    if (off == 0) off = frameCount;
     snapshots[counter] = video.get();
     counter++;
     if (counter == total) {
@@ -33,14 +33,14 @@ function draw() {
   }
 
   var ox = (width % w) / 2;
-  var oy = (height % h) / 2; 
+  var oy = (height % h) / 2;
   translate(ox, oy)
   var x = 0;
   var y = 0;
   for (let i = 0, n = snapshots.length; i < n; i++) {
     // tint(200, 0, 200)
     // const index = (i + counter) % snapshots.length;
-    const index = (counter - i + n - 1 ) % n;
+    const index = (counter - i + n - 1) % n;
     image(snapshots[index], x, y, w, h);
     // textSize(20)
     // stroke(0);
