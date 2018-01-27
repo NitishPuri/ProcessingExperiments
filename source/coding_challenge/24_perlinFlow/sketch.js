@@ -5,28 +5,29 @@ var params = {
   flowMag : 1,
   dynamicField : true,
   drawField : false,
-  drawBackground : false,
+  drawBackground : true,
   zOff : 0.0,
   zIncrement : 0.02,
   lod : 8,
   falloff : 0.65,
   noise : true,
-  cMode : 0,
+  cMode : 1,
+  alpha : 150,
   strokeSize : 2,
   reset : function () {
     particles = []
-    for(let i = 0; i < 100; i++) {
+    for(let i = 0; i < 500; i++) {
       particles[i] = new Particle()
     }  
     background(0);  
   },
   changeColorMode : function() {
     if(this.cMode == 0) {
-      colorMode(HSB, 360, 255, 255, 1)
+      colorMode(HSB, 360, 255, 255, 255)
       this.cMode = 1
     }
     else {
-      colorMode(RGB, 255, 255, 255, 1)
+      colorMode(RGB, 255, 255, 255, 255)
       this.cMode = 0
     }
   }
@@ -53,6 +54,7 @@ function setup() {
   gui.add(params, 'drawBackground')
   gui.add(params, 'reset')
   gui.add(params, 'changeColorMode')
+  gui.add(params, 'alpha').min(10).max(255)
   gui.add(params, 'scale').min(10).max(30).step(1);
   gui.add(params, 'strokeSize').min(1).max(10).step(1);
   gui.add(params, 'flowMag').min(0.01).max(5);
@@ -62,16 +64,27 @@ function setup() {
   gui.add(params, 'falloff').min(0.01).max(1);
 
   params.reset();
-  params.changeColorMode();
+  // params.changeColorMode();
+
+  // background(255)
 
 }
 
 function draw() {
+  // translate(-width/2, -height/2)
+  
   if(params.drawBackground) {
-    background(0, 0.1);  
+    background(0, 1);  
+    // background(0, 255);  
   }
 
-
+  // fill(255, 0, 255, 255);
+  // // strokeWeight(5)
+  // rect(10, 10, 100, 120)
+  // // line(10, 10, 0, 100, 100, 0);
+  // stroke(255, 255)
+  // line(100, 120, 500, 500);
+  
   noiseDetail(params.lod, params.falloff)
 
   cols = floor(width/params.scale);
