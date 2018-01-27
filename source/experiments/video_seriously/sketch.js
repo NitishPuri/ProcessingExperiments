@@ -4,6 +4,11 @@ var video;
 var vScale;
 
 var params = {
+  effect : 0,
+  effects : {
+    Blur : 0,
+    Chroma : 1
+  },
   blur : 0.5,
   chromaScreen : [0.5, 0.5, 0.5, 1]
 }
@@ -40,22 +45,32 @@ function setup() {
   var src = seriously.source('#p5Video')
   var target = seriously.target('#p5Canvas')
 
-  // var blur = seriously.effect('blur')
-  // blur.source = src;
-  // target.source = blur;
+  var blur = seriously.effect('blur')
+  blur.source = src;
+  target.source = blur;
 
   var chroma = seriously.effect('chroma');
-  chroma.source = src;
-  target.source = chroma;
+  // chroma.source = src;
+  // target.source = chroma;
   // chroma.screen = [r. g, b, 1]
 
 
   seriously.go();
   var gui = new dat.GUI();
-  // gui.add(params, 'blur').min(0).max(1).step(0.01)
-  //   .onFinishChange(value => blur.amount = value)
   // gui.add(params, 'lerp').min(0).max(1).step(0.1)
-  gui.addColor(params, 'chromaScreen').onFinishChange(value => {
+  gui.add(params, 'effect', params.effects).onFinishChange(value => {
+    if(value == params.effects.Blur) {
+      blur.source = src;
+      target.source = blur;
+    }
+    else if(value == params.effects.Chroma) {
+      chroma.source = src;
+      target.source = chroma;
+    }
+  })
+  gui.add(params, 'blur').min(0).max(1).step(0.01)
+    .onChange(value => blur.amount = value)
+  gui.addColor(params, 'chromaScreen').onChange(value => {
     chroma.screen = [value[0]/255, value[1]/255, value[2]/255, 1];
   })
 
