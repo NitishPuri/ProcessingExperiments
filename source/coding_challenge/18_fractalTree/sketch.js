@@ -23,6 +23,10 @@ function setup() {
 function draw() {
   background(51);
 
+  // translate(width / 2, height / 2)
+  // var a = map(mouseX, 0, width, 0, PI)
+  // rotate(a)
+
   orbitControl();
 
   // translate(-width/2, -height/2)
