@@ -96,6 +96,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Sound Test](source/experiments/sound_test)
         1. [Sound Test 2](source/experiments/sound_test2)
         1. [Sound Test 3](source/experiments/sound_test3)
+    1. WebGL
+        1. [WebGL test 1](source/experiments/webgl_test)
 2. Coding Challenge
     1. [#02 - Snake Game](source/coding_challenge/02_snakeGame)
     1. [#14/15 - Fractal Tree](source/coding_challenge/14_fractalTree)
