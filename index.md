@@ -103,6 +103,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#02 - Menger Sponge](source/coding_challenge/02_mengerSponge)
     1. [#03 - Snake Game](source/coding_challenge/03_snakeGame) *Video Games*
     1. [#04 - Purple Rain](source/coding_challenge/04_purpleRain)
+    1. [#05 - Space Invaders](source/coding_challenge/05_spaceInvaders)
     1. [#14/15 - Fractal Tree](source/coding_challenge/14_fractalTree)
     1. [#16 - L System](source/NOC/08/LSystem)
     1. [#17 - Fractal Trees - Space Colonization](source/coding_challenge/17_fractalTree)
