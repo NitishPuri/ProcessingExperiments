@@ -99,12 +99,18 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. WebGL
         1. [WebGL test 1](source/experiments/webgl_test)
 2. Coding Challenge
-    1. [#02 - Snake Game](source/coding_challenge/02_snakeGame)
+    1. [#01 - Star Field](source/coding_challenge/01_starField)
+    1. [#03 - Snake Game](source/coding_challenge/03_snakeGame)**Video Games**
     1. [#14/15 - Fractal Tree](source/coding_challenge/14_fractalTree)
     1. [#16 - L System](source/NOC/08/LSystem)
     1. [#17 - Fractal Trees - Space Colonization](source/coding_challenge/17_fractalTree)
     1. [#18 - Fractal Trees - Space Colonization in 3D](source/coding_challenge/18_fractalTree) *WebGL*
+    1. [#19 - Superellipse](source/coding_challenge/19_superellipse)
+    1. [#23 - Supershapes 2D](source/coding_challenge/23_2d_supershapes)
     1. [#24 - Perlin Noise Flow Field](source/coding_challenge/24_perlinFlow)
+    1. [#25 - Spherical Geometry](source/coding_challenge/25_sphericalGeom)
+    1. [#26 - Supershapes 3D](source/coding_challenge/26_supershapes3D)
+    1. [#30 - Phyllotaxis](source/coding_challenge/30_phyllotaxis)
     1. [#36 - Noisy Blob](source/coding_challenge/36_blobby)
     1. [#57 - Mapping Earthquake Data](source/coding_challenge/57_mappingEarthquake)
     1. [#59 - Steering Behaviours](source/coding_challenge/59_steeringBehaviour)
