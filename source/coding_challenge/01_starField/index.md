@@ -8,4 +8,4 @@ title: Coding Challenge#01 -- StarField
 
 Similar demonstration    
 
-* https://cs.brynmawr.edu/gxk2013/examples/transformations/starfield/
+* <https://cs.brynmawr.edu/gxk2013/examples/transformations/starfield/>
