@@ -30,7 +30,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. Particle Systems
         1. [Particle System](source/NOC/04/particles)
         1. [Simple Smoke](source/NOC/04/particles_smoke)
-        1. [Asteroids V2](source/NOC/04/particles_asteroid)
+        1. [Asteroids V2](source/NOC/04/particles_asteroid) *Video Games*
         1. [Flasshy Particles](source/NOC/04/particles_flight404).**TBD!!**
     1. Physics Libraries
         1. Box2D
@@ -103,9 +103,9 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#02 - Menger Sponge](source/coding_challenge/02_mengerSponge)
     1. [#03 - Snake Game](source/coding_challenge/03_snakeGame) *Video Games*
     1. [#04 - Purple Rain](source/coding_challenge/04_purpleRain)
-    1. [#05 - Space Invaders](source/coding_challenge/05_spaceInvaders)
+    1. [#05 - Space Invaders](source/coding_challenge/05_spaceInvaders) *Video Games*
     1. [#06 - Mitosis](source/coding_challenge/06_mitosis)
-    1. [#10 - Maze Generator](source/coding_challenge/10_mazeGenerator)
+    1. [#10 - Maze Generator](source/coding_challenge/10_mazeGenerator) *Algorithms*
     1. [#11 - 3D Terrain](source/NOC/00/NoiseLandscape)
     1. [#14/15 - Fractal Tree](source/coding_challenge/14_fractalTree)
     1. [#16 - L System](source/NOC/08/LSystem)
@@ -118,9 +118,13 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#26 - Supershapes 3D](source/coding_challenge/26_supershapes3D)
     1. [#30 - Phyllotaxis](source/coding_challenge/30_phyllotaxis)
     1. [#36 - Noisy Blob](source/coding_challenge/36_blobby)
+    1. [#51 - A* Path Finding](source/coding_challenge/51_aStar) *Algorithms*
     1. [#57 - Mapping Earthquake Data](source/coding_challenge/57_mappingEarthquake)
     1. [#59 - Steering Behaviours](source/coding_challenge/59_steeringBehaviour)
     1. [#60 - Butterfly Generator](source/coding_challenge/60_butterfly)
-    1. [#62 - Plinko](source/coding_challenge/62_plinko)
+    1. [#62 - Plinko](source/coding_challenge/62_plinko) *Video Games*
 2. Algorithms
     1. [Prim MST](source/algorithms/prim_mst)
+    1. [Backtracking -- Maze Generator](source/coding_challenge/10_mazeGenerator)
+    1. [A* Path Finding](source/coding_challenge/51_aStar)
+
