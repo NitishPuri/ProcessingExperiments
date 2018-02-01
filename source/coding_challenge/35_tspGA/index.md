@@ -1,7 +1,9 @@
 ---
 layout: sketch
-scripts: sketch.js
-title: Coding Challenge#35 -- Travelling Salesperson Using Lexicographical Ordering
+scripts: 
+    - ga.js
+    - sketch.js
+title: Coding Challenge#35 -- Travelling Salesperson Using Genetic Algorithm
 ---
 
 [Travelling Salesman Wiki](https://en.wikipedia.org/wiki/Travelling_salesman_problem)    
