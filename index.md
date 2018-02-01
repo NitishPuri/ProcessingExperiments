@@ -117,6 +117,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#25 - Spherical Geometry](source/coding_challenge/25_sphericalGeom)
     1. [#26 - Supershapes 3D](source/coding_challenge/26_supershapes3D)
     1. [#30 - Phyllotaxis](source/coding_challenge/30_phyllotaxis)
+    1. [#35 - Travelling Salesperson Using Lexicographicsl Ordering](source/coding_challenge/35_tsp)
+    1. [#35 - Travelling Salesperson Using Genetic Algorithm](source/coding_challenge/35_tspGA)
     1. [#36 - Noisy Blob](source/coding_challenge/36_blobby)
     1. [#51 - A* Path Finding](source/coding_challenge/51_aStar) *Algorithms*
     1. [#57 - Mapping Earthquake Data](source/coding_challenge/57_mappingEarthquake)
@@ -127,4 +129,6 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [Prim MST](source/algorithms/prim_mst)
     1. [Backtracking -- Maze Generator](source/coding_challenge/10_mazeGenerator)
     1. [A* Path Finding](source/coding_challenge/51_aStar)
+    1. [Travelling Salesperson Using Lexicographicsl Ordering](source/coding_challenge/35_tsp)
+    1. [Travelling Salesperson Using Genetic Algorithm](source/coding_challenge/35_tspGA)
 
