@@ -29,7 +29,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Simple Spring](source/NOC/03/spring)
     1. Particle Systems
         1. [Particle System](source/NOC/04/particles)
-        1. [Simple Smoke](source/NOC/04/particles_smoke)
+        1. [Simple Smoke](source/NOC/04/particles_smoke) *Improve perfrmance!!*
         1. [Asteroids V2](source/NOC/04/particles_asteroid) *Video Games*
         1. [Flasshy Particles](source/NOC/04/particles_flight404).**TBD!!**
     1. Physics Libraries

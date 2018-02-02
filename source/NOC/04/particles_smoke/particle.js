@@ -1,12 +1,10 @@
 class Particle {
-  constructor(x, y, img_) {
+  constructor(x, y) {
     this.position = createVector(x, y);
     this.velocity = createVector(random(-1, 1), random(-2, -0.5));
     this.acceleration = createVector(0, 0);
     this.lifespan = 255;
     this.mass = (random(1, 3));
-
-    this.img = img_;
   }
 
   run() {
@@ -23,7 +21,7 @@ class Particle {
   display() {
     imageMode(CENTER);
     tint(255, this.lifespan);
-    image(this.img, this.position.x, this.position.y, this.mass * 12, this.mass * 12);
+    image(img, this.position.x, this.position.y, this.mass * 12, this.mass * 12);
   }
 
   update() {

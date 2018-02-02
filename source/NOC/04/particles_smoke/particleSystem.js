@@ -1,12 +1,11 @@
 class ParticleSystem {
-    constructor(x, y, img_) {
+    constructor(x, y) {
         this.particles = [];
         this.origin = createVector(x, y);
-        this.img = img_;
     }
 
     addParticle() {
-        this.particles.push(new Particle(this.origin.x, this.origin.y, this.img));
+        this.particles.push(new Particle(this.origin.x, this.origin.y));
     }
 
     run() {

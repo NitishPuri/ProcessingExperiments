@@ -22,6 +22,7 @@ var params = {
     Filters.invert,
     Filters.threshold
   ],
+  threshold: 127
 }
 
 var currFilter;
@@ -56,6 +57,7 @@ function setup() {
 
   var gui = new dat.GUI();
   gui.addColor(params, 'bgColor').name('Background')
+  gui.add(params, 'threshold').name('Threshold').min(0).max(255).step(1)
   gui.add(params, 'filter', params.filters)
     .onFinishChange(value => currFilter = params.filterFuncs[value])
     .name('Filter')

@@ -7,7 +7,7 @@ var params = {
   attachToMouse: false,
   reset: function () {
     systems = [];
-    systems.push(new ParticleSystem(width / 2, height - 50, img));
+    systems.push(new ParticleSystem(width / 2, height - 50));
   }
 }
 

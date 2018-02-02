@@ -52,7 +52,7 @@ var Filters = {
         const bright = (r + g + b) / 3;
         // const w = map(bright, 0, 255, 0, vScale);
         const w = vScale;
-        var t = 127;
+        var t = params.threshold;
 
         if (bright > t) {
           fill(bright);
