@@ -10,7 +10,7 @@ var params = {
   w: 4,
   h: 2,
   maxIterations: 50,
-  resolution: 4,
+  resolution: 10,
   drawMandelbrot: function () {
     redraw();
   }
@@ -42,6 +42,11 @@ function draw() {
   let cols = floor(width / params.resolution)
   let rows = floor(height / params.resolution)
 
+  // let cx = -0.70176
+  // let cy = -0.38421
+  let cx = map(mouseX, 0, width, -1, 1)
+  let cy = map(mouseY, 0, height, -1, 1)
+
   var xMax = params.xMin + params.w;
   var yMax = params.yMin + params.h;
 
@@ -60,8 +65,8 @@ function draw() {
         var bb = b * b;
         var twoab = 2.0 * a * b;
 
-        a = aa - bb + x;
-        b = twoab + y;
+        a = aa - bb + cx;
+        b = twoab + cy;
         // infinity in our finite world..
         if (aa + bb > 16.0) {
           break; // Bail...
@@ -75,8 +80,8 @@ function draw() {
         // fill()
       }
       else {
-        // fill(map(sqrt(n / params.maxIterations), 0, 1, 0, 255))
         fill(map(sqrt(n / params.maxIterations), 0, 1, 0, 255), 255, 255)
+        // fill(map(sqrt(n / params.maxIterations), 0, 1, 0, 255))
         // fill(n * 16 % 255)
         noStroke();
         rect(i * params.resolution, j * params.resolution, params.resolution, params.resolution);
@@ -88,5 +93,5 @@ function draw() {
   }
 
   // updatePixels();
-  noLoop();
+  // noLoop();
 }

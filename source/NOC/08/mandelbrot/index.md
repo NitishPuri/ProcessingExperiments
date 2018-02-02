@@ -1,9 +1,10 @@
 ---
 layout: sketch
-scripts: 
-    - sketch.js
-title: Basic Mandelbrot Set
+scripts: sketch.js
+title: The Mandelbrot Set
 ---
+
+<https://en.wikipedia.org/wiki/Mandelbrot_set>   
 
 Simple rendering of the Mandelbrot set   
 ```
@@ -17,3 +18,9 @@ etc.
 
 c*c = (a+bi) * (a+bi) = a^2 - b^2 + 2abi
 ```
+
+ToDo::   
+
+* Add Color!!
+* Make Interactive.
+* Port to WebGL.
