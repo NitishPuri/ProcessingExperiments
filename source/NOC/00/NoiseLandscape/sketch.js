@@ -6,7 +6,7 @@ var params = {
 }
 
 function setup() {
-  createCanvasCustom(WEBGL);
+  createCanvasCustom({ renderer: WEBGL });
 
   landscape = new Landscape(20, 1000, 1500);
 

@@ -65,7 +65,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Tree Stochastic](source/NOC/08/tree_stochastic)
         1. [Simple L-System](source/NOC/08/simpleLSystem)
         1. [L-System : Turtle](source/NOC/08/LSystem)
-        1. [Mandelbrot](source/NOC/08/mandelbrot)
+        1. [Mandelbrot Set](source/NOC/08/mandelbrot)
+        1. [Julia Set](source/NOC/08/julia)
     1. Evolutionary Algorithms
         1. [Shakespeare](source/NOC/09/shakespeare)
         1. [Smart Rockets](source/NOC/09/smartRockets)
@@ -115,6 +116,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#18 - Fractal Trees - Space Colonization in 3D](source/coding_challenge/18_fractalTree) *WebGL*
     1. [#19 - Superellipse](source/coding_challenge/19_superellipse)
     1. [#20 - 3D Cloth with Toxiclibs](source/NOC/05/toxiclibs_cloth)
+    1. [#21 - Mandelbrot Set](source/NOC/08/mandelbrot)
+    1. [#22 - Julia Set](source/NOC/08/julia)
     1. [#23 - Supershapes 2D](source/coding_challenge/23_2d_supershapes)
     1. [#24 - Perlin Noise Flow Field](source/coding_challenge/24_perlinFlow)
     1. [#25 - Spherical Geometry](source/coding_challenge/25_sphericalGeom)

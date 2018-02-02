@@ -1,6 +1,6 @@
 
 function setup() {
-  createCanvasCustom(WEBGL);
+  createCanvasCustom({ renderer: WEBGL });
 
   rectMode(CENTER);
 }

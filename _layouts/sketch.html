@@ -5,8 +5,11 @@
     <!-- Enable responsiveness on mobile devices-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
+    <!-- Google Analytics-->
     {% if site.google_analytics and jekyll.environment == 'production' %}
+    <!---->
     {% include analytics.html %}
+    <!---->
     {% endif %}
 
     <title>
@@ -19,24 +22,29 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/lanyon.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/custom.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-    
+
     <script src="{{ site.baseurl }}/lib/p5.min.js"></script>
     <script src="{{ site.baseurl }}/lib/p5.dom.min.js"></script>
 
-    <script src="{{ site.baseurl }}/lib/dat.gui.min.js"></script> 
-        
+    <script src="{{ site.baseurl }}/lib/dat.gui.min.js"></script>
+
+    <!--Add Libs-->
     {% for lib in page.libs %}
-    <script src="{{ site.baseurl }}/lib/{{ lib }}"></script> 
+    <script src="{{ site.baseurl }}/lib/{{ lib }}"></script>
+    <!---->
     {% endfor %}
-    
+
+    <!--Add scripts-->
     {% for script in page.scripts %}
-    <script src="{{ script }}"></script> 
+    <script src="{{ script }}"></script>
+    <!---->
     {% endfor %}
-    
+
     <style>
         body {
             margin: 0px;
         }
+
         canvas {
             padding-left: 0rem;
         }
@@ -54,13 +62,45 @@
         .homelink:hover {
             text-decoration: underline
         }
+
+        .stats {
+            position: fixed;
+            bottom: 0.1em;
+            left: 0.5em;
+            background-color: rgba(10, 10, 10, 0.4);
+            padding: 0.1em;
+            color: white;
+            font-size: 10pt;
+            text-decoration: none;
+        }
     </style>
     <script>
-        function createCanvasCustom(renderer) {
-            let cnv = createCanvas(windowWidth, windowHeight - 5, renderer)
+        // Args : {w, h, renderer, statsFunc}
+        function createCanvasCustom(opt = {}) {
+            opt.w = opt.w || windowWidth
+            opt.h = opt.h || windowHeight - 5
+            let cnv = createCanvas(opt.w, opt.h, opt.renderer)
             cnv.parent('sketch-holder')
+            let intervalId = showStats(opt.statsFunc)  // Maybe this should not be optional!!!
+            cnv.intervalId = intervalId
             return cnv
-
+        }
+        function showStats(func) {
+            let fr = createP()
+            fr.class('stats')
+            func = func || (() => "FPS : " + floor(frameRate()))
+            let intervalId = setInterval(() => {
+                fr.html(func())
+            }, 500)
+            let showFr = true;
+            document.addEventListener('keydown', (ev) => {
+                if (ev.key === 'f' || ev.key === 'F') {
+                    if (showFr) fr.hide()
+                    else fr.show()
+                    showFr = !showFr
+                }
+            })
+            return intervalId
         }
     </script>
 </head>

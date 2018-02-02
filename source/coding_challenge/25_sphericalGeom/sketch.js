@@ -3,7 +3,7 @@ const total = 50;
 let globe = [];
 
 function setup() {
-  createCanvasCustom(WEBGL);
+  createCanvasCustom({ renderer: WEBGL });
 
   for (let i = 0; i < total + 1; i++) {
     globe[i] = [];

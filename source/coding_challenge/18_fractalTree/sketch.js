@@ -10,7 +10,7 @@ var max_dist = 300;
 var min_dist = 5;
 
 function setup() {
-  createCanvasCustom(WEBGL);
+  createCanvasCustom({ renderer: WEBGL });
   // createCanvas(300, 400, WEBGL);
   // createCanvasCustom();
 

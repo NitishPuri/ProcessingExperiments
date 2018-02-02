@@ -19,7 +19,7 @@ let angle = 0;
 let sponge = [];
 
 function setup() {
-  createCanvasCustom(WEBGL);
+  createCanvasCustom({ renderer: WEBGL });
 
   params.reset();
 

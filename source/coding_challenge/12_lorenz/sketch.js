@@ -9,7 +9,7 @@ let c = 8 / 3
 let points = []
 
 function setup() {
-  createCanvasCustom(WEBGL);
+  createCanvasCustom({ renderer: WEBGL });
   colorMode(HSB)
   background(0)
 }

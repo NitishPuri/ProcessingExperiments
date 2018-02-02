@@ -15,7 +15,7 @@ const total = 50;
 let globe = [];
 
 function setup() {
-  createCanvasCustom(WEBGL);
+  createCanvasCustom({ renderer: WEBGL });
 
   for (let i = 0; i < total + 1; i++) {
     globe[i] = [];
@@ -38,6 +38,8 @@ function setup() {
   // gui.add(params, 'reset');
   d = (height / 2) / (tan(PI / 6))
   cam = createVector(0, 0, d);
+
+  showStats()
 }
 
 let cam;

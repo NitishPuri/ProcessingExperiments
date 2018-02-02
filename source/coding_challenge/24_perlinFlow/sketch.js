@@ -10,7 +10,6 @@ var params = {
   zIncrement: 0.02,
   lod: 8,
   falloff: 0.65,
-  noise: true,
   cMode: 1,
   alpha: 150,
   strokeSize: 2,
@@ -38,17 +37,14 @@ var particles = [];
 
 var flowField = [];
 
-var fr;
-
 function setup() {
-  createCanvasCustom();
-  // colorMode(HSB);
-
-  fr = createP();
+  createCanvasCustom({
+    statsFunc: () =>
+      "Frame Rate(" + floor(frameRate()) + ") , Particles( " + particles.length + ")"
+  });
 
 
   var gui = new dat.GUI();
-  gui.add(params, 'noise');
   gui.add(params, 'drawField')
   gui.add(params, 'dynamicField')
   gui.add(params, 'drawBackground')
@@ -67,7 +63,6 @@ function setup() {
   // params.changeColorMode();
 
   // background(255)
-
 }
 
 function draw() {
@@ -102,7 +97,6 @@ function draw() {
       const index = x + y * cols;
 
       var r = noise(xOff, yOff, params.zOff);
-      // var r = noise(xOff, yOff);
       // var r = random(1);
 
       var v = p5.Vector.fromAngle(r * TWO_PI);
@@ -138,8 +132,6 @@ function draw() {
   if (params.dynamicField) {
     params.zOff += params.zIncrement;
   }
-
-  fr.html("Frame Rate(" + floor(frameRate()) + ") , Particles( " + particles.length + ")");
 }
 
 function mouseDragged() {
