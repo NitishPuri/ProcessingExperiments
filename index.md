@@ -100,18 +100,21 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [WebGL test 1](source/experiments/webgl_test)
 2. Coding Challenge
     1. [#01 - Star Field](source/coding_challenge/01_starField)
-    1. [#02 - Menger Sponge](source/coding_challenge/02_mengerSponge)
+    1. [#02 - Menger Sponge](source/coding_challenge/02_mengerSponge) *WebGL*
     1. [#03 - Snake Game](source/coding_challenge/03_snakeGame) *Video Games*
     1. [#04 - Purple Rain](source/coding_challenge/04_purpleRain)
     1. [#05 - Space Invaders](source/coding_challenge/05_spaceInvaders) *Video Games*
     1. [#06 - Mitosis](source/coding_challenge/06_mitosis)
     1. [#10 - Maze Generator](source/coding_challenge/10_mazeGenerator) *Algorithms*
     1. [#11 - 3D Terrain](source/NOC/00/NoiseLandscape)
+    1. [#12 - Lorenz Attractor](source/coding_challenge/12_lorenz) *WebGL*
+    1. [#13 - Reaction Diffusion](source/coding_challenge/13_diffusion)
     1. [#14/15 - Fractal Tree](source/coding_challenge/14_fractalTree)
     1. [#16 - L System](source/NOC/08/LSystem)
     1. [#17 - Fractal Trees - Space Colonization](source/coding_challenge/17_fractalTree)
     1. [#18 - Fractal Trees - Space Colonization in 3D](source/coding_challenge/18_fractalTree) *WebGL*
     1. [#19 - Superellipse](source/coding_challenge/19_superellipse)
+    1. [#20 - 3D Cloth with Toxiclibs](source/NOC/05/toxiclibs_cloth)
     1. [#23 - Supershapes 2D](source/coding_challenge/23_2d_supershapes)
     1. [#24 - Perlin Noise Flow Field](source/coding_challenge/24_perlinFlow)
     1. [#25 - Spherical Geometry](source/coding_challenge/25_sphericalGeom)
