@@ -122,10 +122,13 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#24 - Perlin Noise Flow Field](source/coding_challenge/24_perlinFlow)
     1. [#25 - Spherical Geometry](source/coding_challenge/25_sphericalGeom)
     1. [#26 - Supershapes 3D](source/coding_challenge/26_supershapes3D)
+    1. [#27 - Fireworks](source/coding_challenge/27_fireworks)
+    1. [#28 - Metaballs](source/coding_challenge/28_metaballs)
     1. [#30 - Phyllotaxis](source/coding_challenge/30_phyllotaxis)
     1. [#35 - Travelling Salesperson Using Lexicographicsl Ordering](source/coding_challenge/35_tsp)
     1. [#35 - Travelling Salesperson Using Genetic Algorithm](source/coding_challenge/35_tspGA)
     1. [#36 - Noisy Blob](source/coding_challenge/36_blobby)
+    1. [#42 - Markov Chain--Text Generation](source/coding_challenge/42_markov)
     1. [#51 - A* Path Finding](source/coding_challenge/51_aStar) *Algorithms*
     1. [#57 - Mapping Earthquake Data](source/coding_challenge/57_mappingEarthquake)
     1. [#59 - Steering Behaviours](source/coding_challenge/59_steeringBehaviour)
