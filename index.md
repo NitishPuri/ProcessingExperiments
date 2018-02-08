@@ -101,6 +101,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [WebGL test 1](source/experiments/webgl_test)
 2. Coding Challenge
     1. [#01 - Star Field](source/coding_challenge/01_starField)
+    1. [#01 - Star Field(Using Pixi.js)](source/coding_challenge/01_starField_pixi)
     1. [#02 - Menger Sponge](source/coding_challenge/02_mengerSponge) *WebGL*
     1. [#03 - Snake Game](source/coding_challenge/03_snakeGame) *Video Games*
     1. [#04 - Purple Rain](source/coding_challenge/04_purpleRain)
@@ -124,12 +125,19 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#26 - Supershapes 3D](source/coding_challenge/26_supershapes3D)
     1. [#27 - Fireworks](source/coding_challenge/27_fireworks)
     1. [#28 - Metaballs](source/coding_challenge/28_metaballs)
+    1. [#29 - Smart Rockets](source/NOC/09/smartRockets)
     1. [#30 - Phyllotaxis](source/coding_challenge/30_phyllotaxis)
-    1. [#35 - Travelling Salesperson Using Lexicographicsl Ordering](source/coding_challenge/35_tsp)
-    1. [#35 - Travelling Salesperson Using Genetic Algorithm](source/coding_challenge/35_tspGA)
+    1. [#31 - Flappy Bird](source/coding_challenge/31_flappyBird)
+    1. [#32 - Agar.io](source/coding_challenge/32_agarIo)
+    1. [#33 - Poisson Disk Sampling](source/coding_challenge/33_poissonDisk) 
+    1. [#34 - Diffusion Limited Aggregration](source/coding_challenge/34_diffusionAggregration) 
+    1. [#35.1 - Travelling Salesperson Using Lexicographicsl Ordering](source/coding_challenge/35_tsp)
+    1. [#35.2 - Travelling Salesperson Using Genetic Algorithm](source/coding_challenge/35_tspGA)
     1. [#36 - Noisy Blob](source/coding_challenge/36_blobby)
     1. [#42 - Markov Chain--Text Generation](source/coding_challenge/42_markov)
+    1. [#50 - Circle Packing](source/coding_challenge/50_circlePacking)
     1. [#51 - A* Path Finding](source/coding_challenge/51_aStar) *Algorithms*
+    1. [#54 - Islamic Star Patterns](source/coding_challenge/54_islamicStar)
     1. [#57 - Mapping Earthquake Data](source/coding_challenge/57_mappingEarthquake)
     1. [#59 - Steering Behaviours](source/coding_challenge/59_steeringBehaviour)
     1. [#60 - Butterfly Generator](source/coding_challenge/60_butterfly)
