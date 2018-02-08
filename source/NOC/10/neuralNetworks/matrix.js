@@ -62,11 +62,22 @@ class Matrix {
   }
 
   multiply(n) {
-    this.data.forEach((r, i) => {
-      r.forEach((c, j) => {
-        this.data[i][j] *= n;
+    if (n instanceof Matrix) {
+      // hadamard product
+      this.data.forEach((r, i) => {
+        r.forEach((c, j) => {
+          this.data[i][j] *= n.data[i][j];
+        })
       })
-    })
+    }
+    else {
+      // Scalar product
+      this.data.forEach((r, i) => {
+        r.forEach((c, j) => {
+          this.data[i][j] *= n;
+        })
+      })
+    }
   }
 
   add(n) {
@@ -87,13 +98,24 @@ class Matrix {
   }
 
   static transpose(m) {
-    let result = new Matrix(m.cols, m.row);
+    let result = new Matrix(m.cols, m.rows);
     m.data.forEach((r, i) => {
       r.forEach((c, j) => {
         result.data[j][i] = m.data[i][j]
       })
     })
     return result;
+  }
+
+  static map(m, func) {
+    let result = new Matrix(m.rows, m.cols);
+    m.data.forEach((r, i) => {
+      r.forEach((c, j) => {
+        result.data[i][j] = func(c)
+      })
+    })
+
+    return result
   }
 
   map(func) {
