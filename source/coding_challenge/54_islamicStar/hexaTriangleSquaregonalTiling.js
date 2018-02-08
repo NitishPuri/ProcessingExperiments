@@ -59,19 +59,3 @@ class HexaTriangleSquareTiling {
     }
   }
 }
-
-// function build_poly(x, y, r, sides, init_angle) {
-//   p = new Polygon(sides);
-//   if (init_angle == undefined) init_angle = 0;
-//   // rotate 360 degrees around the clock in 60 degree increments
-//   var inc = 2 * PI / sides;
-//   for (var index = 0; index < sides; index++) {
-//     // angular to cartesian 
-//     var θ = (index * inc) - inc / 2 + init_angle;
-//     var vX = x + r * cos(θ);
-//     var vY = y + r * sin(θ);
-//     p.addVertex(vX, vY);
-//   }
-//   p.close();
-//   return p;
-// }
