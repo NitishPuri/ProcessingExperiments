@@ -140,9 +140,11 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#51 - A* Path Finding](source/coding_challenge/51_aStar) *Algorithms*
     1. [#54 - Islamic Star Patterns](source/coding_challenge/54_islamicStar)
     1. [#55 - Mathematical Rose Patterns](source/coding_challenge/55_rosePatterns)
+    1. [#56 - Attraction and Repulsion](source/coding_challenge/56_attractors)
     1. [#57 - Mapping Earthquake Data](source/coding_challenge/57_mappingEarthquake)
     1. [#59 - Steering Behaviours](source/coding_challenge/59_steeringBehaviour)
     1. [#60 - Butterfly Generator](source/coding_challenge/60_butterfly)
+    1. [#61 - Fractal Spirograph](source/coding_challenge/61_fractalSpirograph)
     1. [#62 - Plinko](source/coding_challenge/62_plinko) *Video Games*
 2. Algorithms
     1. [Prim MST](source/algorithms/prim_mst)
