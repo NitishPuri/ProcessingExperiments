@@ -13,6 +13,7 @@ function draw() {
 
   cells.forEach(cell => {
     cell.move();
+    cell.grow()
     cell.show();
   })
 }

@@ -28,4 +28,10 @@ class Cell {
     this.r /= 2;
     return cell;
   }
+
+  grow() {
+    if (random(1) < 0.01) {
+      this.r += random(0.1, 2)
+    }
+  }
 }
