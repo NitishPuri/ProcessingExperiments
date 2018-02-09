@@ -9,8 +9,12 @@ class Cell {
   }
 
   show() {
+
+    if (!this.visited) return
+
     const x = this.i * w;
     const y = this.j * w;
+
 
     stroke(255)
     noFill();
@@ -54,13 +58,21 @@ class Cell {
     }
 
     return undefined
+
   }
   highlight() {
     const x = this.i * w;
     const y = this.j * w;
     noStroke();
-    fill(0, 255, 0, 150);
-    rect(x, y, w, w)
+    // fill(255, 0, 255, 150);
+    fill(cellHue, 255, 255, 0.6);
+    rect(x + 1, y + 1, w - 1, w - 1)
+
+    // stroke(0, 0, 0, 0.3)
+    // if (this.walls.Top) line(x, y, x + w, y);
+    // if (this.walls.Right) line(x + w, y, x + w, y + w);
+    // if (this.walls.Bottom) line(x + w, y + w, x, y + w);
+    // if (this.walls.Left) line(x, y + w, x, y);
   }
 
 }
