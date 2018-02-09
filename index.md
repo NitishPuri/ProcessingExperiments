@@ -99,6 +99,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Sound Test 3](source/experiments/sound_test3)
     1. WebGL
         1. [WebGL test 1](source/experiments/webgl_test)
+    1. [The Matrix Rain](source/experiments/theMatrix)
 2. Coding Challenge
     1. [#01 - Star Field](source/coding_challenge/01_starField)
     1. [#01 - Star Field(Using Pixi.js)](source/coding_challenge/01_starField_pixi)
@@ -138,6 +139,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#50 - Circle Packing](source/coding_challenge/50_circlePacking)
     1. [#51 - A* Path Finding](source/coding_challenge/51_aStar) *Algorithms*
     1. [#54 - Islamic Star Patterns](source/coding_challenge/54_islamicStar)
+    1. [#55 - Mathematical Rose Patterns](source/coding_challenge/55_rosePatterns)
     1. [#57 - Mapping Earthquake Data](source/coding_challenge/57_mappingEarthquake)
     1. [#59 - Steering Behaviours](source/coding_challenge/59_steeringBehaviour)
     1. [#60 - Butterfly Generator](source/coding_challenge/60_butterfly)
