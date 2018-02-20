@@ -109,6 +109,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#05 - Space Invaders](source/coding_challenge/05_spaceInvaders) *Video Games*
     1. [#06 - Mitosis](source/coding_challenge/06_mitosis)
     1. [#10 - Maze Generator](source/coding_challenge/10_mazeGenerator) *Algorithms*
+    1. [#10 - Maze Solver](source/coding_challenge/10_mazeSolver) *Algorithms*
     1. [#11 - 3D Terrain](source/NOC/00/NoiseLandscape)
     1. [#12 - Lorenz Attractor](source/coding_challenge/12_lorenz) *WebGL*
     1. [#13 - Reaction Diffusion](source/coding_challenge/13_diffusion)
@@ -146,6 +147,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#60 - Butterfly Generator](source/coding_challenge/60_butterfly)
     1. [#61 - Fractal Spirograph](source/coding_challenge/61_fractalSpirograph)
     1. [#62 - Plinko](source/coding_challenge/62_plinko) *Video Games*
+    1. [#63 - Textured Cloth Simulation](source/NOC/05/toxiclibs_cloth)
 2. Algorithms
     1. [Prim MST](source/algorithms/prim_mst)
     1. [Backtracking -- Maze Generator](source/coding_challenge/10_mazeGenerator)
