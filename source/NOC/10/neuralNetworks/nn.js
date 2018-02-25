@@ -31,7 +31,7 @@ class NeuralNetwork {
     this.bias_h.map(randomize);
     this.bias_o.map(randomize)
 
-    this.learning_rate = lr
+    this.learning_rate = lr || 0.1
 
   }
 
