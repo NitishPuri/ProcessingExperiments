@@ -6,23 +6,23 @@ var food;
 
 var eatSound;
 var startOver;
-var bgMusic;
+// var bgMusic;
 
 var fr = 3;
 var musicRate = 1;
 
 function preload() {
-  eatSound = loadSound('/data/sounds/Alert/Alert-06.mp3')
-  startOver = loadSound('/data/sounds/Voice/Male/Voice-Cartoon_Laugh-01.mp3')
-  bgMusic = loadSound('/data/sounds/Music/Music-01.mp3')
+  eatSound = loadSound('/data/sounds/alert06.mp3')
+  startOver = loadSound('/data/sounds/Voice-Cartoon_Laugh-01.mp3')
+  // bgMusic = loadSound('/data/sounds/Music/Music-01.mp3')
 }
 
 function setup() {
   createCanvasCustom();
   snake = new Snake();
   frameRate(fr)
-  bgMusic.play();
-  bgMusic.setVolume(0.7);
+  // bgMusic.play();
+  // bgMusic.setVolume(0.7);
   pickLocation()
 }
 
@@ -42,7 +42,7 @@ function draw() {
   if (snake.eat(food)) {
     fr += 2;
     frameRate(fr)
-    bgMusic.rate(musicRate);
+    // bgMusic.rate(musicRate);
     musicRate += 0.01;
     eatSound.play();
     pickLocation();
