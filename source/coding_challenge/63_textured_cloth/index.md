@@ -8,5 +8,6 @@ scripts :
     - connection.js
     - blanket.js
     - sketch.js
-title: Toxiclibs Softbody Cloth
+title: Coding Challenge#63 -- Textured Cloth Simulation
 ---
+
