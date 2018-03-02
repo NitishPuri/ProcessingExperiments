@@ -6,6 +6,34 @@ title: Home
 This is a perpetual work in progress page for some basic graphics and simulation demos built using web technologies. Mostly inspired Processing foundation and delving into creative programming using [p5.js]((https://p5js.org/)).
 
 
+1. Featured!!!!
+    1. [3D Noise Landscape](source/NOC/00/NoiseLandscape)
+    1. [Asteroids V2](source/NOC/04/particles_asteroid) 
+    1. [Blobby](source/NOC/05/box2d_blobby)
+    1. [Recursive Circles 1](source/NOC/08/recursion_1)
+    1. [Tree Stochastic](source/NOC/08/tree_stochastic)
+    1. [Mandelbrot Set](source/NOC/08/mandelbrot)
+    1. [Julia Set](source/NOC/08/julia)
+    1. [Smart Rockets](source/NOC/09/smartRockets)
+    1. [Perceptrons](source/NOC/10/perceptron)
+    1. [Bouncing Ball](source/experiments/bouncing_ball)
+    1. [The Matrix Rain](source/experiments/theMatrix)
+    1. [Star Field](source/coding_challenge/01_starField)
+    1. [Snake Game](source/coding_challenge/03_snakeGame) *Video Games*
+    1. [Purple Rain](source/coding_challenge/04_purpleRain)
+    1. [Maze Solver](source/coding_challenge/10_mazeSolver) *Algorithms*
+    1. [Reaction Diffusion](source/coding_challenge/13_diffusion)    
+    1. [Supershapes 2D](source/coding_challenge/23_2d_supershapes)
+    1. [Perlin Noise Flow Field](source/coding_challenge/24_perlinFlow)
+    1. [Supershapes 3D](source/coding_challenge/26_supershapes3D)
+    1. [Fireworks](source/coding_challenge/27_fireworks)
+    1. [Phyllotaxis](source/coding_challenge/30_phyllotaxis)
+    1. [Travelling Salesperson Using Genetic Algorithm](source/coding_challenge/35_tspGA)
+    1. [Islamic Star Patterns](source/coding_challenge/54_islamicStar)
+    1. [Mathematical Rose Patterns](source/coding_challenge/55_rosePatterns)
+    1. [Fractal Spirograph](source/coding_challenge/61_fractalSpirograph)
+    1. [Textured Cloth Simulation](source/coding_challenge/63_textured_cloth)
+    1. [Double Pendulum](source/coding_challenge/93_doublePendulum)
 1. Nature Of Code
     1. Basics
         1. [1D Noise](source/NOC/00/Noise)   
@@ -147,7 +175,9 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#60 - Butterfly Generator](source/coding_challenge/60_butterfly)
     1. [#61 - Fractal Spirograph](source/coding_challenge/61_fractalSpirograph)
     1. [#62 - Plinko](source/coding_challenge/62_plinko) *Video Games*
-    1. [#63 - Textured Cloth Simulation](source/NOC/05/toxiclibs_cloth)
+    1. [#63 - Textured Cloth Simulation](source/coding_challenge/63_textured_cloth)
+    1. [#64 - Inverse Kinematics](source/coding_challenge/64_inverse_kinematics)
+    1. [#65 - Pong](source/coding_challenge/66_pong)
     1. [#92 - Solving XOR with NN](source/coding_challenge/92_xor)
     1. [#93 - Double Pendulum](source/coding_challenge/93_doublePendulum)
 2. Algorithms
