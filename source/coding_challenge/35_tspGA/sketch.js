@@ -10,7 +10,10 @@ let fitness = []
 let popCount = 500;
 
 function setup() {
-  createCanvasCustom();
+  createCanvasCustom({
+    statsFunc: () =>
+      "FPS : " + floor(frameRate()) + " Cost : " + floor(recordDistance)
+  });
 
   let order = []
   for (let i = 0; i < total; i++) {
