@@ -6,4 +6,4 @@ scripts:
 title: Coding Challenge#64 -- Inverse Kinematics
 ---
 
-[https://en.wikipedia.org/wiki/Kinematics]
+<https://en.wikipedia.org/wiki/Kinematics>
