@@ -178,6 +178,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#63 - Textured Cloth Simulation](source/coding_challenge/63_textured_cloth)
     1. [#64 - Inverse Kinematics](source/coding_challenge/64_inverse_kinematics)
     1. [#65 - Pong](source/coding_challenge/66_pong)
+    1. [#71 - Minesweeper](source/coding_challenge/71_minesweeper)
+    1. [#72 - Frogger](source/coding_challenge/72_frogger)
     1. [#92 - Solving XOR with NN](source/coding_challenge/92_xor)
     1. [#93 - Double Pendulum](source/coding_challenge/93_doublePendulum)
 2. Algorithms
