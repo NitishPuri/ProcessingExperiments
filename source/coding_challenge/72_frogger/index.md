@@ -19,7 +19,8 @@ Instrucitions ::
 * The game resets when you hit a car/truck, or touch the river.
 
 TBD :: 
-* Add visual design.
+* Add visual design. **Bonus** : Add randomizd themes.
 * Add randomized level generation.
 * Add Sounds.
 * Add game score and win conditions.
+* Bonus :: Use an oblique orthographic view. See crossy road.
