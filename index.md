@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-This is a perpetual work in progress page for some basic graphics and simulation demos built using web technologies. Mostly inspired Processing foundation and delving into creative programming using [p5.js]((https://p5js.org/)).
+This is a perpetual work in progress page for some basic graphics and simulation demos built using web technologies. Mostly inspired by Processing foundation and delving into creative programming using [p5.js]((https://p5js.org/)).
 
 
 1. Featured!!!!
@@ -183,6 +183,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#76 - 10PRINT](source/coding_challenge/76_10print)
     1. [#81 - Circle Morphing](source/coding_challenge/81_circleMorphing)
     1. [#86 - Cube Wave](source/coding_challenge/86_cubeWave)
+    1. [#87 - 3D Knots](source/coding_challenge/87_3dknots)
+    1. [#88 - Snowfall](source/coding_challenge/88_snowfall)
     1. [#92 - Solving XOR with NN](source/coding_challenge/92_xor)
     1. [#93 - Double Pendulum](source/coding_challenge/93_doublePendulum)
 2. Algorithms
