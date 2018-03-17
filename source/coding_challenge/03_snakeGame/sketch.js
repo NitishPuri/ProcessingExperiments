@@ -12,9 +12,9 @@ var fr = 3;
 var musicRate = 1;
 
 function preload() {
-  eatSound = loadSound('/data/sounds/alert06.mp3')
-  startOver = loadSound('/data/sounds/Voice-Cartoon_Laugh-01.mp3')
-  // bgMusic = loadSound('/data/sounds/Music/Music-01.mp3')
+  eatSound = loadSound(resolveUrl('/data/sounds/alert06.mp3'))
+  startOver = loadSound(resolveUrl('/data/sounds/Voice-Cartoon_Laugh-01.mp3'))
+  // bgMusic = loadSound(resolveUrl('/data/sounds/Music/Music-01.mp3'))
 }
 
 function setup() {

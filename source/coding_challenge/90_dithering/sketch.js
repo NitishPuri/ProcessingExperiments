@@ -76,7 +76,7 @@ function addError(img, factor, x, y, errR, errG, errB) {
 
 
 function preload() {
-  kitten = loadImage('/data/tex/kitten.jpg')
+  kitten = loadImage(resolveUrl('/data/tex/kitten.jpg'))
 }
 
 function setup() {

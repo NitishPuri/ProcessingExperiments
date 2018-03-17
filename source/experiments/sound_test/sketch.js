@@ -46,7 +46,7 @@ function setupGui() {
 function setup() {
   createCanvasCustom();
   bgColor = color(255);
-  song = loadSound('/data/rainbow.mp3', setupGui)
+  song = loadSound(resolveUrl('/data/rainbow.mp3'), setupGui)
   amp = new p5.Amplitude();
 }
 

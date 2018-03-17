@@ -44,7 +44,7 @@ function setupGui() {
 function setup() {
   createCanvasCustom();
   bgColor = color(255);
-  // song = loadSound('/data/rainbow.mp3', setupGui)
+  // song = loadSound(resolveUrl('/data/rainbow.mp3'), setupGui)
 
   env = new p5.Env();
   env.setADSR(0.5, 0.25, 0.5, 0.1);

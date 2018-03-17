@@ -8,7 +8,7 @@ let spriteSheet;
 let textures = []
 
 function preload() {
-  spriteSheet = loadImage('/data/tex/flakes32.png')
+  spriteSheet = loadImage(resolveUrl('/data/tex/flakes32.png'))
 }
 
 function setup() {

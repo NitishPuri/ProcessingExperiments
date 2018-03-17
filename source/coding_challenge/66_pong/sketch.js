@@ -10,7 +10,7 @@ let leftPaddle, rightPaddle;
 function setup() {
   createCanvasCustom({ w: windowWidth - 10 })
 
-  ding = loadSound('/data/sounds/ding.mp3')
+  ding = loadSound(resolveUrl('/data/sounds/ding.mp3'))
   puck = new Puck()
   leftPaddle = new Paddle(true)
   rightPaddle = new Paddle(false)

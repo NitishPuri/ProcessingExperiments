@@ -3,7 +3,7 @@ var song;
 var fft;
 
 function preload() {
-  song = loadSound('/data/daft.mp3')
+  song = loadSound(resolveUrl('/data/daft.mp3'))
 }
 
 function setup() {
