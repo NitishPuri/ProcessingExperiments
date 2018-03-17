@@ -185,6 +185,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#86 - Cube Wave](source/coding_challenge/86_cubeWave)
     1. [#87 - 3D Knots](source/coding_challenge/87_3dknots)
     1. [#88 - Snowfall](source/coding_challenge/88_snowfall)
+    1. [#89 - Langton's Ant](source/coding_challenge/89_langtonAnt)
+    1. [#89 - Floyd–Steinberg dithering](source/coding_challenge/90_dithering)
     1. [#92 - Solving XOR with NN](source/coding_challenge/92_xor)
     1. [#93 - Double Pendulum](source/coding_challenge/93_doublePendulum)
 2. Algorithms
