@@ -125,6 +125,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Sound Test](source/experiments/sound_test)
         1. [Sound Test 2](source/experiments/sound_test2)
         1. [Sound Test 3](source/experiments/sound_test3)
+        1. [Sound Painter](source/experiments/sound_painter)
     1. WebGL
         1. [WebGL test 1](source/experiments/webgl_test)
     1. [The Matrix Rain](source/experiments/theMatrix)
