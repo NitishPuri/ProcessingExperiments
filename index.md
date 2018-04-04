@@ -34,6 +34,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [Fractal Spirograph](source/coding_challenge/61_fractalSpirograph)
     1. [Textured Cloth Simulation](source/coding_challenge/63_textured_cloth)
     1. [Double Pendulum](source/coding_challenge/93_doublePendulum)
+    1. [Sound Painter](source/experiments/sound_painter)
 1. Nature Of Code
     1. Basics
         1. [1D Noise](source/NOC/00/Noise)   
@@ -126,6 +127,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Sound Test 2](source/experiments/sound_test2)
         1. [Sound Test 3](source/experiments/sound_test3)
         1. [Sound Painter](source/experiments/sound_painter)
+        1. [Music Machine](source/experiments/sound_drumMachine)
     1. WebGL
         1. [WebGL test 1](source/experiments/webgl_test)
     1. [The Matrix Rain](source/experiments/theMatrix)
@@ -192,6 +194,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#92 - Solving XOR with NN](source/coding_challenge/92_xor)
     1. [#93 - Double Pendulum](source/coding_challenge/93_doublePendulum)
     1. [#94 - 2048](source/coding_challenge/94_2048)
+    1. [#98 - QuadTree](source/coding_challenge/98_quadTree)
 2. Algorithms
     1. [Prim MST](source/algorithms/prim_mst)
     1. [Backtracking -- Maze Generator](source/coding_challenge/10_mazeGenerator)
