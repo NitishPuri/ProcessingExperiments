@@ -201,4 +201,5 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [A* Path Finding](source/coding_challenge/51_aStar)
     1. [Travelling Salesperson Using Lexicographicsl Ordering](source/coding_challenge/35_tsp)
     1. [Travelling Salesperson Using Genetic Algorithm](source/coding_challenge/35_tspGA)
+    1. [Monte Carlo Localization](source/algorithms/mcl)
 
