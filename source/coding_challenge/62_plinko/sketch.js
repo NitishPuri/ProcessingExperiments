@@ -103,7 +103,7 @@ function draw() {
     newParticle();
   }
 
-  background(51);
+  background(0, 0, 0);
 
   boundaries.forEach(b => b.show());
 

@@ -1,5 +1,5 @@
 ---
 layout: sketch
 scripts: sketch.js
-title: One D Noise
+title: Prim's Minimum Spanning Tree
 ---
