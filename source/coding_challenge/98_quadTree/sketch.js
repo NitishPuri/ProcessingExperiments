@@ -10,27 +10,27 @@ function setup() {
 
   // console.log(qt)
 
-  for (let i = 0; i < 1000; i++) {
-    let p = new Point(random(width), random(height))
-    qtree.insert(p);
-  }
+  // for (let i = 0; i < 1000; i++) {
+  //   let p = new Point(random(width), random(height))
+  //   qtree.insert(p);
+  // }
 
   rectMode(CENTER);
 
   background(0, 0, 0);
-  qtree.show()
+  // qtree.show()
 }
 
 function draw() {
 
   background(0);
 
-  // if (mouseIsPressed) {
-  //   for (let i = 0; i < 5; i++) {
-  //     let m = new Point(mouseX, mouseY);
-  //     qtree.insert(m);
-  //   }
-  // }
+  if (mouseIsPressed) {
+    for (let i = 0; i < 5; i++) {
+      let m = new Point(mouseX, mouseY);
+      qtree.insert(m);
+    }
+  }
 
   // background(0);
   qtree.show();
@@ -44,12 +44,6 @@ function draw() {
   stroke(0, 255, 0)
   strokeWeight(6);
   let found = qtree.query(range);
-
-
-  // console.log(found);
-  // qtree.query(range).forEach(f => point(f.x, f.y))
-  // qtree.query(range).forEach(f => point(f.x, f.y))
-  // console.log(found.length)
   found.forEach(f => point(f.x, f.y))
 
   // found = found.map()
