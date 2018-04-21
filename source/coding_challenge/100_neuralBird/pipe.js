@@ -1,43 +1,58 @@
+// Daniel Shiffman
+// Nature of Code: Intelligence and Learning
+// https://github.com/shiffman/NOC-S17-2-Intelligence-Learning
+
+// This flappy bird implementation is adapted from:
+// https://youtu.be/cXgA1d_E-jY&
+
 class Pipe {
   constructor() {
 
-    let spacing = random(40, height / 2)
-    let centery = random(spacing, height - spacing)
+    // How big is the empty space
+    let spacing = 125;
+    // Where is th center of the empty space
+    let centery = random(spacing, height - spacing);
 
-    this.top = centery - spacing / 2
-    this.bottom = centery + spacing / 2
+    // Top and bottom of pipe
+    this.top = centery - spacing / 2;
+    this.bottom = height - (centery + spacing / 2);
+    // Starts at the edge
     this.x = width;
-    this.w = 30
-    this.speed = 1
-    this.highlight = false;
+    // Width of pipe
+    this.w = 80;
+    // How fast
+    this.speed = 6;
   }
 
-  show() {
-    fill(255);
-    if (this.highlight) {
-      fill(255, 0, 0)
+  // Did this pipe hit a bird?
+  hits(bird) {
+    if ((bird.y - bird.r) < this.top || (bird.y + bird.r) > (height - this.bottom)) {
+      if (bird.x > this.x && bird.x < this.x + this.w) {
+        return true;
+      }
     }
-    rect(this.x, 0, this.w, this.top)
-    rect(this.x, this.bottom, this.w, height - this.bottom)
+    return false;
   }
 
+  // Draw the pipe
+  show() {
+    stroke(255);
+    fill(200);
+    rect(this.x, 0, this.w, this.top);
+    rect(this.x, height - this.bottom, this.w, this.bottom);
+  }
+
+  // Update the pipe
   update() {
     this.x -= this.speed;
   }
 
+  // Has it moved offscreen?
   offscreen() {
-    return (this.x < -this.w);
-  }
-
-  hits(bird) {
-    if (bird.y < this.top || bird.y > this.bottom) {
-      if (bird.x > this.x && bird.x < this.x + this.w) {
-        this.highlight = true;
-        return true;
-      }
+    if (this.x < -this.w) {
+      return true;
+    } else {
+      return false;
     }
-
-    return false;
   }
-
-} 
+}
