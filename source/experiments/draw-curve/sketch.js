@@ -6,6 +6,7 @@ let control2 = []
 let startY;
 let len = 50
 let radii = 5;   // radii of control points
+let drawGuides = true;
 
 
 function reset() {
@@ -20,11 +21,15 @@ function reset() {
     c2_y: height / 2 + random(20),
     isCurve: random(1) > 0
   }))
+
+  vertices[0].isCurve = false
 }
+
+let cnv;
 
 function setup() {
   // put setup code here
-  let cnv = createCanvasCustom();
+  cnv = createCanvasCustom();
   cnv.doubleClicked(doubleClickedHandler)
   reset()
 }
@@ -37,34 +42,35 @@ function draw() {
   stroke(255)
   strokeWeight(4)
 
-  // beginShape();
-  // vertices.forEach(v => vertex(v.x, v.y - 100))
-  // endShape();
+  // Draw the curve
   beginShape();
   vertex(0, startY)
   vertices.forEach(v => v.isCurve ? bezierVertex(v.c1_x, v.c1_y, v.c2_x, v.c2_y, v.x, v.y) : vertex(v.x, v.y))
   vertex(width, startY)
   endShape();
 
-  strokeWeight(2)
-  stroke(150)
-  vertices.forEach(v => {
-    if (v.isCurve) {
-      line(v.x, v.y, v.c1_x, v.c1_y)
-      line(v.x, v.y, v.c2_x, v.c2_y)
+  if (drawGuides) {
+    // Draw the control point guides.
+    strokeWeight(2)
+    stroke(150)
+    for (let i = 0; i < vertices.length; i++) {
+      if (vertices[i].isCurve) {
+        line(vertices[i - 1].x, vertices[i - 1].y, vertices[i].c1_x, vertices[i].c1_y)
+        line(vertices[i].x, vertices[i].y, vertices[i].c2_x, vertices[i].c2_y)
+      }
     }
-  })
 
+    // Draw the control points.
+    strokeWeight(2)
+    fill(255, 0, 0)
+    vertices.forEach(v => v.isCurve ? ellipse(v.c1_x, v.c1_y, radii * 2) : point(v.c1_x, v.c1_y))
 
-  strokeWeight(2)
-  fill(255, 0, 0)
-  vertices.forEach(v => v.isCurve ? ellipse(v.c1_x, v.c1_y, radii * 2) : point(v.c1_x, v.c1_y))
+    fill(0, 255, 0)
+    vertices.forEach(v => ellipse(v.x, v.y, radii * 2))
 
-  fill(0, 255, 0)
-  vertices.forEach(v => ellipse(v.x, v.y, radii * 2))
-
-  fill(0, 0, 255)
-  vertices.forEach(v => v.isCurve ? ellipse(v.c2_x, v.c2_y, radii * 2) : point(v.c2_x, v.c2_y))
+    fill(0, 0, 255)
+    vertices.forEach(v => v.isCurve ? ellipse(v.c2_x, v.c2_y, radii * 2) : point(v.c2_x, v.c2_y))
+  }
 }
 
 function distSq(x1, y1, x2, y2) {
@@ -133,13 +139,24 @@ function mouseDragged() {
   }
 }
 
+function doubleClicked() {
+  console.log("Double Clicked.")
+}
+
 function doubleClickedHandler() {
-  console.log("Double clicked")
-  for (let v_id = 0; v_id < vertices.length; v_id++) {
-    let v = vertices[v_id]
-    if (distSq(v.x, v.y, mouseX, mouseY) < radii * radii) {
-      vertices[v_id].isCurve = !vertices[v_id].isCurve
-      break
-    }
+  console.log("Double clicked handler")
+  // for (let v_id = 0; v_id < vertices.length; v_id++) {
+  //   let v = vertices[v_id]
+  //   if (distSq(v.x, v.y, mouseX, mouseY) < radii * radii) {
+  //     vertices[v_id].isCurve = !vertices[v_id].isCurve
+  //     break
+  //   }
+  // }
+}
+
+function keyPressed() {
+  if (key === ' ') {
+    drawGuides = !drawGuides;
+    return false
   }
 }
