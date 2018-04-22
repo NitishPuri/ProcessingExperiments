@@ -16,12 +16,6 @@ let pipes = [];
 // A frame counter to determine when to add a pipe
 let counter = 0;
 
-// Interface elements
-// let speedSlider;
-// let speedSpan;
-// let highScoreSpan;
-// let allTimeHighScoreSpan;
-
 // All time high score
 let highScore = 0;
 let tempHighScore = 0;
@@ -54,19 +48,10 @@ function setup() {
   let canvas = createCanvasCustom({
     statsFunc: () => "High Score : " + tempHighScore + " , All time high score : " + highScore
   });
-  // canvas.parent('c anvascontainer');
 
   gui = new dat.GUI()
   gui.add(params, 'speed').min(1).max(10).step(1)
   gui.add(params, 'toggleState').name('run best')
-
-  // Access the interface elements
-  // speedSlider = select('#speedSlider');
-  // speedSpan = select('#speed');
-  // highScoreSpan = select('#hs');
-  // allTimeHighScoreSpan = select('#ahs');
-  // runBestButton = select('#best');
-  // runBestButton.mousePressed(toggleState);
 
   // Create a population
   for (let i = 0; i < totalPopulation; i++) {
