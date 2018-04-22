@@ -96,6 +96,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [L-System : Turtle](source/NOC/08/LSystem)
         1. [Mandelbrot Set](source/NOC/08/mandelbrot)
         1. [Julia Set](source/NOC/08/julia)
+        1. [Fractal.Invaders](source/NOC/08/fractal.invaders)
     1. Evolutionary Algorithms
         1. [Shakespeare](source/NOC/09/shakespeare)
         1. [Smart Rockets](source/NOC/09/smartRockets)
@@ -112,6 +113,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [Random Shapes](source/experiments/random-shapes)
     1. [Radial Stuff](source/experiments/radial-stuff)
     1. [Draw](source/experiments/draw-stuff)
+    1. [Curves](source/experiments/draw-curve)
     1. [Clojures](source/experiments/clojures)
     1. [HTML Test](source/experiments/html_test)
     1. [Data Test](source/experiments/data-test)
@@ -195,6 +197,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#93 - Double Pendulum](source/coding_challenge/93_doublePendulum)
     1. [#94 - 2048](source/coding_challenge/94_2048)
     1. [#98 - QuadTree](source/coding_challenge/98_quadTree)
+    1. [#100 - NeuroEvolution FlappyBird](source/coding_challenge/100_neuralBird)
 2. Algorithms
     1. [Prim MST](source/algorithms/prim_mst)
     1. [Backtracking -- Maze Generator](source/coding_challenge/10_mazeGenerator)
