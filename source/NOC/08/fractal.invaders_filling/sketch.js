@@ -40,7 +40,7 @@ function setup() {
   gui.add(params, 'play')
   gui.add(params, 'reset')
 
-  params.reset();
+  // params.reset();
 
   console.log("Done!!")
 
@@ -51,9 +51,9 @@ function setup() {
 function draw() {
   background(255)
 
-  if (params.play) {
-    invader.randomize();
-  }
-  invader.draw();
+  // if (params.play) {
+  //   invader.randomize();
+  // }
+  // invader.draw();
 }
 
