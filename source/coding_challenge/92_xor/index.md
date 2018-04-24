@@ -1,8 +1,9 @@
 ---
 layout: sketch
-scripts: 
+libs:
     - nn.js
     - matrix.js
+scripts: 
     - sketch.js
 title: Coding Challenge#92 -- XOR Problem
 ---

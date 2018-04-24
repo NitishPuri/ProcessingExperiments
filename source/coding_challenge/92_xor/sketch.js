@@ -45,7 +45,7 @@ function draw() {
       let x1 = i / cols;
       let x2 = j / rows;
       let inputs = [x1, x2]
-      let y = nn.feedforward(inputs)
+      let y = nn.predict(inputs)
       fill(y * 255);
       rect(i * resolution, j * resolution, resolution, resolution)
     }
