@@ -1,4 +1,4 @@
-const createInvader = (x, y, w, h, maxSize) => {
+const createInvader = (x, y, w, h) => {
 
   if (w < params.minDivisionSize || h < params.minDivisionSize) {
     return
@@ -6,13 +6,13 @@ const createInvader = (x, y, w, h, maxSize) => {
 
   let n_x = floor(random(w));
   let n_y = floor(random(h));
-  let n_size = floor(random(min(maxSize, w - n_x, h - n_y)))
+  let n_size = floor(random(min(params.maxInvaderSize, w - n_x, h - n_y)))
 
   let tries = 0;
   while (n_size < params.minInvaderSize && tries < params.maxTries) {
     n_x = floor(random(w));
     n_y = floor(random(h));
-    n_size = floor(random(min(maxSize, w - n_x, h - n_y)))
+    n_size = floor(random(min(params.maxInvaderSize, w - n_x, h - n_y)))
     tries++
   }
 
@@ -20,7 +20,11 @@ const createInvader = (x, y, w, h, maxSize) => {
     return
   }
 
-  return new Invader(x, y, w, h, n_x, n_y, n_size)
+  let new_invader = new Invader(x, y, w, h, n_x, n_y, n_size)
+  new_invader.randomize()
+
+  invaders.push(new_invader)
+  new_invaders.push(new_invader)
 }
 
 class Invader {
@@ -29,27 +33,14 @@ class Invader {
     this.y = y + pos_y;
     this.size = size
 
-    this.nodes = []
-
     this.blockSize = (this.size - 2 * params.margin) / grid_size
 
-    this.randomize()
-
-    // let maxSize = 500
-
     this.createChildren = () => {
-      this.nodes = []
-      this.nodes.push(createInvader(x, y, pos_x + this.size, pos_y, params.maxInvaderSize))
-      this.nodes.push(createInvader(x, this.y, pos_x, h - pos_y, params.maxInvaderSize))
-      this.nodes.push(createInvader(this.x, this.y + this.size, w - pos_x, h - pos_y - this.size, params.maxInvaderSize))
-      this.nodes.push(createInvader(this.x + this.size, y, w - pos_x - this.size, pos_y + this.size, params.maxInvaderSize))
-
-      this.nodes = this.nodes.filter(n => n)
-
+      createInvader(x, y, pos_x + this.size, pos_y)
+      createInvader(x, this.y, pos_x, h - pos_y)
+      createInvader(this.x, this.y + this.size, w - pos_x, h - pos_y - this.size)
+      createInvader(this.x + this.size, y, w - pos_x - this.size, pos_y + this.size)
     }
-
-    this.createChildren();
-
   }
   randomize() {
     this.cells = Array(grid_size * half_grid).fill().map(() => {
@@ -61,10 +52,8 @@ class Invader {
       }
       return 0;
     });
-
-    this.nodes.forEach(n => n.randomize())
-
   }
+
   draw() {
     push()
     translate(this.x + params.margin, this.y + params.margin)
@@ -72,15 +61,13 @@ class Invader {
       for (let i = 0; i < grid_size; i++) {
         let index = ((i > half_grid - 1) ? (grid_size - 1 - i) : i) + j * half_grid;
         if (this.cells[index] > 0) {
-          fill(0, 0, 0)
+          fill(params.block_color)
           if (this.cells[index] > 1)
-            fill(255, 0, 0)
+            fill(params.accent_color)
           rect(i * this.blockSize, j * this.blockSize, this.blockSize, this.blockSize);
         }
       }
     }
     pop()
-
-    this.nodes.forEach(n => n.draw())
   }
 }
