@@ -4,7 +4,7 @@ scripts:
     - invader.js
     - sketch.js
 title: Fractal.Invaders Space Filling
-mathjax: true
+use_math: true
 ---
 
 <https://blog.jverkamp.com/2014/09/16/fractal-invaders/>

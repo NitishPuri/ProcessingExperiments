@@ -4,6 +4,8 @@
 permalink:           pretty
 # relative_permalinks: true
 
+markdown: kramdown
+
 # Setup
 title:               Processing Experiments
 tagline:             'beyond nature'
