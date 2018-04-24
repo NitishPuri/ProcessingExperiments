@@ -1,18 +1,28 @@
 
-// const BLOCK_SIZE = 360;
-const PIXEL_SIZE = 50;
-const GRID_SIZE = 5;
-const HALF_GRID = Math.ceil(GRID_SIZE / 2);
-const MARGIN = 20;
-// let chanceOfBlock = 0.5
+let grid_size = 5;
+let half_grid = Math.ceil(grid_size / 2)
 
 let params = {
   chanceOfBlock: 0.5,
   chanceOfRed: 0.2,
+  minDivisionSize: 40,
+  maxTries: 50,
+  minInvaderSize: 20,
+  maxInvaderSize: 500,
+  grid_size: 5,
+  // half_grid: Math.ceil(grid_size / 2),
+  margin: 2,
+  play: true,
+  reset() {
+    invader = createInvader(0, 0, width, height, this.maxInvaderSize)
+    grid_size = this.grid_size
+    half_grid = Math.ceil(grid_size / 2)
+  }
 }
 
-let invaders = [];
 let invader;
+
+let counter = 0;
 
 function setup() {
   createCanvasCustom();
@@ -22,29 +32,28 @@ function setup() {
   let gui = new dat.GUI();
   gui.add(params, 'chanceOfBlock').min(0).max(1).step(0.05)
   gui.add(params, 'chanceOfRed').min(0).max(1).step(0.05)
+  gui.add(params, 'minDivisionSize').min(10).max(100).step(5)
+  gui.add(params, 'maxTries').min(10).max(100).step(5)
+  gui.add(params, 'minInvaderSize').min(10).max(100).step(5)
+  gui.add(params, 'maxInvaderSize').min(200).max(600).step(5)
+  gui.add(params, 'grid_size').min(5).max(11).step(1)
+  gui.add(params, 'play')
+  gui.add(params, 'reset')
 
-  let block = PIXEL_SIZE * GRID_SIZE + 2 * MARGIN;
-  let width_offset = (width % block) / 2;
-  let height_offset = (height % block) / 2;
-  let x_count = floor(width / block);
-  let y_count = floor(height / block);
+  params.reset();
 
-  for (let i = 0; i < x_count; i++) {
-    for (let j = 0; j < y_count; j++) {
-      invaders.push(new Invader(width_offset + i * block, height_offset + j * block, PIXEL_SIZE))
-    }
-  }
+  console.log("Done!!")
 
   frameRate(1)
 }
 
 
 function draw() {
-  background(0);
+  background(255)
 
-  invaders.forEach((invader) => {
-    invader.randomize()
-    invader.draw()
-  })
+  if (params.play) {
+    invader.randomize();
+  }
+  invader.draw();
 }
 
