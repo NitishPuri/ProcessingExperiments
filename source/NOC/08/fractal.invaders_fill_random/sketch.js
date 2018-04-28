@@ -19,8 +19,14 @@ let params = {
   background_color: [255, 255, 255],
   block_color: [0, 0, 0],
   accent_color: [255, 0, 0],
+  interactive: true,
   reset() {
     invaders = []
+    counter = 1
+    frame_counter = 0
+    background(params.background_color)
+    stroke(params.accent_color)
+    calcIntialArea()
   }
 }
 
@@ -32,8 +38,6 @@ let initial_area = 0;
 
 function setup() {
   createCanvasCustom();
-  stroke(0);
-  fill(0);
 
   let gui = new dat.GUI();
   gui.add(params, 'filling', params.fillingTypes)
@@ -42,6 +46,7 @@ function setup() {
   gui.add(params, 'maxInvaderSize').min(100).max(600).step(5)
   gui.add(params, 'margin').min(0).max(10).step(1)
   gui.add(params, 'c').min(1).max(2).step(0.01)
+  gui.add(params, 'interactive')
   const cf = gui.addFolder("Colors")
   cf.add(params, 'chanceOfBlock').min(0).max(1).step(0.05)
   cf.add(params, 'chanceOfAccent').min(0).max(1).step(0.05)
@@ -72,16 +77,17 @@ function calcIntialArea() {
 
 
 function draw() {
-  background(params.background_color)
 
   for (let i = 0; i < params.speed; i++) {
     createInvader();
   }
 
-  invaders.forEach(invader => invader.draw());
-
-  if (params.play && frameCount % 10 == 0) {
-    invaders.forEach(invader => invader.randomize());
+  if (params.interactive) {
+    background(params.background_color)
+    invaders.forEach(invader => invader.draw());
+    if (params.play && frameCount % 10 == 0) {
+      invaders.forEach(invader => invader.randomize());
+    }
   }
 }
 

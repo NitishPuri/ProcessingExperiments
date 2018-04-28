@@ -17,7 +17,7 @@ const createInvader = () => {
     size = sqrt(area_new);
   }
 
-  console.log(`Size::${size}`)
+  // console.log(`Size::${size}`)
   let attempts = 0;
 
   while (attempts++ < 1000) {
@@ -46,7 +46,9 @@ const createInvader = () => {
 
   if (invader_to_add) {
     invader_to_add.randomize();
-    // invader_to_add.draw();
+    if (!params.interactive) {
+      invader_to_add.draw();
+    }
     invaders.push(invader_to_add)
     counter++;
     frame_counter--;
