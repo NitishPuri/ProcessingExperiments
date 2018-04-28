@@ -4,15 +4,17 @@ let frame_counter;
 let initial_area;
 
 const shapes = {
-  selected_shape: 0,
+  selected_shape: 2,
   current_shape: undefined,
   names: {
     Rectangle: 0,
     Circle: 1,
+    'Equilateral Triangle': 2
   },
   classes: [
     Rect,
-    Circle
+    Circle,
+    Triangle
   ]
 }
 
@@ -95,17 +97,14 @@ function calcIntialArea() {
 }
 
 function draw() {
-  fill(params.block_color)
-
   for (let i = 0; i < params.speed; i++) { createShape(); }
-
-  if (params.interactive) {
-    background(params.background_color)
-    created_shapes.forEach(shape => shape.draw());
-  }
 }
 
 function mousePressed() {
+
+  if (!params.interactive)
+    return
+
   let index_to_remove = -1;
   for (let i = 0; i < created_shapes.length; i++) {
     let shape = created_shapes[i];
