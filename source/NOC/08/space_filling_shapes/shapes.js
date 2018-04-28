@@ -6,32 +6,28 @@ const createShape = () => {
     counter++;
   }
 
-  let size = 0;
+  let area = 0;
   let shape_to_add = undefined;
 
   if (params.filling == params.fillingTypes.Random) {
-    size = floor(random(params.minInvaderSize, params.maxInvaderSize))
+    const size = floor(random(params.minSize, params.maxSize))
+    area = size * size
   }
   else if (params.filling == params.fillingTypes.Statistical) {
-    let area_new = initial_area * pow(counter, -params.c);
-    size = sqrt(area_new);
+    area = initial_area * pow(counter, -params.c);
   }
 
-  console.log(`Size::${size}`)
+  console.log(`Size::${sqrt(area)}`)
   let attempts = 0;
 
   while (attempts++ < 1000) {
-    let x = random(width);
-    let y = random(height);
+    const x = random(width);
+    const y = random(height);
 
-    let new_shape = new Rect(x, y, size)
-
-    if (x + size > width || y + size > height) {
-      continue;
-    }
+    const new_shape = new shapes.current_shape(x, y, area)
 
     let intersects = false;
-    for (shape of shapes) {
+    for (let shape of created_shapes) {
       if (shape.intersect(new_shape)) {
         intersects = true;
         break;
@@ -45,9 +41,8 @@ const createShape = () => {
   }
 
   if (shape_to_add) {
-    shape_to_add.randomize();
     shape_to_add.draw();
-    shapes.push(shape_to_add)
+    created_shapes.push(shape_to_add)
     counter++;
     frame_counter--;
   }
@@ -58,22 +53,91 @@ const createShape = () => {
 class Shape {
   intersect(other) { return false; }
   draw() { }
+  clear() { }
+  contains() { return false; }
 }
 
 class Rect extends Shape {
-  constructor(x, y, size) {
+  constructor(x, y, area) {
+    super()
     this.x = x;
     this.y = y;
-    this.size = size;
+    this.size = sqrt(area);
+    const offset = random(0.7, 0.8);
+    const one_offset = 1 - offset;
+    const h = floor(random(100))
+    this.draw = () => {
+
+      if (params.rainbow) { fill(h, 100, 100) }
+      else { fill(params.block_color) }
+
+      noStroke()
+      rect(this.x, this.y, this.size, this.size)
+
+      if (params.rainbow) { stroke(0) }
+      else { stroke(params.accent_color) }
+
+      line(this.x, this.y, this.x + this.size, this.y + this.size * offset)
+      line(this.x + this.size, this.y, this.x, this.y + this.size * offset)
+      line(this.x, this.y + this.size, this.x + this.size, this.y + this.size * one_offset)
+      line(this.x + this.size, this.y + this.size, this.x, this.y + this.size * one_offset)
+    }
   }
   intersect(other) {
-    if (this.x > other.x + other.size || other.x > this.x + this.size)
-      return false;
-    if (this.y > other.y + other.size || other.y > this.y + this.size)
-      return false;
-    return true;
+    return (
+      this.x < other.x + other.size &&
+      other.x < this.x + this.size &&
+      this.y < other.y + other.size &&
+      other.y < this.y + this.size
+    )
   }
-  draw() {
-    rect(this.x, this.y, this.size)
+  clear() {
+    if (params.rainbow) {
+      fill(0, 0, 100)
+    }
+    else {
+      fill(params.background_color)
+    }
+    noStroke()
+    rect(this.x, this.y, this.size, this.size)
+  }
+  contains(x, y) {
+    return (x > this.x && x < this.x + this.size && y > this.y && y < this.y + this.size)
+  }
+}
+
+class Circle extends Shape {
+  constructor(x, y, area) {
+    super()
+    this.x = x
+    this.y = y
+    this.radius = sqrt(area / PI)
+    const h = floor(random(100))
+    this.draw = () => {
+      if (params.rainbow) {
+        fill(h, 100, 100);
+      }
+      else {
+        fill(params.block_color)
+      }
+      ellipse(this.x, this.y, this.radius * 2)
+    }
+  }
+  intersect(other) {
+    return dist(this.x, this.y, other.x, other.y) < (this.radius + other.radius)
+  }
+  clear() {
+    if (params.rainbow) {
+      stroke(0, 0, 100)
+      fill(0, 0, 100)
+    }
+    else {
+      stroke(params.background_color)
+      fill(params.background_color)
+    }
+    ellipse(this.x, this.y, this.radius * 2)
+  }
+  contains(x, y) {
+    return (dist(this.x, this.y, x, y) < this.radius)
   }
 }
