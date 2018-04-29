@@ -1,7 +1,17 @@
 const TRIANGLE_AREA_COEFF = 4 / Math.sqrt(3);
 
-const createShape = () => {
+// Currying function!!!
+const currier = function (fn) {
+  let args = Array.prototype.slice.call(arguments, 1);
+  return function () {
+    return fn.apply(this, args.concat(
+      Array.prototype.slice.call(arguments, 0)
+    ));
+  }
+}
 
+
+const createShape = () => {
   // Try to fit a (slightly)smaller shape
   frame_counter++;
   if (frame_counter > 1000) {
@@ -27,7 +37,8 @@ const createShape = () => {
     const x = random(width);
     const y = random(height);
 
-    const new_shape = new shapes.current_shape(x, y, area)
+    const new_shape = shapes.current_shape({ x, y, area })
+    // const new_shape = shapeFactory(x, y, area, shapes.current_shape)
 
     let intersects = false;
     for (let shape of created_shapes) {
@@ -54,9 +65,12 @@ const createShape = () => {
 }
 
 class Shape {
-  constructor() {
-    this.h = floor(random(100))
-    this.vertices = []
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.radius = 0;
+    this.h = floor(random(100));
+    this.vertices = [];
   }
   intersect(other) {
     // Test if the bounding circles intersect
@@ -85,7 +99,7 @@ class Shape {
           { p1: this.vertices[i], p2: this.vertices[(i + 1) % n1] },
           { p1: other.vertices[i], p2: other.vertices[(i + 1) % n2] }
         )) {
-          return false;
+          return true;
         }
       }
     }
@@ -118,59 +132,23 @@ class Shape {
   }
 }
 
-class Rect extends Shape {
-  constructor(x, y, area) {
-    super()
+const circle = ({ x, y, area }) => {
+  const shape = new Shape(x, y);
 
-    this.size = sqrt(area);
-
-    this.x = x + this.size / 2;
-    this.y = y + this.size / 2;
-    this.radius = this.size / 1.414;
-
-    const offset = random(0.7, 0.8);
-    const one_offset = 1 - offset;
-
-    this.vertices.push({ x: x, y: y })
-    this.vertices.push({ x: x + this.size, y: y })
-    this.vertices.push({ x: x + this.size, y: y + this.size })
-    this.vertices.push({ x: x, y: y + this.size })
-
-    this.draw = () => {
-      super.draw();
-
-      if (params.rainbow) { stroke(0) }
-      else { stroke(params.accent_color) }
-
-      line(x, y, x + this.size, y + this.size * offset)
-      line(x + this.size, y, x, y + this.size * offset)
-      line(x, y + this.size, x + this.size, y + this.size * one_offset)
-      line(x + this.size, y + this.size, x, y + this.size * one_offset)
+  shape.radius = sqrt(area / PI)
+  shape.draw = function () {
+    if (params.rainbow) {
+      fill(shape.h, 100, 100);
     }
-  }
-}
-
-class Circle extends Shape {
-  constructor(x, y, area) {
-    super()
-    this.x = x
-    this.y = y
-    this.radius = sqrt(area / PI)
-    const h = floor(random(100))
-    this.draw = () => {
-      if (params.rainbow) {
-        fill(h, 100, 100);
-      }
-      else {
-        fill(params.block_color)
-      }
-      ellipse(this.x, this.y, this.radius * 2)
+    else {
+      fill(params.block_color)
     }
+    ellipse(this.x, this.y, this.radius * 2)
   }
-  intersect(other) {
+  shape.intersect = function (other) {
     return dist(this.x, this.y, other.x, other.y) < (this.radius + other.radius)
   }
-  clear() {
+  shape.clear = function () {
     if (params.rainbow) {
       stroke(0, 0, 100)
       fill(0, 0, 100)
@@ -181,25 +159,73 @@ class Circle extends Shape {
     }
     ellipse(this.x, this.y, this.radius * 2)
   }
-  contains(x, y) {
+  shape.contains = function (x, y) {
     return (dist(this.x, this.y, x, y) < this.radius)
   }
+
+  return shape;
 }
 
-class Triangle extends Shape {
-  constructor(x, y, area) {
-    super()
+const triangle = ({ x, y, area }, isInverted) => {
 
-    let side = sqrt(area * TRIANGLE_AREA_COEFF)
-    let r = (2 * side) / (3 * TRIANGLE_AREA_COEFF);
+  const shape = new Shape(x, y);
 
-    this.x = x
-    this.y = y
-    this.radius = 2 * r;
+  let side = sqrt(area * TRIANGLE_AREA_COEFF)
+  let r = (2 * side) / (3 * TRIANGLE_AREA_COEFF);
 
-    this.vertices = []
-    this.vertices.push({ x: x - side / 2, y: y + r })
-    this.vertices.push({ x: x, y: y - this.radius })
-    this.vertices.push({ x: x + side / 2, y: y + r })
+  shape.x = x
+  shape.y = y
+  shape.radius = 2 * r;
+
+  if (isInverted) {
+    shape.vertices.push({ x: x - side / 2, y: y - r })
+    shape.vertices.push({ x: x + side / 2, y: y - r })
+    shape.vertices.push({ x: x, y: y + shape.radius })
   }
+  else {
+    shape.vertices.push({ x: x - side / 2, y: y + r })
+    shape.vertices.push({ x: x, y: y - shape.radius })
+    shape.vertices.push({ x: x + side / 2, y: y + r })
+  }
+
+  return shape
 }
+
+const rectangle = ({ x, y, area }, aspect) => {
+  const shape = new Shape();
+
+  shape.height = sqrt(area / aspect);
+  shape.width = shape.height * aspect;
+
+  // shape.size = sqrt(area);
+  shape.x = x + shape.width / 2;
+  shape.y = y + shape.height / 2;
+  shape.radius = dist(x, y, shape.x, shape.y);
+
+  shape.vertices.push({ x: x, y: y })
+  shape.vertices.push({ x: x + shape.width, y: y })
+  shape.vertices.push({ x: x + shape.width, y: y + shape.height })
+  shape.vertices.push({ x: x, y: y + shape.height })
+
+  const drawDiagonals = true;
+  if (drawDiagonals) {
+    const offset = random(0.7, 0.8);
+    const one_offset = 1 - offset;
+
+    shape.drawSuper = shape.draw;
+    shape.draw = () => {
+      shape.drawSuper()
+
+      if (params.rainbow) { stroke(0) }
+      else { stroke(params.accent_color) }
+
+      line(x, y, x + shape.width, y + shape.height * offset)
+      line(x + shape.width, y, x, y + shape.height * offset)
+      line(x, y + shape.height, x + shape.width, y + shape.height * one_offset)
+      line(x + shape.width, y + shape.height, x, y + shape.height * one_offset)
+    }
+  }
+
+  return shape;
+}
+

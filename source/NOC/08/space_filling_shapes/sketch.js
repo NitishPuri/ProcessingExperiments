@@ -4,17 +4,21 @@ let frame_counter;
 let initial_area;
 
 const shapes = {
-  selected_shape: 2,
+  selected_shape: 3,
   current_shape: undefined,
   names: {
-    Rectangle: 0,
-    Circle: 1,
-    'Equilateral Triangle': 2
+    Circle: 0,
+    Square: 1,
+    Rectangle: 2,
+    'Eq.Triangle': 3,
+    'Eq.Triangle Inverted': 4,
   },
   classes: [
-    Rect,
-    Circle,
-    Triangle
+    circle,
+    (a) => rectangle(a, 1),
+    (a) => rectangle(a, random(0.75, 1.3)),
+    (a) => triangle(a, false),
+    (a) => triangle(a, random(1) > 0.5),
   ]
 }
 
