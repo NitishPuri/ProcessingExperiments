@@ -1,14 +1,25 @@
-var vertices = [];
-var edges = []
+let vertices = [];
+let edges = []
 
-var params = {
-  reset: function () {
+let reached = [];
+let unreached = [];
+
+const params = {
+  numPoints : 100,
+  reset() {
     vertices = [];
     edges = []
-    for (var i = 0; i < 10; i++) {
-      vertices.push(createVector(random(width), random(height)))
-    }
-    calcMST();
+
+    reached = [];
+    unreached = [];
+
+    vertices = Array(params.numPoints).fill().map(() => 
+      createVector(random(width), random(height)))
+
+    unreached = Array(params.numPoints).fill().map((u, i) => i);
+
+    reached.push(0);
+    unreached.splice(0, 1);
   }
 }
 
@@ -16,40 +27,23 @@ function setup() {
   createCanvasCustom()
 
   var gui = new dat.GUI();
+  gui.add(params, 'numPoints').min(50).max(1000);
   gui.add(params, 'reset');
 
   params.reset();
+
+  frameRate(10);
 }
 
-function mousePressed() {
-  if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
-    var v = createVector(mouseX, mouseY)
-    vertices.push(v);
-
-    calcMST();
-  }
-}
 
 function calcMST() {
-  var reached = [];
-  var unreached = [];
-
-  for (let i = 0; i < vertices.length; i++) {
-    unreached.push(i);
-  }
-
-  reached.push(0);
-  unreached.splice(0, 1);
-
-  // while there are vertices in the unreached array
-  while (unreached.length > 0) {
-    var record = 10000;
+    var record = 100000;
     var rIndex;
     var uIndex;
 
     // find a closest pair of points connecting the different groups
-    for (var i = 0; i < reached.length; i++) {
-      for (var j = 0; j < unreached.length; j++) {
+    for (var j = 0; j < unreached.length; j++) {
+      for (var i = 0; i < reached.length; i++) {
         var v1 = vertices[reached[i]];
         var v2 = vertices[unreached[j]];
         var d = dist(v1.x, v1.y, v2.x, v2.y);
@@ -62,15 +56,15 @@ function calcMST() {
     }
 
     edges.push(createVector(reached[rIndex], unreached[uIndex]));
-    //line(reached[rIndex].x, reached[rIndex].y, unreached[uIndex].x, unreached[uIndex].y)
 
     reached.push(unreached[uIndex])
     unreached.splice(uIndex, 1);
-  }
 }
 
 function draw() {
   background(51)
+
+  calcMST();
 
 
   // Draw vertices
@@ -78,7 +72,8 @@ function draw() {
   stroke(255)
   for (let i = 0; i < vertices.length; i++) {
     const v = vertices[i];
-    ellipse(v.x, v.y, 16, 16);
+    const sz = map(params.numPoints, 50, 1000, 16, 8);
+    ellipse(v.x, v.y, sz);
   }
 
   // Draw edges
