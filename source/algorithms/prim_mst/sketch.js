@@ -37,16 +37,16 @@ function setup() {
 
 
 function calcMST() {
-    var record = 100000;
-    var rIndex;
-    var uIndex;
+    let record = 100000;
+    let rIndex;
+    let uIndex;
 
     // find a closest pair of points connecting the different groups
-    for (var j = 0; j < unreached.length; j++) {
-      for (var i = 0; i < reached.length; i++) {
-        var v1 = vertices[reached[i]];
-        var v2 = vertices[unreached[j]];
-        var d = dist(v1.x, v1.y, v2.x, v2.y);
+    for (let j = 0; j < unreached.length; j++) {
+      for (let i = 0; i < reached.length; i++) {
+        const v1 = vertices[reached[i]];
+        const v2 = vertices[unreached[j]];
+        const d = dist(v1.x, v1.y, v2.x, v2.y);
         if (d < record) {
           record = d;
           rIndex = i;
@@ -64,22 +64,28 @@ function calcMST() {
 function draw() {
   background(51)
 
+  // Calculate MST one edge per frame.
   calcMST();
 
 
   // Draw vertices
-  fill(255)
-  stroke(255)
-  for (let i = 0; i < vertices.length; i++) {
-    const v = vertices[i];
-    const sz = map(params.numPoints, 50, 1000, 16, 8);
-    ellipse(v.x, v.y, sz);
+  if(unreached.length == 0) {
+    fill(255, 0, 0)
+    stroke(255, 0, 0)
+  }
+  else {
+    fill(255)
+    stroke(255)
   }
 
+  const sz = map(params.numPoints, 50, 1000, 16, 8);
+  vertices.forEach(v => 
+    ellipse(v.x, v.y, sz)
+  )
+
   // Draw edges
-  stroke(255);
   strokeWeight(2);
-  for (const edge of edges) {
+  edges.forEach(edge => 
     line(vertices[edge.x].x, vertices[edge.x].y, vertices[edge.y].x, vertices[edge.y].y)
-  }
+  )
 }
