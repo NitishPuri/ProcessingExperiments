@@ -1,7 +1,8 @@
 ---
 layout: sketch
 scripts: sketch.js
-title: Prim's Minimum Spanning Tree
+title: Kruskal's Minimum Spanning Tree
+useMath: true
 ---
 
 A **minimum spanning tree(MST)** or **minimum weight spanning tree** is a subset of tge edges of a *connected*, edge-weighted graph that connects all the vertices together, without any cycles and with the minimum possible total edge weight.    
@@ -12,9 +13,20 @@ In the above demonstration we have a *planner* graph whose edge weights/lengths 
 A Greedy algorithm that starts from an arbitrary vertex and builds the tree by choosing the cheepest edge from the tree to another vertex.    
 
 ### Algorithm
-1. *Initialize a tree with a single vertex, chosen arbitrarily from the graph.*
-2. *Grow the tree by one edge; of the edges that connect the tree to vertices not yet in the tree, find the minimum-weight edge, and transfer it to the tree.*
-3. *Repeat 2 (until all vertices are in the tree).*
+$$
+\mathbf{KRUSKAL}(G):    \\
+\quad A = \varnothing   \\
+\quad \mathbf{foreach} \; v \in G.V: \\
+\quad \quad \text{MAKE-SET}(v)  \\
+\quad \mathbf{foreach} \; (u, v) \in G.E ordered by weight(u, v), increasing: \\
+\quad \quad \mathbf{if}\; \text{FIND-SET}(u) \neq \text{FIND-SET}(v): \\
+\quad \quad \quad A = A \cup \{(u, v)\} \\
+\quad \quad \quad \text{UNION}(u, v) \\
+\quad \mathbf{return} \; A
+$$
+
+TODO::
+* Animate the tree building process.
 
 References::
 * [Minimum Spanning Tree :: Wikipedia](https://en.wikipedia.org/wiki/Minimum_spanning_tree)
