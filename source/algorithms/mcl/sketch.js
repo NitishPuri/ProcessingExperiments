@@ -52,21 +52,9 @@ function evaluation(robot, particles) {
 
 }
 
-function gaussian(mu, sigma, x) {
-  // console.log('gaussian')
-  // console.log(mu, sigma, x)
-
-  // Probability of z for 1-dim Gaussian with mean mu and var sigma.
-  let r = exp(-pow(mu - x, 2) / pow(sigma, 2) / 2) / sqrt(TWO_PI * pow(sigma, 2))
-  // console.log(r)
-
-  return r
-  // return exp(-pow(mu - x, 2) / pow(sigma, 2) / 2) / sqrt(TWO_PI * pow(sigma, 2))
-}
-
-// function max(arr) {
-//   return arr.reduce((p, c) => p > c ? p : c)
-// }
+// Probability of z for 1-dim Gaussian with mean mu and var sigma.
+const gaussian = (mu, sigma, x) => 
+  exp(-pow(mu - x, 2) / pow(sigma, 2) / 2) / sqrt(TWO_PI * pow(sigma, 2))
 
 let myRobot;
 let numParticles = 5
@@ -96,7 +84,7 @@ function draw() {
 
   // Move the robot and sense the environment afterwards
   myRobot.move(0.1, 5)
-  let z = myRobot.sense()
+  const z = myRobot.sense()
 
   // console.log("Initial Particles :: ")
   // console.log(particles)
