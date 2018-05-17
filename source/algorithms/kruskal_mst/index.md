@@ -16,8 +16,8 @@ In the above demonstration we have a *planner* graph whose edge weights/lengths 
 A greedy algorithm which finds an edge of the least possible weight that connects any two trees in the forest.   
 
 ### Algorithm   
-$$
-\mathbf{KRUSKAL}(G):    \\
+
+$$\mathbf{KRUSKAL}(G):    \\
 \quad A = \varnothing   \\
 \quad \mathbf{foreach} \; v \in G.V: \\
 \quad \quad \text{MAKE-SET}(v)  \\
@@ -25,8 +25,8 @@ $$
 \quad \quad \mathbf{if}\; \text{FIND-SET}(u) \neq \text{FIND-SET}(v): \\
 \quad \quad \quad A = A \cup \{(u, v)\} \\
 \quad \quad \quad \text{UNION}(u, v) \\
-\quad \mathbf{return} \; A
-$$
+\quad \mathbf{return} \; A$$
+
 
 References::
 * [Minimum Spanning Tree :: Wikipedia](https://en.wikipedia.org/wiki/Minimum_spanning_tree)
