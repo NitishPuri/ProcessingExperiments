@@ -40,7 +40,7 @@ function setup() {
     gui.add(params, 'speed').min(-50).max(50);
   }
 
-  function drawStuff() {
+  let drawStuff = () => {
     stars.forEach(s => {
       s.update();
       s.show();
