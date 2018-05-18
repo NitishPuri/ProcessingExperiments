@@ -5,7 +5,7 @@
     {% include common-head.html %}
 
     <script src="{{ site.baseurl }}/lib/three.min.js"></script>
-    
+
     <!-- <script src="{{ site.baseurl }}/lib/dat.gui.min.js"></script> -->
 
 
@@ -16,39 +16,30 @@
     {% endfor %}
 
     <script type="text/javascript">
-        // Args : {w, h, renderer, statsFunc}
-        function createCanvasCustom(opt = {}) {
-            opt.w = opt.w || windowWidth
-            opt.h = opt.h || windowHeight - 5
-            let cnv = createCanvas(opt.w, opt.h, opt.renderer)
-            cnv.parent('sketch-holder')
-            let intervalId = showStats(opt.statsFunc)  // Maybe this should not be optional!!!
-            cnv.intervalId = intervalId
-            return cnv
-        }
-        function showStats(func) {
-            let fr = createP()
-            fr.class('stats')
-            func = func || (() => "FPS : " + floor(frameRate()))
-            let intervalId = setInterval(() => {
-                fr.html(func())
-            }, 500)
-            let showFr = true;
-            document.addEventListener('keydown', (ev) => {
-                if (ev.key === 'f' || ev.key === 'F') {
-                    if (showFr) fr.hide()
-                    else fr.show()
-                    showFr = !showFr
-                }
-            })
-            return intervalId
+        let camera, scene, renderer;
 
+        function init() {
+            camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
+            camera.position.z = 1;
+
+            scene = new THREE.Scene();
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            document.getElementById('sketch-holder').appendChild(renderer.domElement)
+
+            setup();
+
+            const drawReq = () => {
+                draw();
+                renderer.render(scene, camera);
+                requestAnimationFrame(drawReq);
+            }
+
+            drawReq();
         }
-        // Resolve the URL of resource located in data directory!!
-        function resolveUrl(url) {
-            // return '/ProcessingExperiments' + url
-            return url
-        }
+        window.addEventListener('load', init)
     </script>
 </head>
 
