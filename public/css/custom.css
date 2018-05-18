@@ -20,6 +20,34 @@
 }
 
 canvas {
-    padding-left: 1rem;
-    /* position : fixed */
+    padding-left: 0rem;
+}
+
+body {
+    margin: 0px;
+}
+
+.homelink {
+    position: fixed;
+    bottom: 0.5em;
+    right: 0.5em;
+    background-color: rgba(10, 10, 10, 0.4);
+    padding: 0.5em;
+    color: white;
+    text-decoration: none;
+}
+
+.homelink:hover {
+    text-decoration: underline
+}
+
+.stats {
+    position: fixed;
+    bottom: 0.1em;
+    left: 0.5em;
+    background-color: rgba(10, 10, 10, 0.4);
+    padding: 0.1em;
+    color: white;
+    font-size: 10pt;
+    text-decoration: none;
 }
