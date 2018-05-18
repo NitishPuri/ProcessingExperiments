@@ -1,8 +1,8 @@
 ---
-layout: sketch
+layout: three
 scripts: 
+    - sketch2.js
     - box.js
-    - sketch.js
 title: Coding Challenge#02 -- Menger Sponge
 ---
 
