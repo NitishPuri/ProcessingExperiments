@@ -14,6 +14,8 @@ function setup() {
 
   const gui = new dat.GUI();
   gui.add(params, 'speed').min(-50).max(50);
+
+  colorMode(HSB, 100, 100, 100, 100)
 }
 
 function draw() {
