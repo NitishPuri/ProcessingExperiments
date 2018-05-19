@@ -1,9 +1,8 @@
 class Box {
   constructor(x, y, z, r) {
-    this.pos = createVector(x, y, z);
+    // this.pos = createVector(x, y, z);
+    this.pos = THREE.Vector3(x, y, z);
     this.r = r;
-
-    // this.pz = this.z;
   }
 
   generate() {
