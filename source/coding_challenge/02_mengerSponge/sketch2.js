@@ -1,11 +1,14 @@
 
 let geometry, material, mesh;
 
+let mesh2;
+
 function setup() {
-  geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+  geometry = new THREE.BoxBufferGeometry(0.2, 0.2, 0.2);
   material = new THREE.MeshNormalMaterial();
 
   mesh = new THREE.Mesh(geometry, material);
+  mesh2 = new THREE.Mesh(new THREE.BoxGeometry(), material);
   scene.add(mesh);
 }
 
