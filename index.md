@@ -135,6 +135,12 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Music Machine](source/experiments/sound_drumMachine)
     1. WebGL
         1. [WebGL test 1](source/experiments/webgl_test)
+    1. Shaders
+        1. [Test](source/experiments/Shaders/ShaderTest)
+        1. [Shapes](source/experiments/Shaders/shapes)
+        1. [Creation](source/experiments/Shaders/creation)
+        1. [Creation 2](source/experiments/Shaders/creation2)
+        1. [Raymarching](source/experiments/Shaders/raymarching)
     1. [The Matrix Rain](source/experiments/theMatrix)
 2. Coding Challenge
     1. [#01 - Star Field](source/coding_challenge/01_starField)
