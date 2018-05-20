@@ -15,11 +15,23 @@ let params = {
     'parabola',
     'pcurve',
     'sinc',
+    'doubleExponentialSeat',
+    'doubleExponentialSigmoid',
+    'logisticSigmoid',
     'blinnWyvillCosineApproximation',
     'doubleCubicSeatWithLinearBlend',
     'doubleOddPolynomialSeat',
     'doublePolynomialSigmoid',
-    'quadraticThroughAGivenPoint'
+    'quadraticThroughAGivenPoint',
+    'circularEaseIn',
+    'circularEaseOut',
+    'doubleCircleSeat',
+    'doubleCircleSigmoid',
+    'doubleEllipticSeat',
+    'doubleEllipticSigmoid',
+    'quadraticBezier',
+    'cubicBezier',
+    'cubicBezierNearlyThroughTwoPoints'
   ]
 }
 
