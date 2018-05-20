@@ -6,7 +6,7 @@
 
     <script src="{{ site.baseurl }}/lib/glslCanvas.min.js"></script>
 
-    <!-- <script src="{{ site.baseurl }}/lib/dat.gui.min.js"></script> -->
+    <script src="{{ site.baseurl }}/lib/dat.gui.min.js"></script>
 
     <!--Add scripts-->
     {% for script in page.scripts %}
@@ -22,19 +22,33 @@
 
 
     <script type="text/javascript">
+        let sandbox, canvas;
         function createCanvasCustom(opt = {}) {
             let cnv = document.createElement("canvas")
-            cnv.style.width = '100%';
-            cnv.style.height = '100%';
+            cnv.style.width = '100vw';
+            cnv.style.height = '100vh';
+            let scale = window.devicePixelRatio;
+            // cnv.width = 
             document.getElementById('sketch-holder').appendChild(cnv)
 
-            let sandbox = new GlslCanvas(cnv);
+            sandbox = new GlslCanvas(cnv);
 
+            sandbox.reset = function () {
+                this.uniform('2f', 'vec2', 'u_resolution', this.canvas.width, this.canvas.height);
+            }
+            sandbox.reset();
+            loadShader();
+
+            canvas = cnv;
+            if (window.setup) {
+                setup();
+            }
+        }
+
+        function loadShader() {
             fetch(document.getElementById('frag-shader').src)
                 .then(res => res.text())
-                .then(text => sandbox.load(text))
-
-            return cnv
+                .then(text => sandbox.load(compile(text)))
         }
         window.addEventListener('load', createCanvasCustom)
     </script>
