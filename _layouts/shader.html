@@ -46,6 +46,7 @@
         }
 
         function loadShader() {
+            let compile = window.compile || ((a) => a);
             fetch(document.getElementById('frag-shader').src)
                 .then(res => res.text())
                 .then(text => sandbox.load(compile(text)))
