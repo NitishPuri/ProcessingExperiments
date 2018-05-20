@@ -1,7 +1,6 @@
 ---
 layout: shader
-scripts: sketch.js
-fragShader: frag.glsl
+fragShader: untitled.glsl
 title: Shader Test!!
 ---
 
