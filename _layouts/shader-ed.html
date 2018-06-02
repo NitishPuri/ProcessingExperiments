@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+
+    {% include common-head.html %}
+
+    <script src="{{ site.baseurl }}/lib/glslCanvas.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="https://rawgit.com/patriciogonzalezvivo/glslEditor/gh-pages/build/glslEditor.css">
+    <script type="application/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslEditor/gh-pages/build/glslEditor.js"></script>
+
+    <script src="{{ site.baseurl }}/lib/dat.gui.min.js"></script>
+
+    <!--Add scripts-->
+    {% for script in page.scripts %}
+    <script src="{{ script }}"></script>
+    <!---->
+    {% endfor %}
+
+    <!--Add shaders-->
+    {% if page.fragShader %}
+    <script id="frag-shader" src="{{ page.fragShader }}" type="not-javascript"></script>
+    <!---->
+    {% endif %}
+
+
+    <script type="text/javascript">
+
+        let glslEditor;
+        function loadEditor() {
+            glslEditor = new GlslEditor('#sketch-holder', {
+                canvas_size: 500,
+                canvas_draggable: true,
+                theme: 'monokai',
+                multipleBuffers: true,
+                watchHash: true,
+                fileDrops: true,
+                menu: true
+            });
+
+            let url_string = window.location;
+            let url = new URL(url_string);
+            let c = url.searchParams.get('shaderSource');
+            if (c == null || c == undefined) {
+                c = url.pathname + 'frag.glsl'
+            }
+            c = url.origin + c;
+            fetch(c)
+                .then(res => res.text())
+                .then(text => glslEditor.setContent(text));
+        }
+        window.addEventListener('load', loadEditor)
+    </script>
+</head>
+
+<body>
+    {% include common-body.html %}
+</body>
