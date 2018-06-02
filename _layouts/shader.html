@@ -24,14 +24,13 @@
     <script type="text/javascript">
         let sandbox, canvas;
         function createCanvasCustom(opt = {}) {
-            let cnv = document.createElement("canvas")
-            cnv.style.width = '100vw';
-            cnv.style.height = '100vh';
+            canvas = document.createElement("canvas")
+            canvas.style.width = '100vw';
+            canvas.style.height = '100vh';
             let scale = window.devicePixelRatio;
-            // cnv.width = 
-            document.getElementById('sketch-holder').appendChild(cnv)
+            document.getElementById('sketch-holder').appendChild(canvas)
 
-            sandbox = new GlslCanvas(cnv);
+            sandbox = new GlslCanvas(canvas);
 
             sandbox.reset = function () {
                 this.uniform('2f', 'vec2', 'u_resolution', this.canvas.width, this.canvas.height);
@@ -39,7 +38,19 @@
             sandbox.reset();
             loadShader();
 
-            canvas = cnv;
+            // setup editor link
+            let editorLink = document.getElementById('openInEditor');
+            editorLink.onclick = () => {
+                let base_url = window.location.href.match(/^(.*\/source\/)/g)[0];
+                let url = new URL(base_url + 'experiments/Shaders/ShaderEditor');
+                console.log(document.getElementById('frag-shader').src)
+                let shader_url = new URL(document.getElementById('frag-shader').src);
+                console.log(shader_url.pathname)
+                url += '?shaderSource=' + shader_url.pathname;
+                window.open(url)
+                return true;
+            }
+
             if (window.setup) {
                 setup();
             }
@@ -57,4 +68,5 @@
 
 <body>
     {% include common-body.html %}
+    <a class="editorLink" id="openInEditor">☰ Edit</a>
 </body>
