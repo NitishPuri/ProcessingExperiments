@@ -85,7 +85,7 @@ function draw() {
   stroke(255);
 
   translate(params.hmargin, params.vmargin)
-  const eWidth = (width - params.hmargin)
+  const eWidth = (width - 1.5 * params.hmargin)
   const buttonWidth = eWidth / params.numBeats;
   const eHeight = (height - 2 * params.vmargin)
   const buttonHeight = eHeight / samples.length;
@@ -132,7 +132,7 @@ function draw() {
 }
 
 function mouseClicked() {
-  const eWidth = (width - params.hmargin)
+  const eWidth = (width - 1.5 * params.hmargin)
   const buttonWidth = eWidth / params.numBeats;
   const eHeight = (height - 2 * params.vmargin)
   const buttonHeight = eHeight / samples.length;
