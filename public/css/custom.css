@@ -41,6 +41,21 @@ body {
     text-decoration: underline
 }
 
+.editorLink {
+    position: fixed;
+    bottom: 0.5em;
+    left: 0.5em;
+    background-color: rgba(10, 10, 10, 0.4);
+    padding: 0.5em;
+    color: white;
+    text-decoration: none;
+}
+
+.editorLink:hover {
+    text-decoration: underline
+}
+
+
 .stats {
     position: fixed;
     bottom: 0.1em;
