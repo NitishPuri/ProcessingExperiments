@@ -136,6 +136,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. WebGL
         1. [WebGL test 1](source/experiments/webgl_test)
     1. Shaders
+        1. [Editor](source/experiments/Shaders/ShaderEditor)
         1. [Test](source/experiments/Shaders/ShaderTest)
         1. [Shapes](source/experiments/Shaders/shapes)
         1. [Creation](source/experiments/Shaders/creation)
