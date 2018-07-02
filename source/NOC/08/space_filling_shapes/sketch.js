@@ -10,13 +10,15 @@ const shapes = {
     Circle: 0,
     Square: 1,
     Rectangle: 2,
-    'Eq.Triangle': 3,
-    'Eq.Triangle Inverted': 4,
+    'Rectangle Tilted': 3,
+    'Eq.Triangle': 4,
+    'Eq.Triangle Inverted': 5,
   },
   classes: [
     circle,
-    (a) => rectangle(a, 1),
+    (a) => rectangle(a),
     (a) => rectangle(a, random(0.75, 1.3)),
+    (a) => rectangle(a, 1, PI / 4),
     (a) => triangle(a, false),
     (a) => triangle(a, random(1) > 0.5),
   ]

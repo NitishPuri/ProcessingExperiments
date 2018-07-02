@@ -65,11 +65,13 @@ const createShape = () => {
 }
 
 class Shape {
-  constructor(x, y) {
+  constructor(x, y, area) {
     this.x = x;
     this.y = y;
     this.radius = 0;
     this.h = floor(random(100));
+    // this.h = map(area, 0, initial_area, 0, 100);
+    // this.h = exp(map(log(area), 0, log(initial_area), 0, 100));
     this.vertices = [];
   }
   intersect(other) {
@@ -133,7 +135,7 @@ class Shape {
 }
 
 const circle = ({ x, y, area }) => {
-  const shape = new Shape(x, y);
+  const shape = new Shape(x, y, area);
 
   shape.radius = sqrt(area / PI)
   shape.draw = function () {
@@ -168,7 +170,7 @@ const circle = ({ x, y, area }) => {
 
 const triangle = ({ x, y, area }, isInverted) => {
 
-  const shape = new Shape(x, y);
+  const shape = new Shape(x, y, area);
 
   let side = sqrt(area * TRIANGLE_AREA_COEFF)
   let r = (2 * side) / (3 * TRIANGLE_AREA_COEFF);
@@ -191,8 +193,8 @@ const triangle = ({ x, y, area }, isInverted) => {
   return shape
 }
 
-const rectangle = ({ x, y, area }, aspect) => {
-  const shape = new Shape();
+const rectangle = ({ x, y, area }, aspect = 1, angle = 0) => {
+  const shape = new Shape(x, y, area);
 
   shape.height = sqrt(area / aspect);
   shape.width = shape.height * aspect;
