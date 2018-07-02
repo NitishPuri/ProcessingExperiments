@@ -144,6 +144,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Creation 2](source/experiments/Shaders/creation2)
         1. [Raymarching](source/experiments/Shaders/raymarching)
     1. [The Matrix Rain](source/experiments/theMatrix)
+    1. [Walking Neurons](source/experiments/ml/walkingNeurons)
 2. Coding Challenge
     1. [#01 - Star Field](source/coding_challenge/01_starField)
     1. [#01 - Star Field(Using Pixi.js)](source/coding_challenge/01_starField_pixi)
