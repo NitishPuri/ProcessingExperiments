@@ -2,18 +2,14 @@
 layout: shader
 scripts: sketch.js
 fragShader: frag.glsl
-title: Algorithmic Shapes
+title: Color Spaces
 ---
 
-Source :: [Raymarching - Diffuse Reflection](https://www.shadertoy.com/view/XtXXR7)
-
-<http://editor.thebookofshaders.com/>   
-   
-<https://github.com/patriciogonzalezvivo/glslCanvas>
-
 ## Resources
-* <https://thebookofshaders.com/05/>
-* <http://www.iquilezles.org/www/articles/functions/functions.htm>
-* <http://www.flong.com/texts/code/shapers_poly/>
-* <http://www.flong.com/texts/code/shapers_circ/>
-* <http://www.flong.com/texts/code/shapers_bez/>
+* <https://thebookofshaders.com/06/>
+* Color Pallettes
+    * <http://www.eigenlogik.com/spectrum/mac>
+    * <https://coolors.co/>
+* Easings
+    * <https://easings.net/>
+    * <https://github.com/glslify/glsl-easings>
