@@ -138,7 +138,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. Shaders
         1. [Editor](source/experiments/Shaders/ShaderEditor)
         1. [Test](source/experiments/Shaders/ShaderTest)
-        1. [Shapes](source/experiments/Shaders/shapes)
+        1. [Shapes](source/experiments/Shaders/05_shapes)
+        1. [Colors](source/experiments/Shaders/06_colors)
         1. [Creation](source/experiments/Shaders/creation)
         1. [Creation 2](source/experiments/Shaders/creation2)
         1. [Raymarching](source/experiments/Shaders/raymarching)
