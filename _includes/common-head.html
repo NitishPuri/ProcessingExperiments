@@ -26,6 +26,12 @@
 <!---->
 {% endfor %}
 
+<!--Add Libs-->
+{% for lib in page.libs_url %}
+<script src="{{ lib }}"></script>
+<!---->
+{% endfor %}
+
 <!-- Add Mathjax-->
 {% if page.use_math %}
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
