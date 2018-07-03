@@ -142,6 +142,8 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Colors](source/experiments/Shaders/06_colors)
         1. [Creation](source/experiments/Shaders/creation)
         1. [Creation 2](source/experiments/Shaders/creation2)
+        1. [The Mandelbrot Set](source/experiments/Shaders/mandelbrot)
+        1. [The Julia Set](source/experiments/Shaders/julia)
         1. [Raymarching](source/experiments/Shaders/raymarching)
     1. [The Matrix Rain](source/experiments/theMatrix)
     1. [Walking Neurons](source/experiments/ml/walkingNeurons)
