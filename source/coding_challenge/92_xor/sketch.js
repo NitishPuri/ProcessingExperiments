@@ -1,55 +1,93 @@
 
-let nn;
+let model;
 
-let training_data = [
-  {
-    inputs: [0, 0],
-    outputs: [0]
-  },
-  {
-    inputs: [0, 1],
-    outputs: [1]
-  },
-  {
-    inputs: [1, 0],
-    outputs: [1]
-  },
-  {
-    inputs: [1, 1],
-    outputs: [0]
-  }
-]
+let resolution = 10;
+let cols;
+let rows;
+
+let xs;
+
+const train_xs = tf.tensor2d([
+  [0, 0],
+  [0, 1],
+  [1, 0],
+  [1, 1]
+])
+const train_ys = tf.tensor2d([
+  [0],
+  [1],
+  [1],
+  [0]
+])
 
 function setup() {
   createCanvasCustom({ w: 400, h: 400 });
 
-  nn = new NeuralNetwork(2, 2, 1)
+  cols = width / resolution;
+  rows = height / resolution;
+
+  let inputs = [];
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      let x1 = i / cols;
+      let x2 = j / rows;
+      inputs.push([x1, x2]);
+    }
+  }
+  xs = tf.tensor2d(inputs);
+
+
+  model = tf.sequential();
+  let hidden = tf.layers.dense({
+    inputShape: [2],
+    units: 2,
+    activation: 'sigmoid'
+  });
+
+  let output = tf.layers.dense({
+    units: 1,
+    activation: 'sigmoid'
+  });
+
+  model.add(hidden);
+  model.add(output);
+
+  model.compile({
+    optimizer: tf.train.sgd(0.5),
+    loss: 'meanSquaredError'
+  });
+}
+
+async function trainModel() {
+  return await model.fit(train_xs, train_ys, {
+    shuffle: true,
+    epochs: 10
+  });
 }
 
 function draw() {
   background(0);
 
-  // console.log("Train")
-  for (let i = 0; i < 1000; i++) {
-    // console.log("ing")
-    let data = random(training_data)
-    nn.train(data.inputs, data.outputs)
-  }
+  tf.tidy(() => {
+    trainModel().then(r => console.log(r.history.loss[0]))
+  });
 
   noStroke()
-  let resolution = 10;
-  let cols = width / resolution;
-  let rows = height / resolution;
-  for (let i = 0; i < cols; i++) {
-    for (let j = 0; j < rows; j++) {
-      let x1 = i / cols;
-      let x2 = j / rows;
-      let inputs = [x1, x2]
-      let y = nn.predict(inputs)
-      fill(y * 255);
-      rect(i * resolution, j * resolution, resolution, resolution)
-    }
-  }
 
+
+  tf.tidy(() => {
+    let ys = model.predict(xs).dataSync();
+
+    let index = 0;
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+        let x1 = i / cols;
+        let x2 = j / rows;
+        fill(ys[index] * 255);
+        rect(i * resolution, j * resolution, resolution, resolution)
+        index++;
+      }
+    }
+  });
 
 }

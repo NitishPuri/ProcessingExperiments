@@ -1,8 +1,9 @@
 ---
 layout: sketch
+# libs_url:
+#     - https://cdn.jsdelivr.net/npm/@tensorflow/tfjs
 libs:
-    - nn.js
-    - matrix.js
+    - tf.js
 scripts: 
     - sketch.js
 title: Coding Challenge#92 -- XOR Problem
