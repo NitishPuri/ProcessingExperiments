@@ -1,8 +1,11 @@
 class Box {
   constructor(x, y, z, r) {
-    // this.pos = createVector(x, y, z);
-    this.pos = THREE.Vector3(x, y, z);
-    this.r = r;
+    this.mesh = new THREE.Mesh(new THREE.BoxBufferGeometry(r, r, r), new THREE.MeshNormalMaterial());
+
+    let mat = new THREE.Matrix4();
+    mat.setPosition(new THREE.Vector3(x, y, z))
+
+    scene.add(this.mesh);
   }
 
   generate() {
@@ -29,12 +32,4 @@ class Box {
     return boxes;
   }
 
-  show() {
-    // fill(255);
-    // noStroke();
-    push();
-    translate(this.pos.x, this.pos.y, this.pos.z)
-    box(this.r);
-    pop();
-  }
 }
