@@ -37,7 +37,7 @@ vec2 coord(in vec2 p)
 #define mx coord(u_mouse)
 #define aspect (u_resolution.y / u_resolution.x)
 
-#define maxIterations 100
+#define maxIterations 1000
 
 float fract1(float f)
 {

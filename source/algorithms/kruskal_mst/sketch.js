@@ -63,7 +63,7 @@ function setup() {
   frameRate(10);
 }
 
-const getComponent = (components, i) => {
+function getComponent(components, i) {
   while (components[i].i != i) {
     i = components[i].i;
   }

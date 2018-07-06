@@ -1,6 +1,7 @@
 ---
 layout: shader
 fragShader: untitled.glsl
+scripts: sketch.js
 title: Julia Set -- GLSL
 ---
 
