@@ -37,17 +37,23 @@ vec2 coord(in vec2 p)
 #define mx coord(u_mouse)
 #define aspect (u_resolution.y / u_resolution.x)
 
-#define maxIterations 1000
+#define maxIterations 80
 
-float fract1(float f)
-{
-    return f - floor(f);
+vec4 getColor(in int iter) {
+    float q = float(iter) / float(maxIterations);
+    q = clamp(0., 1., q);
+    vec4 c = vec4(0.);
+    if(q > 0.5) {
+        c = vec4(q, 1., q, 1.);
+    } else {
+        c = vec4(0., q, 0., 1.);
+    }
+    return c;
 }
-
 void main()
 {
     vec2 c = mx;
-    // vec2 c = vec2(0.450, 0.460);
+    // vec2 c = vec2(-0.710,-0.360);
 
     vec2 z;
 
@@ -71,14 +77,15 @@ void main()
     }
 
     // Base the color on the number of iterations
-    vec4 color;
-    if (iter == maxIterations)
-        color = vec4(0, 0, 0, 1.0); // black
-    else
-    {
-        float tmpval = float(iter) / 10.0;
-        color = vec4(tmpval, tmpval, tmpval, 1.384);
-    }
+    // vec4 color;
+    // if (iter == maxIterations)
+    //     color = vec4(0, 0, 0, 1.0); // black
+    // else
+    // {
+    //     float tmpval = float(iter) / 10.0;
+    //     color = vec4(tmpval, tmpval, tmpval, 1.384);
+    // }
 
-    gl_FragColor = color;
+    gl_FragColor = getColor(iter);
 }
+s

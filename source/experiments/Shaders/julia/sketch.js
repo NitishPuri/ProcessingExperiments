@@ -2,6 +2,7 @@
 
 let params = {
   interactive: true,
+
 }
 
 function setup() {
@@ -20,5 +21,6 @@ function setup() {
 
 
 function compile(src) {
+  return src;
   // return src.replace(/(#define func (.*))/g, "#define func " + params.method)
 }
