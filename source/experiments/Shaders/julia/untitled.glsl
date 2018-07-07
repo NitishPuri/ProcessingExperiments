@@ -88,4 +88,3 @@ void main()
 
     gl_FragColor = getColor(iter);
 }
-s
