@@ -51,12 +51,15 @@
                 return true;
             }
 
+            //! Call setup function to set up any custom behaviour if defined
             if (window.setup) {
                 setup();
             }
         }
 
         function loadShader() {
+            //! Use a custom compile function if defined.
+            //! Otherwise just map to identity.
             let compile = window.compile || ((a) => a);
             fetch(document.getElementById('frag-shader').src)
                 .then(res => res.text())
