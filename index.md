@@ -212,6 +212,7 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#94 - 2048](source/coding_challenge/94_2048)
     1. [#98 - QuadTree](source/coding_challenge/98_quadTree)
     1. [#100 - NeuroEvolution FlappyBird](source/coding_challenge/100_neuralBird)
+    1. [#107 - Sandpiles](source/coding_challenge/107_sandpile_canvas)
 2. Algorithms
     1. [Prim MST](source/algorithms/prim_mst)
     1. [Kruskal MST](source/algorithms/kruskal_mst)

@@ -2,7 +2,6 @@
 layout: sketch
 scripts: 
     - sketch.js
-    - quadtree.js
 title: Coding Challenge#107 -- Sandpiles
 ---
 
