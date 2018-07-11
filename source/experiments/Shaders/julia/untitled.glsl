@@ -6,14 +6,6 @@ uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 
-// uniform
-
-#define PI_TWO 1.570796326794897
-#define PI 3.141592653589793
-#define TWO_PI 6.283185307179586
-
-#define getColor getColorGreen
-
 // HSV2RGB
 vec3 hsv2rgb(vec3 c) {
     vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
@@ -46,8 +38,11 @@ vec2 coord(in vec2 p) {
 #define maxIterations 800
 #define colorResolution 256
 
+#define getColor getColorGreen
+
 vec4 getColorGreen(in int iter) {
-    float i = mod(float(iter) + 20.*u_time, float(colorResolution));
+    float j = (float(iter) / float(colorResolution)) + 2.;
+    float i = mod(float(iter) + 20.*u_time*j, float(colorResolution));
     float q = float(i) / float(colorResolution);
     q = clamp(0., 1., q);
     vec4 c = vec4(0.);
@@ -60,7 +55,8 @@ vec4 getColorGreen(in int iter) {
 }
 
 vec4 getColorWheel(in int iter) {
-    float i = mod(float(iter) + 20.*u_time, float(colorResolution));
+    float j = (float(iter) / float(colorResolution)) + 2.;
+    float i = mod(float(iter) + 20.*u_time*j, float(colorResolution));
     float q = float(i) / float(colorResolution);
     q = clamp(0., 1., q);
     vec4 c = vec4(hsv2rgb(vec3(q, 1.0, 1.0)), 1.0); 
