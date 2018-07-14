@@ -3,8 +3,9 @@ precision mediump float;
 #endif
 
 uniform vec2 u_resolution;
-uniform vec2 u_mouse;
+// uniform vec2 u_mouse;
 uniform float u_time;
+uniform vec2 u_mousePos;
 
 // HSV2RGB
 vec3 hsv2rgb(vec3 c) {
@@ -32,7 +33,7 @@ vec2 coord(in vec2 p) {
 #define rx 1.0 / min(u_resolution.x, u_resolution.y)
 #define uv gl_FragCoord.xy / u_resolution.xy
 #define st coord(gl_FragCoord.xy)
-#define mx coord(u_mouse)
+#define mx coord(u_mousePos)
 #define aspect (u_resolution.y / u_resolution.x)
 
 #define maxIterations 800
