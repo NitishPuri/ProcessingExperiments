@@ -5,7 +5,6 @@ title: Home
 
 This is a perpetual work in progress page for some basic graphics and simulation demos built using web technologies. Mostly inspired by Processing foundation and delving into creative programming using [p5.js]((https://p5js.org/)).
 
-
 1. Featured!!!!
     1. [3D Noise Landscape](source/NOC/00/NoiseLandscape)
     1. [Asteroids V2](source/NOC/04/particles_asteroid) 
@@ -213,6 +212,9 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [#98 - QuadTree](source/coding_challenge/98_quadTree)
     1. [#100 - NeuroEvolution FlappyBird](source/coding_challenge/100_neuralBird)
     1. [#107 - Sandpiles](source/coding_challenge/107_sandpile_canvas)
+    1. [#108 - Barnsley Fern](source/coding_challenge/108_barnsley_fern)
+    1. [#110 - Recaman's Sequence](source/coding_challenge/110_recaman)
+    1. [#110 - Recaman's Sequence (Audio)](source/coding_challenge/110_recaman_music)
 2. Algorithms
     1. [Prim MST](source/algorithms/prim_mst)
     1. [Kruskal MST](source/algorithms/kruskal_mst)
