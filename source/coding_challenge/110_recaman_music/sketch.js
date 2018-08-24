@@ -60,7 +60,7 @@ function setup() {
 }
 
 function start() {
-  env = new p5.Env();
+  env = new p5.Envelope();
   env.setADSR(attackTime, decayTime, susPercent, releaseTime);
   env.setRange(attackLevel, releaseLevel);
 
