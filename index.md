@@ -223,4 +223,5 @@ This is a perpetual work in progress page for some basic graphics and simulation
     1. [Travelling Salesperson Using Lexicographicsl Ordering](source/coding_challenge/35_tsp)
     1. [Travelling Salesperson Using Genetic Algorithm](source/coding_challenge/35_tspGA)
     1. [Monte Carlo Localization](source/algorithms/mcl)
+    1. [Monte Carlo Localization -- Runaway Robot](source/algorithms/mcl_2)
 
