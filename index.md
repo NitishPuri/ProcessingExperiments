@@ -148,6 +148,9 @@ This is a perpetual work in progress page for some basic graphics and simulation
         1. [Raymarching](source/experiments/Shaders/raymarching)
     1. [The Matrix Rain](source/experiments/theMatrix)
     1. [Walking Neurons](source/experiments/ml/walkingNeurons)
+    1. Magenta
+        1. [Music 101](source/experiments/magenta/music101)
+        1. [Quick Draw](source/experiments/magenta/quick-draw)
 2. Coding Challenge
     1. [#01 - Star Field](source/coding_challenge/01_starField)
     1. [#01 - Star Field(Using Pixi.js)](source/coding_challenge/01_starField_pixi)
