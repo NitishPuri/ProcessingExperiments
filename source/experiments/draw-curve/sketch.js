@@ -1,28 +1,43 @@
 
 let vertices = []
-let control1 = []
-let control2 = []
 
 let startY;
 let len = 50
 let radii = 5;   // radii of control points
 let drawGuides = true;
 
-
-function reset() {
-  startY = height / 2
-  let num_vertices = floor(width / len) - 2
-  vertices = Array(num_vertices).fill(0).map((v, i) => ({
-    x: len + i * len,
-    y: height / 2 + random(20),
-    c1_x: len + i * len + random(20),
-    c1_y: height / 2 + random(20),
-    c2_x: len + i * len + random(20),
-    c2_y: height / 2 + random(20),
-    isCurve: random(1) > 0
-  }))
-
-  vertices[0].isCurve = false
+let params = {
+  drawGuides: true,
+  reset: () => {
+    startY = height / 2
+    let num_vertices = floor(width / len) - 2
+    vertices = Array(num_vertices).fill(0).map((v, i) => ({
+      x: len + i * len,
+      y: height / 2 + random(20),
+      c1_x: len + i * len + random(20),
+      c1_y: height / 2 + random(20),
+      c2_x: len + i * len + random(20),
+      c2_y: height / 2 + random(20),
+      isCurve: random(1) > 0
+    }))
+  
+    vertices[0].isCurve = false  
+  },
+  randomize: () => {
+    startY = height / 2
+    let num_vertices = floor(width / len) - 2
+    vertices = Array(num_vertices).fill(0).map((v, i) => ({
+      x: len + i * len,
+      y: height / 2 + random(-300, 300),
+      c1_x: len + i * len + random(-50, 50),
+      c1_y: height / 2 + random(-400, 400),
+      c2_x: len + i * len + random(-50, 50),
+      c2_y: height / 2 + random(-400, 400),
+      isCurve: random(1) > 0
+    }))
+  
+    vertices[0].isCurve = false  
+  }
 }
 
 let cnv;
@@ -30,8 +45,13 @@ let cnv;
 function setup() {
   // put setup code here
   cnv = createCanvasCustom();
-  cnv.doubleClicked(doubleClickedHandler)
-  reset()
+  // cnv.doubleClicked(doubleClickedHandler)
+  params.reset()
+
+  let gui = new dat.GUI()
+  gui.add(params, 'drawGuides')
+  gui.add(params, 'reset')
+  gui.add(params, 'randomize')
 }
 
 function draw() {
@@ -49,7 +69,7 @@ function draw() {
   vertex(width, startY)
   endShape();
 
-  if (drawGuides) {
+  if (params.drawGuides) {
     // Draw the control point guides.
     strokeWeight(2)
     stroke(150)
@@ -136,27 +156,5 @@ function mouseDragged() {
         vertices[selectedVertex].c2_y = mouseY
         break
     }
-  }
-}
-
-function doubleClicked() {
-  console.log("Double Clicked.")
-}
-
-function doubleClickedHandler() {
-  console.log("Double clicked handler")
-  // for (let v_id = 0; v_id < vertices.length; v_id++) {
-  //   let v = vertices[v_id]
-  //   if (distSq(v.x, v.y, mouseX, mouseY) < radii * radii) {
-  //     vertices[v_id].isCurve = !vertices[v_id].isCurve
-  //     break
-  //   }
-  // }
-}
-
-function keyPressed() {
-  if (key === ' ') {
-    drawGuides = !drawGuides;
-    return false
   }
 }
