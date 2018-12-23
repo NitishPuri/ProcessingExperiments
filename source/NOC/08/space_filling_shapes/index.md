@@ -1,6 +1,6 @@
 ---
 layout: sketch
-libs: geom.js
+libs: custom/geom.js
 scripts: 
     - shapes.js
     - sketch.js

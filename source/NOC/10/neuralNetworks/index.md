@@ -1,8 +1,8 @@
 ---
 layout: sketch
 scripts: 
-    - nn.js
-    - matrix.js
+    - custom/nn.js
+    - custom/matrix.js
     - sketch.js
 title: A basic Neural Network library
 ---

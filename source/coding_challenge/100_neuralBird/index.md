@@ -1,8 +1,8 @@
 ---
 layout: sketch
 libs:
-    - nn.js
-    - matrix.js
+    - custom/nn.js
+    - custom/matrix.js
 scripts: 
     - bird.js
     - pipe.js

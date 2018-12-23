@@ -1,7 +1,7 @@
 ---
 layout: sketch
 libs:
-    - heap.js
+    - custom/heap.js
 scripts:  
     - sketch.js
 title: Kruskal's Minimum Spanning Tree

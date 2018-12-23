@@ -9,7 +9,7 @@ uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 
-#define func cubicInOut
+#define func sineIn
 
 // Robert Penner's easing functions in GLSL
 // https://github.com/stackgl/glsl-easings
