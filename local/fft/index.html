@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="../lib/p5.min.js"></script>
+  <script src="../lib/p5.dom.min.js"></script>
+  <script src="../lib/dat.gui.min.js"></script>
+  <script src="../fft/sketch.js"></script>
+
+  <script type="text/javascript">
+    // Args : {w, h, renderer, statsFunc}
+    function createCanvasCustom(opt = {}) {
+      opt.w = opt.w || windowWidth
+      opt.h = opt.h || windowHeight - 5
+      let cnv = createCanvas(opt.w, opt.h, opt.renderer)
+      cnv.parent('sketch-holder')
+      let intervalId = showStats(opt.statsFunc)  // Maybe this should not be optional!!!
+      cnv.intervalId = intervalId
+      return cnv
+    }
+    function showStats(func) {
+      let fr = createP()
+      fr.class('stats')
+      func = func || (() => "FPS : " + floor(frameRate()))
+      let intervalId = setInterval(() => {
+        fr.html(func())
+      }, 500)
+      let showFr = true;
+      document.addEventListener('keydown', (ev) => {
+        if (ev.key === 'f' || ev.key === 'F') {
+          if (showFr) fr.hide()
+          else fr.show()
+          showFr = !showFr
+        }
+      })
+      return intervalId
+
+    }
+    // Resolve the URL of resource located in data directory!!
+    function resolveUrl(url) {
+      // return '/ProcessingExperiments' + url
+      return url
+    }
+  </script>
+
+</head>
+
+<body>
+  <div id="sketch-holder">
+  </div>
+</body>
+
+</html>

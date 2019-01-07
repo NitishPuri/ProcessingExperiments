@@ -1,0 +1,98 @@
+{
+  "preset": "Serpinski Triangle",
+  "remembered": {
+    "Default": {
+      "0": {
+        "n": 5,
+        "ratio": 0.5,
+        "restriction": 4
+      }
+    },
+    "Serpinski": {
+      "0": {
+        "n": 3,
+        "ratio": 0.5,
+        "restriction": "0"
+      }
+    },
+    "Square 1": {
+      "0": {
+        "n": 4,
+        "ratio": 0.5,
+        "restriction": "1"
+      }
+    },
+    "Square 2": {
+      "0": {
+        "n": 4,
+        "ratio": 0.5,
+        "restriction": "2"
+      }
+    },
+    "Square 3": {
+      "0": {
+        "n": 4,
+        "ratio": 0.5,
+        "restriction": "3"
+      }
+    },
+    "Square 4": {
+      "0": {
+        "n": 4,
+        "ratio": 0.5,
+        "restriction": "4"
+      }
+    },
+    "Square 5": {
+      "0": {
+        "n": 4,
+        "ratio": 0.5,
+        "restriction": "5"
+      }
+    },
+    "Pentagon 1": {
+      "0": {
+        "n": 5,
+        "ratio": 0.5,
+        "restriction": "1"
+      }
+    },
+    "Pentagon 2": {
+      "0": {
+        "n": 5,
+        "ratio": 0.5,
+        "restriction": "2"
+      }
+    },
+    "Pentagon 3": {
+      "0": {
+        "n": 5,
+        "ratio": 0.5,
+        "restriction": "3"
+      }
+    },
+    "Pentagon 4": {
+      "0": {
+        "n": 5,
+        "ratio": 0.5,
+        "restriction": "4"
+      }
+    },
+    "Pentagon 5": {
+      "0": {
+        "n": 5,
+        "ratio": 0.5,
+        "restriction": "5"
+      }
+    },
+    "Pentagon 6": {
+      "0": {
+        "n": 5,
+        "ratio": 0.5,
+        "restriction": "5"
+      }
+    }
+  },
+  "closed": false,
+  "folders": {}
+}
